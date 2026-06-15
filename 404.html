@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <meta name="theme-color" content="#b30000"/>
+  <title>Page Not Found — LeeHairCut</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/shared.css"/>
+  <link rel="stylesheet" href="css/navbar.css"/>
+  <link rel="stylesheet" href="css/fixes.css"/>
+  <style>
+    .error-page{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px var(--gutter,40px);background:var(--dark);position:relative;overflow:hidden}
+    .error-page::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(179,0,0,0.12),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+    .error-content{position:relative;z-index:1;max-width:600px}
+    .error-number{font-family:'Poppins',sans-serif;font-size:clamp(6rem,15vw,11rem);font-weight:900;line-height:1;background:linear-gradient(135deg,var(--red-bright),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
+    .error-content h1{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:14px}
+    .error-content p{color:var(--gray);font-size:0.97rem;line-height:1.8;margin-bottom:34px}
+    .error-links{display:flex;justify-content:center;flex-wrap:wrap;gap:13px}
+    .scissors-anim{font-size:2.8rem;color:rgba(255,255,255,0.08);margin-bottom:20px;animation:spin 5s linear infinite}
+    @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="logo">
+    <span class="logo-main">Lee</span><span class="logo-accent">HairCut</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <div class="nav-close" id="navClose"><i class="fa-solid fa-xmark"></i></div>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="pages/services.html">Our Service</a></li>
+    <li><a href="pages/contact.html">Contact</a></li>
+    <li class="nav-book-item"><a href="pages/booking.html" class="nav-book-btn">Book Now</a></li>
+  </ul>
+  <a href="pages/booking.html" class="nav-book-btn">Book Now</a>
+  <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<div class="error-page">
+  <div class="error-content">
+    <div class="scissors-anim"><i class="fa-solid fa-scissors"></i></div>
+    <div class="error-number">404</div>
+    <h1>This Page Got a Cut Too Short</h1>
+    <p>The page you are looking for does not exist or has been moved. Let us help you find your way back to a fresh look.</p>
+    <div class="error-links">
+      <a href="index.html" class="btn btn-primary"><i class="fa-solid fa-house"></i> Back to Home</a>
+      <a href="pages/services.html" class="btn btn-outline"><i class="fa-solid fa-scissors"></i> View Services</a>
+      <a href="pages/booking.html" class="btn btn-dark"><i class="fa-solid fa-calendar-check"></i> Book Now</a>
+    </div>
+  </div>
+</div>
+
+<a href="https://wa.me/263780886795?text=Hello%20I%20need%20help" class="float-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+</a>
+<button class="back-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+<script src="js/shared.js"></script>
+</body>
+</html>

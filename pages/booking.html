@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- FAVICONS -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"/>
+  <link rel="manifest" href="../site.webmanifest"/>
+  <meta name="theme-color" content="#b30000"/>
+<title>Book Appointment — LeeHairCut | Mutare Zimbabwe</title>
+  <meta name="description" content="Book your premium grooming appointment at LeeHairCut Mutare Zimbabwe."/>
+
+<style>
+    /* ── Layout ── */
+    .booking-layout { display:grid; grid-template-columns:1fr 1.15fr; gap:48px; align-items:start; }
+    .booking-info-panel { position:sticky; top:100px; }
+
+    /* ── Info Cards ── */
+    .info-card { background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:20px; padding:30px 26px; margin-bottom:16px; }
+    .info-card h3 { font-size:1rem; font-weight:700; margin-bottom:16px; display:flex; align-items:center; gap:9px; color:#fff; }
+    .info-card h3 i { color:var(--red-bright); }
+    .info-row { display:flex; align-items:flex-start; gap:13px; margin-bottom:15px; padding-bottom:15px; border-bottom:1px solid var(--glass-border); }
+    .info-row:last-child { margin-bottom:0; padding-bottom:0; border-bottom:none; }
+    .info-row i { color:var(--red-bright); font-size:0.95rem; margin-top:3px; flex-shrink:0; width:16px; }
+    .info-row p { font-size:0.86rem; color:rgba(255,255,255,0.72); line-height:1.6; margin:0; }
+    .info-row strong { color:#fff; display:block; font-size:0.88rem; margin-bottom:2px; }
+    .hours-grid { display:grid; gap:6px; }
+    .hours-row { display:flex; justify-content:space-between; font-size:0.83rem; padding:7px 0; border-bottom:1px solid var(--glass-border); }
+    .hours-row:last-child { border-bottom:none; }
+    .hours-row span:first-child { color:rgba(255,255,255,0.68); }
+    .hours-row span:last-child { color:var(--red-bright); font-weight:600; }
+    .wa-book-btn { display:flex; align-items:center; justify-content:center; gap:9px; width:100%; padding:14px; border-radius:12px; background:rgba(37,211,102,0.09); border:1px solid rgba(37,211,102,0.22); color:#25D366; font-weight:700; font-size:0.9rem; transition:var(--transition); text-decoration:none; }
+    .wa-book-btn:hover { background:rgba(37,211,102,0.18); transform:translateY(-2px); }
+
+    /* ── Form Panel ── */
+    .booking-form-panel { background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:22px; padding:38px 34px; overflow:hidden; position:relative; }
+    .booking-form-panel::before { content:''; position:absolute; top:-80px; right:-80px; width:230px; height:230px; background:radial-gradient(circle,rgba(255,43,43,0.1),transparent 70%); pointer-events:none; }
+    .booking-form-panel h2 { font-size:1.7rem; font-weight:900; margin-bottom:6px; position:relative; }
+    .booking-form-panel > p { color:var(--gray); font-size:0.88rem; margin-bottom:26px; position:relative; }
+
+    /* ── Step Indicators ── */
+    .step-indicators { display:flex; align-items:center; margin-bottom:30px; position:relative; }
+    .step-ind { display:flex; align-items:center; flex:1; }
+    .step-circle { width:36px; height:36px; min-width:36px; border-radius:50%; background:rgba(255,255,255,0.05); border:2px solid var(--glass-border); display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; color:var(--gray); transition:var(--transition); flex-shrink:0; }
+    .step-circle.active { background:var(--red); border-color:var(--red); color:#fff; box-shadow:0 0 0 4px rgba(179,0,0,0.2); }
+    .step-circle.done { background:rgba(37,211,102,0.15); border-color:#25D366; color:#25D366; }
+    .step-line { flex:1; height:2px; background:var(--glass-border); transition:background 0.4s ease; }
+    .step-line.done { background:var(--red-bright); }
+
+    /* ── Form Steps ── */
+    .form-step { display:none; }
+    .form-step.active { display:block; animation:stepIn 0.38s cubic-bezier(0.4,0,0.2,1); }
+    @keyframes stepIn { from{opacity:0;transform:translateX(18px)} to{opacity:1;transform:translateX(0)} }
+
+    /* ── Step Nav Buttons ── */
+    .step-nav { display:flex; gap:12px; margin-top:26px; }
+    .step-nav .btn { flex:1; justify-content:center; }
+
+    /* ── Service Cards ── */
+    .service-selector { display:grid; grid-template-columns:1fr 1fr; gap:11px; margin-top:6px; }
+    .srv-option { padding:14px 15px; border-radius:13px; background:rgba(255,255,255,0.03); border:2px solid var(--glass-border); cursor:pointer; transition:var(--transition); }
+    .srv-option:hover { border-color:rgba(255,43,43,0.3); background:rgba(255,43,43,0.04); }
+    .srv-option.selected { border-color:var(--red-bright); background:rgba(255,43,43,0.08); box-shadow:0 0 0 3px rgba(179,0,0,0.15); }
+    .srv-option h4 { font-size:0.87rem; font-weight:700; margin-bottom:2px; color:#fff; }
+    .srv-option .srv-time { font-size:0.72rem; color:var(--gray); }
+    .srv-option .srv-price { font-family:'Poppins',sans-serif; font-size:1.05rem; font-weight:800; color:var(--red-bright); display:block; margin-top:7px; }
+
+    /* ── Barber Cards ── */
+    .barber-selector { display:grid; grid-template-columns:repeat(2,1fr); gap:11px; margin-top:6px; }
+    .barber-option { display:flex; align-items:center; gap:12px; padding:13px 14px; border-radius:13px; background:rgba(255,255,255,0.03); border:2px solid var(--glass-border); cursor:pointer; transition:var(--transition); }
+    .barber-option:hover { border-color:rgba(255,43,43,0.3); background:rgba(255,43,43,0.04); }
+    .barber-option.selected { border-color:var(--red-bright); background:rgba(255,43,43,0.08); box-shadow:0 0 0 3px rgba(179,0,0,0.15); }
+    .barber-option img { width:44px; height:44px; min-width:44px; border-radius:50%; object-fit:cover; border:2px solid var(--glass-border); flex-shrink:0; }
+    .barber-option.selected img { border-color:var(--red-bright); }
+    .barber-option h4 { font-size:0.85rem; font-weight:700; margin-bottom:2px; color:#fff; line-height:1.2; }
+    .barber-option .barber-role { font-size:0.72rem; color:var(--gray); display:block; }
+    .barber-any { grid-column:span 2; justify-content:center; text-align:center; flex-direction:column; gap:6px; padding:16px; }
+    .barber-any h4 { font-size:0.9rem; }
+
+    /* ── Time Slots ── */
+    .time-slots { display:grid; grid-template-columns:repeat(4,1fr); gap:9px; margin-top:6px; }
+    .time-slot { padding:9px 6px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); text-align:center; font-size:0.8rem; font-weight:600; cursor:pointer; transition:var(--transition); color:rgba(255,255,255,0.8); }
+    .time-slot:hover:not(.unavailable) { border-color:var(--red); color:var(--red-bright); background:rgba(255,43,43,0.05); }
+    .time-slot.selected { background:var(--red); border-color:var(--red); color:#fff; box-shadow:0 4px 12px rgba(179,0,0,0.35); }
+    .time-slot.unavailable { opacity:0.25; pointer-events:none; text-decoration:line-through; }
+
+    /* ── Date Input ── */
+    input[type="date"] { color-scheme:dark; }
+
+    /* ── Summary ── */
+    .summary-box { background:rgba(255,255,255,0.02); border:1px solid var(--glass-border); border-radius:14px; padding:18px 20px; margin-bottom:18px; }
+    .summary-row { display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-bottom:1px solid var(--glass-border); font-size:0.86rem; color:rgba(255,255,255,0.75); gap:12px; }
+    .summary-row:last-child { border-bottom:none; font-weight:700; font-size:0.92rem; color:#fff; }
+    .summary-row span:last-child { color:var(--red-bright); font-weight:600; text-align:right; }
+
+    /* ── Step label ── */
+    .step-label { font-size:0.95rem; font-weight:700; color:#fff; margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+    .step-label span { width:26px; height:26px; min-width:26px; background:var(--red); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:800; color:#fff; }
+
+    /* ── MOBILE RESPONSIVE ── */
+    @media (max-width:992px) {
+      .booking-layout { grid-template-columns:1fr; gap:24px; }
+      .booking-info-panel { position:static; }
+    }
+    @media (max-width:600px) {
+      .booking-form-panel { padding:26px 18px; }
+      /* Barber and service stack to single column */
+      .barber-selector { grid-template-columns:1fr; }
+      .barber-any { grid-column:span 1; }
+      .service-selector { grid-template-columns:1fr; }
+      /* Time slots 3-col */
+      .time-slots { grid-template-columns:repeat(3,1fr); }
+      /* Step nav stacks vertically */
+      .step-nav { flex-direction:column-reverse; gap:10px; }
+      .step-nav .btn { flex:none; width:100%; padding:15px 20px; font-size:0.92rem; }
+      /* Step indicators compress */
+      .step-circle { width:30px; height:30px; min-width:30px; font-size:0.72rem; }
+    }
+    @media (max-width:380px) {
+      .time-slots { grid-template-columns:repeat(2,1fr); }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <link rel="stylesheet" href="../css/shared.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/pages.css"/>
+  <link rel="stylesheet" href="../css/fixes.css"/>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+
+  <!-- Logo — far left -->
+  <a href="../index.html" class="logo">
+    <span class="logo-main">Lee</span><span class="logo-accent">HairCut</span>
+  </a>
+
+  <!-- Nav links — centred -->
+  <ul class="nav-links" id="navLinks">
+    <div class="nav-close" id="navClose"><i class="fa-solid fa-xmark"></i></div>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html">Our Service</a></li>
+    <li><a href="testimonials.html">Testimonials</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <!-- Mobile only: Book Now inside drawer -->
+    <li class="nav-book-item">
+      <a href="booking.html" class="nav-book-btn">Book Now</a>
+    </li>
+  </ul>
+
+  <!-- Book Now — far right (desktop) -->
+  <a href="booking.html" class="nav-book-btn" aria-label="Book an appointment">Book Now</a>
+
+  <!-- Hamburger (mobile) -->
+  <div class="menu-toggle" id="menuToggle" aria-label="Toggle menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <i class="fa-solid fa-chevron-right" style="font-size:.65rem"></i>
+      <span>Book Appointment</span>
+    </div>
+    <h1>Book Your <span>Appointment</span></h1>
+    <p>Reserve your slot with Mutare's finest barbers in just a few easy steps.</p>
+  </div>
+</div>
+
+<!-- ===== BOOKING SECTION ===== -->
+<section class="section section-dark">
+  <div class="booking-layout">
+
+    <!-- LEFT: INFO PANEL -->
+    <div class="booking-info-panel fade-left">
+      <div class="info-card">
+        <h3><i class="fa-solid fa-location-dot"></i> Find Us</h3>
+        <div class="info-row">
+          <i class="fa-solid fa-map-marker-alt"></i>
+          <p><strong>LeeHairCut Studio</strong>Mutare, Manicaland, Zimbabwe</p>
+        </div>
+        <div class="info-row">
+          <i class="fa-solid fa-phone"></i>
+          <p><strong>Call or WhatsApp</strong>+263 78088 6795</p>
+        </div>
+        <div class="info-row">
+          <i class="fa-solid fa-envelope"></i>
+          <p><strong>Email</strong>hello@leehaircut.com</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h3><i class="fa-solid fa-clock"></i> Business Hours</h3>
+        <div class="hours-grid">
+          <div class="hours-row"><span>Monday – Friday</span><span>08:00 – 19:00</span></div>
+          <div class="hours-row"><span>Saturday</span><span>08:00 – 18:00</span></div>
+          <div class="hours-row"><span>Sunday</span><span>09:00 – 15:00</span></div>
+          <div class="hours-row"><span>Public Holidays</span><span>10:00 – 14:00</span></div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h3><i class="fa-solid fa-circle-info"></i> Booking Policy</h3>
+        <div class="info-row"><i class="fa-solid fa-check"></i><p>Confirmed within 2 hours via WhatsApp or email.</p></div>
+        <div class="info-row"><i class="fa-solid fa-check"></i><p>Please arrive 5 minutes early.</p></div>
+        <div class="info-row"><i class="fa-solid fa-check"></i><p>Cancellations accepted up to 2 hours before.</p></div>
+        <div class="info-row"><i class="fa-solid fa-check"></i><p>Walk-ins welcome, subject to availability.</p></div>
+      </div>
+
+      <a href="https://wa.me/263780886795?text=Hello%20I%20want%20to%20book%20an%20appointment" target="_blank" class="wa-book-btn">
+        <i class="fab fa-whatsapp" style="font-size:1.3rem"></i> Book Instantly on WhatsApp
+      </a>
+    </div>
+
+    <!-- RIGHT: FORM PANEL -->
+    <div class="booking-form-panel fade-right">
+      <h2>Reserve Your Slot</h2>
+      <p>Complete all steps below to confirm your appointment.</p>
+
+      <!-- STEP INDICATORS -->
+      <div class="step-indicators">
+        <div class="step-ind"><div class="step-circle active" id="sc1">1</div><div class="step-line" id="sl1"></div></div>
+        <div class="step-ind"><div class="step-circle" id="sc2">2</div><div class="step-line" id="sl2"></div></div>
+        <div class="step-ind"><div class="step-circle" id="sc3">3</div><div class="step-line" id="sl3"></div></div>
+        <div class="step-ind"><div class="step-circle" id="sc4">4</div></div>
+      </div>
+
+      <!-- STEP 1: SERVICE -->
+      <div class="form-step active" id="step1">
+        <div class="step-label"><span>1</span> Choose a Service</div>
+        <div class="service-selector" id="serviceSelector">
+          <div class="srv-option" data-service="Classic Haircut" data-price="3.23">
+            <h4>Classic Haircut</h4><span class="srv-time"><i class="fa-regular fa-clock"></i> 30 min</span><span class="srv-price">$3.23</span>
+          </div>
+          <div class="srv-option" data-service="Beard Styling" data-price="2.10">
+            <h4>Beard Styling</h4><span class="srv-time"><i class="fa-regular fa-clock"></i> 20 min</span><span class="srv-price">$2.10</span>
+          </div>
+          <div class="srv-option" data-service="Hair Spa" data-price="7.55">
+            <h4>Hair Spa</h4><span class="srv-time"><i class="fa-regular fa-clock"></i> 45 min</span><span class="srv-price">$7.55</span>
+          </div>
+          <div class="srv-option" data-service="Face Clean-Up" data-price="4.00">
+            <h4>Face Clean-Up</h4><span class="srv-time"><i class="fa-regular fa-clock"></i> 25 min</span><span class="srv-price">$4.00</span>
+          </div>
+          <div class="srv-option" data-service="Standard Package" data-price="5.39">
+            <h4>Standard Package</h4><span class="srv-time"><i class="fa-regular fa-clock"></i> 50 min</span><span class="srv-price">$5.39</span>
+          </div>
+          <div class="srv-option" data-service="Premium Package" data-price="12.00">
+            <h4>Premium Package</h4><span class="srv-time"><i class="fa-regular fa-clock"></i> 90 min</span><span class="srv-price">$12.00</span>
+          </div>
+          <div class="srv-option" data-service="Luxury Package" data-price="18.00">
+            <h4>Luxury Package</h4><span class="srv-time"><i class="fa-regular fa-clock"></i> 120 min</span><span class="srv-price">$18.00</span>
+          </div>
+          <div class="srv-option" data-service="Hot Towel Shave" data-price="3.50">
+            <h4>Hot Towel Shave</h4><span class="srv-time"><i class="fa-regular fa-clock"></i> 30 min</span><span class="srv-price">$3.50</span>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-primary" id="toStep2" disabled>
+            <i class="fa-solid fa-arrow-right"></i> Choose Barber
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: BARBER -->
+      <div class="form-step" id="step2">
+        <div class="step-label"><span>2</span> Choose a Barber</div>
+        <div class="barber-selector" id="barberSelector">
+          <div class="barber-option" data-barber="Lee Machemedze">
+            <img src="../imgs/barber1.png" alt="Lee"/>
+            <div><h4>Lee Machemedze</h4><span class="barber-role">Senior Barber</span></div>
+          </div>
+          <div class="barber-option" data-barber="David Sithole">
+            <img src="../imgs/barber2.png" alt="David"/>
+            <div><h4>David Sithole</h4><span class="barber-role">Hair Specialist</span></div>
+          </div>
+          <div class="barber-option" data-barber="Michael Tatenda">
+            <img src="../imgs/barber3.png" alt="Michael"/>
+            <div><h4>Michael Tatenda</h4><span class="barber-role">Beard Expert</span></div>
+          </div>
+          <div class="barber-option" data-barber="James Moyo">
+            <img src="../imgs/barber4.png" alt="James"/>
+            <div><h4>James Moyo</h4><span class="barber-role">Grooming Artist</span></div>
+          </div>
+          <div class="barber-option barber-any" data-barber="Any Available">
+            <h4>Any Available Barber</h4>
+            <span class="barber-role">We will assign the next available professional</span>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-dark" id="backTo1"><i class="fa-solid fa-arrow-left"></i> Back</button>
+          <button class="btn btn-primary" id="toStep3" disabled><i class="fa-solid fa-arrow-right"></i> Pick Date &amp; Time</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: DATE & TIME -->
+      <div class="form-step" id="step3">
+        <div class="step-label"><span>3</span> Pick a Date &amp; Time</div>
+        <div class="form-group" style="margin-bottom:20px">
+          <label>Preferred Date</label>
+          <input type="date" id="bookDate" required/>
+        </div>
+        <div>
+          <label style="font-size:.75rem;font-weight:600;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:10px">
+            Available Time Slots
+          </label>
+          <div class="time-slots">
+            <div class="time-slot" data-time="08:00">08:00</div>
+            <div class="time-slot" data-time="08:30">08:30</div>
+            <div class="time-slot" data-time="09:00">09:00</div>
+            <div class="time-slot" data-time="09:30">09:30</div>
+            <div class="time-slot" data-time="10:00">10:00</div>
+            <div class="time-slot" data-time="10:30">10:30</div>
+            <div class="time-slot unavailable" data-time="11:00">11:00</div>
+            <div class="time-slot unavailable" data-time="11:30">11:30</div>
+            <div class="time-slot" data-time="12:00">12:00</div>
+            <div class="time-slot" data-time="12:30">12:30</div>
+            <div class="time-slot" data-time="13:00">13:00</div>
+            <div class="time-slot" data-time="13:30">13:30</div>
+            <div class="time-slot unavailable" data-time="14:00">14:00</div>
+            <div class="time-slot" data-time="14:30">14:30</div>
+            <div class="time-slot" data-time="15:00">15:00</div>
+            <div class="time-slot" data-time="15:30">15:30</div>
+            <div class="time-slot" data-time="16:00">16:00</div>
+            <div class="time-slot" data-time="16:30">16:30</div>
+            <div class="time-slot" data-time="17:00">17:00</div>
+            <div class="time-slot" data-time="17:30">17:30</div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-dark" id="backTo2"><i class="fa-solid fa-arrow-left"></i> Back</button>
+          <button class="btn btn-primary" id="toStep4" disabled><i class="fa-solid fa-arrow-right"></i> Your Details</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: DETAILS -->
+      <div class="form-step" id="step4">
+        <div class="step-label"><span>4</span> Your Details</div>
+        <div class="styled-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" id="firstName" placeholder="Enter your first name" required/>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" id="lastName" placeholder="Enter your last name" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number" required/>
+          </div>
+          <div class="form-group">
+            <label>Email Address (optional)</label>
+            <input type="email" id="email" placeholder="Enter your email Address"/>
+          </div>
+          <div class="form-group">
+            <label>Special Requests (optional)</label>
+            <textarea rows="3" id="notes" placeholder="Any specific requests for your barber..."></textarea>
+          </div>
+        </div>
+
+        <!-- BOOKING SUMMARY -->
+        <div class="summary-box" id="summaryBox" style="margin-top:22px">
+          <div class="summary-row"><span>Service</span><span id="sumService">—</span></div>
+          <div class="summary-row"><span>Barber</span><span id="sumBarber">—</span></div>
+          <div class="summary-row"><span>Date</span><span id="sumDate">—</span></div>
+          <div class="summary-row"><span>Time</span><span id="sumTime">—</span></div>
+          <div class="summary-row"><span>Total</span><span id="sumTotal">—</span></div>
+        </div>
+
+        <div class="step-nav">
+          <button class="btn btn-dark" id="backTo3"><i class="fa-solid fa-arrow-left"></i> Back</button>
+          <button class="btn btn-primary" id="confirmBtn"><i class="fa-solid fa-calendar-check"></i> Confirm Booking</button>
+        </div>
+      </div>
+
+      <!-- SUCCESS SCREEN -->
+      <div class="booking-success-screen" id="successScreen">
+        <div class="success-circle"><i class="fa-solid fa-check"></i></div>
+        <h2>Booking Submitted!</h2>
+        <p>Thank you! Your appointment request has been received. We will confirm via WhatsApp or email within 2 hours.</p>
+        <div class="success-actions">
+          <a href="../index.html" class="btn btn-outline">Back to Home</a>
+          <a href="https://wa.me/263780886795" target="_blank" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Chat with Us</a>
+        </div>
+      </div>
+
+    </div><!-- /form panel -->
+  </div><!-- /booking-layout -->
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <a href="../index.html" class="logo"><span class="logo-main">Lee</span><span class="logo-accent">HairCut</span></a>
+      <p>Premium luxury barber shop in Mutare, Zimbabwe. Precision cuts and timeless style since 2014.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/263780886795" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Quick Links</h4><a href="../index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="team.html">Team</a></div>
+    <div class="footer-col"><h4>Services</h4><a href="services.html">Classic Haircut</a><a href="services.html">Beard Styling</a><a href="services.html">Hair Spa</a><a href="services.html">Face Clean-Up</a><a href="pricing.html">Packages</a></div>
+    <div class="footer-col"><h4>Contact</h4><p><i class="fas fa-map-marker-alt"></i> Mutare, Zimbabwe</p><p><i class="fas fa-phone"></i> +263 78088 6795</p><p><i class="fas fa-envelope"></i> hello@leehaircut.com</p></div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 LeeHairCut. All rights reserved.</p>
+    <div class="footer-bottom-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+  </div>
+</footer>
+
+<!-- ===== FLOAT WHATSAPP ===== -->
+<a href="https://wa.me/263780886795?text=Hello%20I%20need%20help" class="float-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+</a>
+
+<!-- ===== BACK TO TOP ===== -->
+<button class="back-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script src="../js/shared.js"></script>
+<script>
+'use strict';
+
+/* Booking wizard state */
+let selService = '', selPrice = 0, selBarber = '', selTime = '', selDate = '';
+
+/* Min date = today */
+const dateInput = document.getElementById('bookDate');
+if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
+
+/* ── Step navigation ── */
+function setStep(n) {
+  document.querySelectorAll('.form-step').forEach((s, i) => s.classList.toggle('active', i === n - 1));
+
+  [1,2,3,4].forEach(i => {
+    const sc = document.getElementById('sc' + i);
+    const sl = document.getElementById('sl' + i);
+    if (!sc) return;
+    sc.className = 'step-circle' + (i < n ? ' done' : i === n ? ' active' : '');
+    sc.innerHTML = i < n ? '<i class="fa-solid fa-check" style="font-size:.7rem"></i>' : i;
+    if (sl) sl.className = 'step-line' + (i < n ? ' done' : '');
+  });
+}
+
+/* ── Service selection ── */
+document.querySelectorAll('.srv-option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    document.querySelectorAll('.srv-option').forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    selService = opt.dataset.service;
+    selPrice   = parseFloat(opt.dataset.price);
+    document.getElementById('toStep2').disabled = false;
+  });
+});
+
+/* ── Barber selection ── */
+document.querySelectorAll('.barber-option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    document.querySelectorAll('.barber-option').forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    selBarber = opt.dataset.barber;
+    document.getElementById('toStep3').disabled = false;
+  });
+});
+
+/* ── Time slot selection ── */
+document.querySelectorAll('.time-slot:not(.unavailable)').forEach(slot => {
+  slot.addEventListener('click', () => {
+    document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+    slot.classList.add('selected');
+    selTime = slot.dataset.time;
+    checkStep3();
+  });
+});
+
+dateInput && dateInput.addEventListener('change', e => { selDate = e.target.value; checkStep3(); });
+function checkStep3() {
+  document.getElementById('toStep4').disabled = !(selDate && selTime);
+}
+
+/* ── Button events ── */
+document.getElementById('toStep2').addEventListener('click', () => setStep(2));
+document.getElementById('backTo1').addEventListener('click', () => setStep(1));
+document.getElementById('toStep3').addEventListener('click', () => setStep(3));
+document.getElementById('backTo2').addEventListener('click', () => setStep(2));
+
+document.getElementById('toStep4').addEventListener('click', () => {
+  setStep(4);
+  const dateLabel = selDate ? new Date(selDate + 'T12:00:00').toLocaleDateString('en-GB', {weekday:'short',day:'numeric',month:'long',year:'numeric'}) : '—';
+  document.getElementById('sumService').textContent = selService || '—';
+  document.getElementById('sumBarber').textContent  = selBarber  || '—';
+  document.getElementById('sumDate').textContent    = dateLabel;
+  document.getElementById('sumTime').textContent    = selTime    || '—';
+  document.getElementById('sumTotal').textContent   = selPrice ? '$' + selPrice.toFixed(2) : '—';
+});
+
+document.getElementById('backTo3').addEventListener('click', () => setStep(3));
+
+/* ── Confirm submission ── */
+document.getElementById('confirmBtn').addEventListener('click', () => {
+  const fn    = document.getElementById('firstName').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+
+  if (!fn) {
+    document.getElementById('firstName').classList.add('is-invalid');
+    showToast('First name required', 'Please enter your first name.', 'error');
+    return;
+  }
+  if (!phone) {
+    document.getElementById('phone').classList.add('is-invalid');
+    showToast('Phone number required', 'Please enter your phone number.', 'error');
+    return;
+  }
+
+  /* Hide form, show success */
+  document.querySelector('.step-indicators').style.display = 'none';
+  document.getElementById('step4').style.display = 'none';
+  const s = document.getElementById('successScreen');
+  s.classList.add('active');
+  s.style.display = 'block';
+
+  showToast('Booking Confirmed!', 'We will contact you shortly to confirm.', 'success');
+});
+
+/* Remove invalid state on input */
+document.querySelectorAll('input, textarea').forEach(el => {
+  el.addEventListener('input', () => el.classList.remove('is-invalid'));
+});
+</script>
+</body>
+</html>

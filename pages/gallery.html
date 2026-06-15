@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <!-- FAVICONS -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"/>
+  <link rel="manifest" href="../site.webmanifest"/>
+  <meta name="theme-color" content="#b30000"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Gallery — LeeHairCut | Our Work</title>
+  
+  
+  
+  
+  <style>
+    .filter-bar { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-bottom:40px; }
+    .filter-btn { padding:10px 22px; border-radius:30px; background:rgba(255,255,255,0.04); border:1px solid var(--glass-border); color:var(--gray); font-size:0.85rem; font-weight:600; cursor:pointer; transition:var(--transition); font-family:'Poppins',sans-serif; }
+    .filter-btn:hover,.filter-btn.active { background:var(--red); border-color:var(--red); color:#fff; }
+    .masonry-grid { columns:3; gap:16px; }
+    .masonry-item { break-inside:avoid; margin-bottom:16px; border-radius:14px; overflow:hidden; position:relative; cursor:pointer; }
+    .masonry-item img { width:100%; display:block; transition:transform 0.5s; }
+    .masonry-item:hover img { transform:scale(1.06); }
+    .masonry-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(10,10,10,0.85),transparent 50%); opacity:0; transition:var(--transition); display:flex; align-items:flex-end; padding:18px; }
+    .masonry-item:hover .masonry-overlay { opacity:1; }
+    .masonry-overlay span { font-weight:700; font-size:0.88rem; color:#fff; }
+    .masonry-overlay i { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:1.8rem; color:#fff; opacity:0; transition:var(--transition) 0.1s; }
+    .masonry-item:hover .masonry-overlay i { opacity:1; }
+    /* LIGHTBOX */
+    .lightbox { position:fixed; inset:0; z-index:8000; background:rgba(0,0,0,0.92); backdrop-filter:blur(10px); display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:var(--transition); }
+    .lightbox.active { opacity:1; visibility:visible; }
+    .lb-img { max-width:90vw; max-height:85vh; object-fit:contain; border-radius:12px; }
+    .lb-close { position:absolute; top:20px; right:20px; width:44px; height:44px; background:rgba(255,255,255,0.08); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:18px; color:#fff; transition:var(--transition); }
+    .lb-close:hover { background:var(--red); }
+    .lb-prev,.lb-next { position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; background:rgba(255,255,255,0.08); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:16px; color:#fff; transition:var(--transition); }
+    .lb-prev { left:20px; } .lb-next { right:20px; }
+    .lb-prev:hover,.lb-next:hover { background:var(--red); }
+    .lb-caption { position:absolute; bottom:24px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.7); font-size:0.88rem; background:rgba(0,0,0,0.5); padding:8px 18px; border-radius:20px; }
+    @media(max-width:992px){ .masonry-grid{columns:2;} }
+    @media(max-width:600px){ .masonry-grid{columns:1;} .lb-prev{left:10px;} .lb-next{right:10px;} }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <link rel="stylesheet" href="../css/shared.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/pages.css"/>
+  <link rel="stylesheet" href="../css/fixes.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+
+  <!-- Logo — far left -->
+  <a href="../index.html" class="logo">
+    <span class="logo-main">Lee</span><span class="logo-accent">HairCut</span>
+  </a>
+
+  <!-- Nav links — centred -->
+  <ul class="nav-links" id="navLinks">
+    <div class="nav-close" id="navClose"><i class="fa-solid fa-xmark"></i></div>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html">Our Service</a></li>
+    <li><a href="testimonials.html">Testimonials</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <!-- Mobile only: Book Now inside drawer -->
+    <li class="nav-book-item">
+      <a href="booking.html" class="nav-book-btn">Book Now</a>
+    </li>
+  </ul>
+
+  <!-- Book Now — far right (desktop) -->
+  <a href="booking.html" class="nav-book-btn" aria-label="Book an appointment">Book Now</a>
+
+  <!-- Hamburger (mobile) -->
+  <div class="menu-toggle" id="menuToggle" aria-label="Toggle menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right" style="font-size:.7rem"></i><span>Gallery</span></div>
+    <h1>Our <span>Work</span></h1>
+    <p>Real transformations from our expert barbers. Every cut tells a story.</p>
+  </div>
+</div>
+
+<section class="section section-dark">
+  <div class="section-header center fade-up" style="margin-bottom:30px">
+    <span class="section-label">Portfolio</span>
+    <h2>Real <span>Transformations</span></h2>
+    <p>Browse our work across all service categories.</p>
+  </div>
+
+  <div class="filter-bar fade-up">
+    <button class="filter-btn active" data-filter="all">All Work</button>
+    <button class="filter-btn" data-filter="haircut">Haircuts</button>
+    <button class="filter-btn" data-filter="beard">Beard Styling</button>
+    <button class="filter-btn" data-filter="interior">Interior</button>
+    <button class="filter-btn" data-filter="tools">Tools</button>
+    <button class="filter-btn" data-filter="clients">Clients</button>
+  </div>
+
+  <div class="masonry-grid" id="masonryGrid">
+    <div class="masonry-item fade-up" data-cat="haircut"><img src="../imgs/Precision Cut.png" alt="Precision Cut" loading="lazy"/><div class="masonry-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Precision Cut</span></div></div>
+    <div class="masonry-item fade-up delay-1" data-cat="beard"><img src="../imgs/Beard Shape.png" alt="Beard Shape" loading="lazy"/><div class="masonry-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Beard Shape</span></div></div>
+    <div class="masonry-item fade-up delay-2" data-cat="interior"><img src="../imgs/Premium Interior.png" alt="Shop Interior" loading="lazy"/><div class="masonry-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Shop Interior</span></div></div>
+    <div class="masonry-item fade-up delay-3" data-cat="clients"><img src="../imgs/Happy Client.png" alt="Happy Client" loading="lazy"/><div class="masonry-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Happy Client</span></div></div>
+    <div class="masonry-item fade-up" data-cat="tools"><img src="../imgs/Barber Tools.png" alt="Barber Tools" loading="lazy"/><div class="masonry-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Barber Tools</span></div></div>
+    <div class="masonry-item fade-up delay-1" data-cat="haircut"><img src="../imgs/Modern Cut.png" alt="Modern Cut" loading="lazy"/><div class="masonry-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Modern Cut</span></div></div>
+    <div class="masonry-item fade-up delay-2" data-cat="beard"><img src="../imgs/Beard Art.png" alt="Beard Art" loading="lazy"/><div class="masonry-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Beard Art</span></div></div>
+    <div class="masonry-item fade-up delay-3" data-cat="interior"><img src="../imgs/Premium Interior1.png" alt="Premium Interior" loading="lazy"/><div class="masonry-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Premium Interior</span></div></div>
+    <div class="masonry-item fade-up" data-cat="clients"><img src="../imgs/Satisfied Client.png" alt="Satisfied Client" loading="lazy"/><div class="masonry-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Satisfied Client</span></div></div>
+    <div class="masonry-item fade-up delay-1" data-cat="haircut"><img src="../imgs/Fade Cut.png" alt="Fade Cut" loading="lazy"/><div class="masonry-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Fade Cut</span></div></div>
+    <div class="masonry-item fade-up delay-2" data-cat="tools"><img src="../imgs/Razor Tools.png" alt="Razor Tools" loading="lazy"/><div class="masonry-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Razor Tools</span></div></div>
+    <div class="masonry-item fade-up delay-3" data-cat="beard"><img src="../imgs/Beard Trim.png" alt="Beard Trim" loading="lazy"/><div class="masonry-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Beard Trim</span></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip fade-up">
+  <h2>Love What You See? <span style="color:var(--red-bright)">Book Today</span></h2>
+  <p>Get your own transformation at LeeHairCut Mutare.</p>
+  <div class="cta-btns"><a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a></div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <a href="../index.html" class="logo"><span class="logo-main">Lee</span><span class="logo-accent">HairCut</span></a>
+      <p>Premium luxury barber shop in Mutare, Zimbabwe. Precision cuts and timeless style since 2014.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/263780886795" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="../index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="team.html">Our Team</a>
+      <a href="pricing.html">Pricing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="booking.html">Book Appointment</a>
+      <a href="faq.html">FAQ</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p><i class="fas fa-map-marker-alt"></i> Mutare, Manicaland, Zimbabwe</p>
+      <p><i class="fas fa-phone"></i> +263 78088 6795</p>
+      <p><i class="fas fa-envelope"></i> hello@leehaircut.com</p>
+      <p><i class="fas fa-clock"></i> Mon–Fri: 08:00–19:00</p>
+      <p><i class="fas fa-clock"></i> Sat: 08:00–18:00 | Sun: 09:00–15:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 LeeHairCut. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lb-close" id="lbClose"><i class="fa-solid fa-xmark"></i></div>
+  <div class="lb-prev" id="lbPrev"><i class="fa-solid fa-chevron-left"></i></div>
+  <img class="lb-img" id="lbImg" src="" alt=""/>
+  <div class="lb-next" id="lbNext"><i class="fa-solid fa-chevron-right"></i></div>
+  <div class="lb-caption" id="lbCaption"></div>
+</div>
+
+<script src="../js/shared.js"></script>
+<script>
+// FILTER
+const filterBtns = document.querySelectorAll('.filter-btn');
+const items = document.querySelectorAll('.masonry-item');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    items.forEach(item => {
+      item.style.display = (f === 'all' || item.dataset.cat === f) ? 'block' : 'none';
+    });
+  });
+});
+
+// LIGHTBOX
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const lbCaption = document.getElementById('lbCaption');
+let current = 0;
+let visible = [];
+
+function openLb(idx) {
+  visible = [...items].filter(i => i.style.display !== 'none');
+  current = idx;
+  const img = visible[current].querySelector('img');
+  lbImg.src = img.src;
+  lbCaption.textContent = img.alt;
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+items.forEach((item, i) => {
+  item.addEventListener('click', () => {
+    visible = [...items].filter(it => it.style.display !== 'none');
+    const visIdx = visible.indexOf(item);
+    openLb(visIdx);
+  });
+});
+
+document.getElementById('lbClose').addEventListener('click', () => { lb.classList.remove('active'); document.body.style.overflow = ''; });
+document.getElementById('lbPrev').addEventListener('click', () => { current = (current - 1 + visible.length) % visible.length; const img = visible[current].querySelector('img'); lbImg.src = img.src; lbCaption.textContent = img.alt; });
+document.getElementById('lbNext').addEventListener('click', () => { current = (current + 1) % visible.length; const img = visible[current].querySelector('img'); lbImg.src = img.src; lbCaption.textContent = img.alt; });
+lb.addEventListener('click', e => { if (e.target === lb) { lb.classList.remove('active'); document.body.style.overflow = ''; } });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') document.getElementById('lbPrev').click();
+  if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
+  if (e.key === 'Escape') { lb.classList.remove('active'); document.body.style.overflow = ''; }
+});
+</script>
+<a href="https://wa.me/263780886795?text=Hello%20I%20need%20help" class="float-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+</a>
+<button class="back-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+</body>
+</html>

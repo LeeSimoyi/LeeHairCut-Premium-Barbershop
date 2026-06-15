@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <!-- FAVICONS -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"/>
+  <link rel="manifest" href="../site.webmanifest"/>
+  <meta name="theme-color" content="#b30000"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Pricing — LeeHairCut | Transparent Grooming Prices</title>
+  
+  
+  
+  
+  <style>
+    .price-tabs { display:flex; justify-content:center; gap:10px; margin-bottom:50px; flex-wrap:wrap; }
+    .price-tab { padding:11px 26px; border-radius:30px; background:rgba(255,255,255,0.04); border:1px solid var(--glass-border); color:var(--gray); font-size:0.88rem; font-weight:600; cursor:pointer; transition:var(--transition); font-family:'Poppins',sans-serif; }
+    .price-tab.active { background:var(--red); border-color:var(--red); color:#fff; }
+    .price-panel { display:none; }
+    .price-panel.active { display:block; }
+    /* individual list */
+    .price-list-table { max-width:800px; margin:0 auto; }
+    .price-row { display:flex; align-items:center; justify-content:space-between; padding:18px 24px; border-bottom:1px solid var(--glass-border); background:rgba(255,255,255,0.02); border-radius:12px; margin-bottom:10px; transition:var(--transition); }
+    .price-row:hover { background:rgba(255,43,43,0.04); border-color:rgba(255,43,43,0.15); }
+    .pr-left h4 { font-size:1rem; font-weight:700; margin-bottom:4px; }
+    .pr-left span { font-size:0.8rem; color:var(--gray); }
+    .pr-right { text-align:right; }
+    .pr-right .amount { font-family:'Poppins',sans-serif; font-size:1.3rem; font-weight:800; color:var(--red-bright); display:block; }
+    .pr-right .dur { font-size:0.78rem; color:var(--gray); }
+    /* packages */
+    .packages-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; align-items:start; }
+    .pkg-card { background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:22px; padding:36px 28px; text-align:center; position:relative; overflow:hidden; transition:var(--transition); }
+    .pkg-card:hover { transform:translateY(-8px); border-color:rgba(255,43,43,0.3); box-shadow:0 30px 70px rgba(0,0,0,0.35); }
+    .pkg-card.popular { background:linear-gradient(145deg,rgba(179,0,0,0.14),rgba(255,43,43,0.06)); border-color:rgba(255,43,43,0.35); }
+    .pkg-badge { position:absolute; top:16px; right:16px; background:linear-gradient(135deg,var(--red-bright),var(--red)); color:#fff; font-size:0.7rem; font-weight:700; padding:4px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
+    .pkg-icon { font-size:2.2rem; color:var(--red-bright); margin-bottom:16px; }
+    .pkg-card h3 { font-size:1.4rem; font-weight:800; margin-bottom:6px; }
+    .pkg-card .pkg-sub { font-size:0.85rem; color:var(--gray); margin-bottom:20px; }
+    .pkg-price { font-family:'Poppins',sans-serif; font-size:2.8rem; font-weight:900; color:var(--red-bright); margin-bottom:6px; }
+    .pkg-price small { font-size:1rem; }
+    .pkg-dur { font-size:0.82rem; color:var(--gray); margin-bottom:24px; }
+    .pkg-list { list-style:none; text-align:left; margin-bottom:28px; }
+    .pkg-list li { display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:1px solid var(--glass-border); font-size:0.88rem; color:rgba(255,255,255,0.8); }
+    .pkg-list li:last-child { border-bottom:none; }
+    .pkg-list li i { color:var(--red-bright); flex-shrink:0; }
+    .pkg-card .btn { width:100%; justify-content:center; }
+    /* memberships */
+    .mem-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .mem-card { background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:22px; padding:36px 28px; text-align:center; transition:var(--transition); position:relative; overflow:hidden; }
+    .mem-card::before { content:''; position:absolute; top:-60px; right:-60px; width:200px; height:200px; background:radial-gradient(circle,rgba(255,43,43,0.1),transparent 70%); }
+    .mem-card:hover { transform:translateY(-8px); border-color:rgba(255,43,43,0.3); }
+    .mem-icon { width:70px; height:70px; border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:1.8rem; margin:0 auto 20px; }
+    .silver .mem-icon { background:rgba(192,192,192,0.1); border:1px solid rgba(192,192,192,0.2); color:#C0C0C0; }
+    .gold .mem-icon { background:rgba(255,215,0,0.1); border:1px solid rgba(255,215,0,0.2); color:#FFD700; }
+    .platinum .mem-icon { background:rgba(229,228,226,0.1); border:1px solid rgba(229,228,226,0.2); color:#E5E4E2; }
+    .mem-card h3 { font-size:1.3rem; font-weight:800; margin-bottom:6px; }
+    .mem-period { font-size:0.82rem; color:var(--gray); margin-bottom:18px; }
+    .mem-price { font-family:'Poppins',sans-serif; font-size:2.4rem; font-weight:900; color:var(--red-bright); margin-bottom:20px; }
+    .mem-price small { font-size:0.9rem; }
+    .mem-list { list-style:none; text-align:left; margin-bottom:26px; }
+    .mem-list li { display:flex; align-items:center; gap:9px; padding:8px 0; border-bottom:1px solid var(--glass-border); font-size:0.86rem; color:rgba(255,255,255,0.8); }
+    .mem-list li:last-child { border-bottom:none; }
+    .mem-list li i { color:var(--red-bright); }
+    .mem-card .btn { width:100%; justify-content:center; }
+    /* compare table */
+    .compare-table { width:100%; border-collapse:collapse; max-width:900px; margin:0 auto; }
+    .compare-table th,.compare-table td { padding:14px 18px; text-align:center; border-bottom:1px solid var(--glass-border); font-size:0.88rem; }
+    .compare-table th { font-family:'Poppins',sans-serif; font-weight:700; color:var(--red-bright); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.5px; background:rgba(255,43,43,0.06); }
+    .compare-table td:first-child { text-align:left; font-weight:600; color:rgba(255,255,255,0.85); }
+    .compare-table tr:hover td { background:rgba(255,255,255,0.02); }
+    .check { color:var(--red-bright); } .cross { color:#555; }
+    @media(max-width:992px){ .packages-grid,.mem-grid{grid-template-columns:1fr; max-width:480px; margin:0 auto;} .pkg-card.popular{transform:none;} }
+    @media(max-width:640px){ .price-row{flex-direction:column;align-items:flex-start;gap:10px;} }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <link rel="stylesheet" href="../css/shared.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/pages.css"/>
+  <link rel="stylesheet" href="../css/fixes.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+
+  <!-- Logo — far left -->
+  <a href="../index.html" class="logo">
+    <span class="logo-main">Lee</span><span class="logo-accent">HairCut</span>
+  </a>
+
+  <!-- Nav links — centred -->
+  <ul class="nav-links" id="navLinks">
+    <div class="nav-close" id="navClose"><i class="fa-solid fa-xmark"></i></div>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html">Our Service</a></li>
+    <li><a href="testimonials.html">Testimonials</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <!-- Mobile only: Book Now inside drawer -->
+    <li class="nav-book-item">
+      <a href="booking.html" class="nav-book-btn">Book Now</a>
+    </li>
+  </ul>
+
+  <!-- Book Now — far right (desktop) -->
+  <a href="booking.html" class="nav-book-btn" aria-label="Book an appointment">Book Now</a>
+
+  <!-- Hamburger (mobile) -->
+  <div class="menu-toggle" id="menuToggle" aria-label="Toggle menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right" style="font-size:.7rem"></i><span>Pricing</span></div>
+    <h1>Simple <span>Pricing</span></h1>
+    <p>Honest, transparent pricing for every premium service we offer.</p>
+  </div>
+</div>
+
+<section class="section section-dark">
+  <div class="section-header center fade-up">
+    <span class="section-label">Pricing</span>
+    <h2>Choose What <span>Suits You</span></h2>
+    <p>All prices in USD. ZiG equivalent available at the shop.</p>
+  </div>
+
+  <div class="price-tabs fade-up">
+    <button class="price-tab active" data-tab="individual">Individual Services</button>
+    <button class="price-tab" data-tab="packages">Packages</button>
+    <button class="price-tab" data-tab="memberships">Memberships</button>
+    <button class="price-tab" data-tab="compare">Compare</button>
+  </div>
+
+  <!-- INDIVIDUAL -->
+  <div class="price-panel active" id="tab-individual">
+    <div class="price-list-table fade-up">
+      <div class="price-row"><div class="pr-left"><h4>Classic Haircut</h4><span>Precision cut for all hair types</span></div><div class="pr-right"><span class="amount">$3.23</span><span class="dur">30 min</span></div></div>
+      <div class="price-row"><div class="pr-left"><h4>Beard Styling</h4><span>Trim, shape and razor line-up</span></div><div class="pr-right"><span class="amount">$2.10</span><span class="dur">20 min</span></div></div>
+      <div class="price-row"><div class="pr-left"><h4>Hair Spa</h4><span>Deep conditioning and scalp massage</span></div><div class="pr-right"><span class="amount">$7.55</span><span class="dur">45 min</span></div></div>
+      <div class="price-row"><div class="pr-left"><h4>Face Clean-Up</h4><span>Deep cleansing facial treatment</span></div><div class="pr-right"><span class="amount">$4.00</span><span class="dur">25 min</span></div></div>
+      <div class="price-row"><div class="pr-left"><h4>Hot Towel Shave</h4><span>Straight razor shave with towel prep</span></div><div class="pr-right"><span class="amount">$3.50</span><span class="dur">30 min</span></div></div>
+      <div class="price-row"><div class="pr-left"><h4>Scalp Massage</h4><span>Relaxing oil massage treatment</span></div><div class="pr-right"><span class="amount">$2.50</span><span class="dur">15 min</span></div></div>
+      <div class="price-row"><div class="pr-left"><h4>Beard Oil Treatment</h4><span>Premium natural oil conditioning</span></div><div class="pr-right"><span class="amount">$1.80</span><span class="dur">10 min</span></div></div>
+      <div class="price-row"><div class="pr-left"><h4>Hair Colour</h4><span>Grey coverage or creative colour</span></div><div class="pr-right"><span class="amount">$8.00</span><span class="dur">45 min</span></div></div>
+      <div class="price-row"><div class="pr-left"><h4>Kids Haircut</h4><span>Gentle cut for children 3–12 years</span></div><div class="pr-right"><span class="amount">$2.00</span><span class="dur">20 min</span></div></div>
+      <div class="price-row"><div class="pr-left"><h4>Eyebrow Shaping</h4><span>Threading or razor technique</span></div><div class="pr-right"><span class="amount">$1.50</span><span class="dur">10 min</span></div></div>
+    </div>
+  </div>
+
+  <!-- PACKAGES -->
+  <div class="price-panel" id="tab-packages">
+    <div class="packages-grid">
+      <div class="pkg-card fade-up delay-1">
+        <div class="pkg-icon"><i class="fa-solid fa-scissors"></i></div>
+        <h3>Standard Package</h3>
+        <p class="pkg-sub">Everyday grooming essentials</p>
+        <div class="pkg-price">$5.39</div>
+        <p class="pkg-dur"><i class="fa-regular fa-clock"></i> 50 minutes total</p>
+        <ul class="pkg-list">
+          <li><i class="fa-solid fa-check"></i> Classic Haircut</li>
+          <li><i class="fa-solid fa-check"></i> Beard Trim</li>
+          <li><i class="fa-solid fa-check"></i> Hot Towel Finish</li>
+          <li><i class="fa-solid fa-check"></i> Styling Finish</li>
+          <li><i class="fa-solid fa-check"></i> Saves $0.84 vs individual</li>
+        </ul>
+        <a href="booking.html" class="btn btn-outline">Book Package</a>
+      </div>
+      <div class="pkg-card popular fade-up delay-2">
+        <span class="pkg-badge">Best Value</span>
+        <div class="pkg-icon"><i class="fa-solid fa-gem"></i></div>
+        <h3>Premium Package</h3>
+        <p class="pkg-sub">The complete grooming experience</p>
+        <div class="pkg-price">$12.00</div>
+        <p class="pkg-dur"><i class="fa-regular fa-clock"></i> 90 minutes total</p>
+        <ul class="pkg-list">
+          <li><i class="fa-solid fa-check"></i> Precision Haircut</li>
+          <li><i class="fa-solid fa-check"></i> Beard Styling</li>
+          <li><i class="fa-solid fa-check"></i> Face Clean-Up</li>
+          <li><i class="fa-solid fa-check"></i> Scalp Massage</li>
+          <li><i class="fa-solid fa-check"></i> Premium Styling Products</li>
+          <li><i class="fa-solid fa-check"></i> Saves $2.33 vs individual</li>
+        </ul>
+        <a href="booking.html" class="btn btn-primary">Book Package</a>
+      </div>
+      <div class="pkg-card fade-up delay-3">
+        <div class="pkg-icon"><i class="fa-solid fa-crown"></i></div>
+        <h3>Luxury Package</h3>
+        <p class="pkg-sub">The ultimate head-to-toe experience</p>
+        <div class="pkg-price">$18.00</div>
+        <p class="pkg-dur"><i class="fa-regular fa-clock"></i> 120 minutes total</p>
+        <ul class="pkg-list">
+          <li><i class="fa-solid fa-check"></i> Precision Haircut</li>
+          <li><i class="fa-solid fa-check"></i> Beard Styling</li>
+          <li><i class="fa-solid fa-check"></i> Full Hair Spa</li>
+          <li><i class="fa-solid fa-check"></i> Face Clean-Up</li>
+          <li><i class="fa-solid fa-check"></i> Hot Towel Shave</li>
+          <li><i class="fa-solid fa-check"></i> Priority Booking</li>
+          <li><i class="fa-solid fa-check"></i> Saves $4.18 vs individual</li>
+        </ul>
+        <a href="booking.html" class="btn btn-outline">Book Package</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEMBERSHIPS -->
+  <div class="price-panel" id="tab-memberships">
+    <div class="mem-grid">
+      <div class="mem-card silver fade-up delay-1">
+        <div class="mem-icon"><i class="fa-solid fa-medal"></i></div>
+        <h3>Silver Membership</h3>
+        <p class="mem-period">Monthly Plan</p>
+        <div class="mem-price">$25 <small>/mo</small></div>
+        <ul class="mem-list">
+          <li><i class="fa-solid fa-check"></i> 4 Haircuts per month</li>
+          <li><i class="fa-solid fa-check"></i> 10% discount on all services</li>
+          <li><i class="fa-solid fa-check"></i> Priority booking access</li>
+          <li><i class="fa-solid fa-check"></i> Monthly free scalp massage</li>
+          <li><i class="fa-solid fa-check"></i> Loyalty points x1.5</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline">Get Started</a>
+      </div>
+      <div class="mem-card gold fade-up delay-2">
+        <div class="mem-icon"><i class="fa-solid fa-star"></i></div>
+        <h3>Gold Membership</h3>
+        <p class="mem-period">Quarterly Plan</p>
+        <div class="mem-price">$65 <small>/qtr</small></div>
+        <ul class="mem-list">
+          <li><i class="fa-solid fa-check"></i> Unlimited haircuts</li>
+          <li><i class="fa-solid fa-check"></i> 20% discount on all services</li>
+          <li><i class="fa-solid fa-check"></i> VIP priority booking</li>
+          <li><i class="fa-solid fa-check"></i> Monthly hair spa session</li>
+          <li><i class="fa-solid fa-check"></i> Loyalty points x2</li>
+          <li><i class="fa-solid fa-check"></i> Guest pass (1/quarter)</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Get Started</a>
+      </div>
+      <div class="mem-card platinum fade-up delay-3">
+        <div class="mem-icon"><i class="fa-solid fa-crown"></i></div>
+        <h3>Platinum Membership</h3>
+        <p class="mem-period">Annual Plan</p>
+        <div class="mem-price">$200 <small>/yr</small></div>
+        <ul class="mem-list">
+          <li><i class="fa-solid fa-check"></i> All Gold benefits</li>
+          <li><i class="fa-solid fa-check"></i> 30% discount on all services</li>
+          <li><i class="fa-solid fa-check"></i> Dedicated personal barber</li>
+          <li><i class="fa-solid fa-check"></i> Monthly luxury package</li>
+          <li><i class="fa-solid fa-check"></i> Loyalty points x3</li>
+          <li><i class="fa-solid fa-check"></i> 24/7 premium support</li>
+          <li><i class="fa-solid fa-check"></i> Guest passes (4/year)</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline">Get Started</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARE -->
+  <div class="price-panel" id="tab-compare">
+    <div style="overflow-x:auto" class="fade-up">
+      <div class="compare-table-wrap"><div class="compare-table-wrap"><table class="compare-table">
+        <thead>
+          <tr><th>Feature</th><th>Standard</th><th>Premium</th><th>Luxury</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Classic Haircut</td><td><i class="fa-solid fa-check check"></i></td><td><i class="fa-solid fa-check check"></i></td><td><i class="fa-solid fa-check check"></i></td></tr>
+          <tr><td>Beard Styling</td><td><i class="fa-solid fa-check check"></i></td><td><i class="fa-solid fa-check check"></i></td><td><i class="fa-solid fa-check check"></i></td></tr>
+          <tr><td>Face Clean-Up</td><td><i class="fa-solid fa-xmark cross"></i></td><td><i class="fa-solid fa-check check"></i></td><td><i class="fa-solid fa-check check"></i></td></tr>
+          <tr><td>Hair Spa</td><td><i class="fa-solid fa-xmark cross"></i></td><td><i class="fa-solid fa-xmark cross"></i></td><td><i class="fa-solid fa-check check"></i></td></tr>
+          <tr><td>Hot Towel Shave</td><td><i class="fa-solid fa-check check"></i></td><td><i class="fa-solid fa-check check"></i></td><td><i class="fa-solid fa-check check"></i></td></tr>
+          <tr><td>Scalp Massage</td><td><i class="fa-solid fa-xmark cross"></i></td><td><i class="fa-solid fa-check check"></i></td><td><i class="fa-solid fa-check check"></i></td></tr>
+          <tr><td>Premium Products</td><td><i class="fa-solid fa-xmark cross"></i></td><td><i class="fa-solid fa-check check"></i></td><td><i class="fa-solid fa-check check"></i></td></tr>
+          <tr><td>Priority Booking</td><td><i class="fa-solid fa-xmark cross"></i></td><td><i class="fa-solid fa-xmark cross"></i></td><td><i class="fa-solid fa-check check"></i></td></tr>
+          <tr><td>Duration</td><td>50 min</td><td>90 min</td><td>120 min</td></tr>
+          <tr><td><strong>Price</strong></td><td><strong style="color:var(--red-bright)">$5.39</strong></td><td><strong style="color:var(--red-bright)">$12.00</strong></td><td><strong style="color:var(--red-bright)">$18.00</strong></td></tr>
+        </tbody>
+      </table></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip fade-up">
+  <h2>Ready To Book? <span style="color:var(--red-bright)">Reserve Your Spot</span></h2>
+  <p>Walk-ins welcome — or book ahead to guarantee your preferred barber and time.</p>
+  <div class="cta-btns"><a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a><a href="contact.html" class="btn btn-outline">Ask a Question</a></div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <a href="../index.html" class="logo"><span class="logo-main">Lee</span><span class="logo-accent">HairCut</span></a>
+      <p>Premium luxury barber shop in Mutare, Zimbabwe. Precision cuts and timeless style since 2014.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/263780886795" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="../index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="team.html">Our Team</a>
+      <a href="pricing.html" class="active">Pricing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="booking.html">Book Appointment</a>
+      <a href="faq.html">FAQ</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p><i class="fas fa-map-marker-alt"></i> Mutare, Manicaland, Zimbabwe</p>
+      <p><i class="fas fa-phone"></i> +263 78088 6795</p>
+      <p><i class="fas fa-envelope"></i> hello@leehaircut.com</p>
+      <p><i class="fas fa-clock"></i> Mon–Fri: 08:00–19:00</p>
+      <p><i class="fas fa-clock"></i> Sat: 08:00–18:00 | Sun: 09:00–15:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 LeeHairCut. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/shared.js"></script>
+<script>
+const tabs = document.querySelectorAll('.price-tab');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.price-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+  });
+});
+</script>
+<a href="https://wa.me/263780886795?text=Hello%20I%20need%20help" class="float-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+</a>
+<button class="back-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+</body>
+</html>

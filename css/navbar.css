@@ -1,0 +1,333 @@
+/* ============================================================
+   LEEHAIRCUT — NAVBAR + GLOBAL GUTTERS  (Final v4)
+   Matches image: Logo | Centred Links | Book Now button
+   ============================================================ */
+
+:root {
+  --gutter: clamp(24px, 5vw, 80px);
+  --max-w:  1280px;
+}
+
+/* ================================================================
+   GLOBAL GUTTER — every section gets consistent side padding
+   ================================================================ */
+section, .section, .section-sm,
+.about-preview, .services-section, .why-section,
+.stats-section, .gallery-preview, .team-preview,
+.pricing-preview, .testimonials-section, .faq-section,
+.cta-section, .cta-strip, .trust-strip, .booking-section {
+  padding-left:  var(--gutter) !important;
+  padding-right: var(--gutter) !important;
+  box-sizing: border-box;
+}
+
+/* Inner containers — centre + cap width */
+.about-preview .container, .stats-grid, .faq-container,
+.cta-content, .services-full, .booking-layout, .contact-layout,
+.blog-layout, .post-layout, .legal-content, .price-list-table,
+.packages-grid, .mem-grid, .masonry-grid, .team-full {
+  max-width:    var(--max-w);
+  margin-left:  auto;
+  margin-right: auto;
+  width:        100%;
+  box-sizing:   border-box;
+}
+
+.footer-inner, .footer-bottom {
+  padding-left:  var(--gutter) !important;
+  padding-right: var(--gutter) !important;
+  box-sizing: border-box;
+}
+
+.page-hero-content {
+  padding-left:  var(--gutter) !important;
+  padding-right: var(--gutter) !important;
+}
+
+/* ================================================================
+   NAVBAR
+   Layout: [Logo]  [Nav Links — centred]  [Book Now]
+   Uses flexbox with space-between so logo is far left,
+   book-now is far right, and the link group is perfectly centred.
+   ================================================================ */
+.navbar {
+  position:    fixed;
+  top:         0;
+  left:        0;
+  right:       0;
+  width:       100%;
+  z-index:     1000;
+  display:     flex;
+  align-items: center;
+  padding:     0 var(--gutter);
+  height:      70px;
+  box-sizing:  border-box;
+  transition:  background 0.35s ease, box-shadow 0.35s ease, height 0.35s ease;
+}
+
+.navbar.scrolled {
+  background:             rgba(10,10,10,0.97);
+  backdrop-filter:        blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:          1px solid rgba(255,255,255,0.06);
+  box-shadow:             0 2px 30px rgba(0,0,0,0.6);
+  height:                 62px;
+}
+
+/* ── LOGO (left) ── */
+.logo {
+  font-family:     'Poppins', sans-serif;
+  font-size:       1.5rem;
+  font-weight:     900;
+  letter-spacing:  -0.5px;
+  text-decoration: none;
+  display:         inline-flex;
+  align-items:     center;
+  flex-shrink:     0;
+  z-index:         1001;
+  transition:      opacity 0.2s ease, transform 0.2s ease;
+}
+.logo:hover    { opacity: 0.85; transform: scale(1.02); }
+.logo-main     { background:#fff; color:#111; padding:3px 9px; border-radius:7px; }
+.logo-accent   { color: var(--red-bright); }
+
+/* ── NAV LINKS (perfectly centred in remaining space) ── */
+.nav-links {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  list-style:      none;
+  margin:          0;
+  padding:         0;
+  gap:             4px;
+  flex:            1;           /* fills all remaining space */
+  flex-wrap:       nowrap;
+}
+
+.nav-links li { list-style: none; }
+
+/* The book-now li is pulled OUT of flex flow so it doesn't
+   shift the centre group — handled separately below */
+.nav-book-item { display: none; } /* hidden inside nav-links on desktop */
+
+.nav-links a {
+  color:           rgba(255,255,255,0.78);
+  font-family:     'Inter', sans-serif;
+  font-size:       0.87rem;
+  font-weight:     500;
+  padding:         8px 13px;
+  border-radius:   8px;
+  display:         block;
+  white-space:     nowrap;
+  text-decoration: none;
+  transition:      color 0.2s ease, background 0.2s ease;
+  position:        relative;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color:      #fff;
+  background: rgba(255,255,255,0.08);
+}
+.nav-links a.active::after {
+  content:       '';
+  position:      absolute;
+  bottom:        4px;
+  left:          50%;
+  transform:     translateX(-50%);
+  width:         4px;
+  height:        4px;
+  background:    var(--red-bright);
+  border-radius: 50%;
+}
+
+/* ── BOOK NOW (far right, outside nav-links) ── */
+/* The <a class="nav-book-btn"> is a DIRECT child of navbar,
+   NOT inside nav-links on desktop. See HTML structure below. */
+.nav-book-btn {
+  display:         inline-flex !important;
+  align-items:     center !important;
+  justify-content: center !important;
+  gap:             7px;
+  flex-shrink:     0;
+  white-space:     nowrap;
+  text-decoration: none;
+  cursor:          pointer;
+
+  /* Exact match to Image 1 — large pill, solid red */
+  padding:         12px 28px !important;
+  border-radius:   50px !important;
+  font-family:     'Poppins', sans-serif !important;
+  font-weight:     700 !important;
+  font-size:       0.9rem !important;
+  letter-spacing:  0.2px;
+
+  background:  #e82020 !important;
+  color:       #fff !important;
+  border:      none !important;
+  outline:     none;
+
+  box-shadow:
+    0 4px 16px rgba(232,32,32,0.45),
+    0 1px  0  rgba(255,255,255,0.12) inset !important;
+
+  transition:
+    transform   0.25s cubic-bezier(0.34,1.56,0.64,1),
+    box-shadow  0.25s ease,
+    background  0.25s ease !important;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine sweep on hover */
+.nav-book-btn::before {
+  content:    '';
+  position:   absolute;
+  top:        0; left: -80%;
+  width:      55%;
+  height:     100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform:  skewX(-18deg);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+.nav-book-btn:hover::before { left: 140%; }
+
+.nav-book-btn:hover {
+  background:  #f02828 !important;
+  transform:   translateY(-2px) scale(1.03) !important;
+  box-shadow:
+    0 8px 24px rgba(232,32,32,0.6),
+    0 1px  0  rgba(255,255,255,0.15) inset !important;
+}
+.nav-book-btn:active {
+  transform: translateY(0) scale(0.99) !important;
+}
+
+/* ── HAMBURGER (mobile only) ── */
+.menu-toggle {
+  display:         none;
+  flex-direction:  column;
+  gap:             5px;
+  cursor:          pointer;
+  z-index:         1002;
+  width:           40px;
+  height:          40px;
+  background:      rgba(255,255,255,0.05);
+  border:          1px solid rgba(255,255,255,0.1);
+  border-radius:   9px;
+  align-items:     center;
+  justify-content: center;
+  transition:      all 0.3s ease;
+  flex-shrink:     0;
+}
+.menu-toggle:hover  { background: rgba(255,43,43,0.12); border-color: rgba(255,43,43,0.35); }
+.menu-toggle span   { width:20px; height:2px; background:#fff; border-radius:2px; display:block; transition: background 0.3s; }
+.menu-toggle.active { background: rgba(255,43,43,0.15); border-color: var(--red); }
+.menu-toggle.active span { background: var(--red-bright); }
+
+/* ── NAV CLOSE (inside drawer) ── */
+.nav-close {
+  display:         none;
+  position:        absolute;
+  top:             16px; right: 16px;
+  width:           34px; height: 34px;
+  background:      rgba(255,255,255,0.06);
+  border-radius:   50%;
+  align-items:     center;
+  justify-content: center;
+  cursor:          pointer;
+  font-size:       15px;
+  color:           #fff;
+  transition:      all 0.3s ease;
+  z-index:         1003;
+}
+.nav-close:hover { background: var(--red); transform: rotate(90deg); }
+
+/* ── NAV OVERLAY ── */
+.nav-overlay {
+  position:                fixed;
+  inset:                   0;
+  background:              rgba(0,0,0,0.72);
+  backdrop-filter:         blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  opacity:                 0;
+  visibility:              hidden;
+  transition:              all 0.32s ease;
+  z-index:                 999;
+}
+.nav-overlay.active { opacity: 1; visibility: visible; }
+
+/* ================================================================
+   MOBILE NAV  (≤ 1024px)
+   ================================================================ */
+@media (max-width: 1024px) {
+  .navbar {
+    height: 62px;
+    justify-content: space-between;
+  }
+
+  .menu-toggle { display: flex; }
+  .nav-close   { display: flex; }
+
+  /* Slide-in drawer */
+  .nav-links {
+    position:        fixed;
+    top:             0; left: 0;
+    height:          100vh;
+    width:           min(290px, 82vw);
+    background:      rgba(10,10,10,0.99);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction:  column;
+    align-items:     flex-start;
+    justify-content: flex-start;
+    padding:         76px 22px 36px;
+    gap:             4px;
+    transform:       translateX(-110%);
+    transition:      transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    z-index:         1001;
+    border-right:    1px solid rgba(255,255,255,0.06);
+    overflow-y:      auto;
+  }
+  .nav-links.active { transform: translateX(0); }
+
+  .nav-links li        { width: 100%; }
+  /* Show Book Now inside drawer on mobile */
+  .nav-book-item       { display: block !important; margin-top: 12px; }
+
+  .nav-links a {
+    font-size:    0.96rem !important;
+    padding:      11px 15px !important;
+    border-radius:10px !important;
+    width:        100%;
+  }
+  .nav-links a.active::after { display: none; }
+
+  /* Book Now inside drawer — full width */
+  .nav-book-btn {
+    width:           100% !important;
+    justify-content: center !important;
+    padding:         13px 20px !important;
+    border-radius:   12px !important;
+    font-size:       0.92rem !important;
+  }
+  .nav-book-btn::before { display: none; }
+
+  /* Hide standalone desktop Book Now — shown only in drawer */
+  .navbar > .nav-book-btn { display: none !important; }
+}
+
+/* Small desktop / large tablet refinement */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .nav-links a  { font-size: 0.82rem; padding: 7px 10px; }
+  .nav-book-btn { padding: 10px 22px !important; font-size: 0.85rem !important; }
+}
+
+/* ================================================================
+   GUTTER RESPONSIVE SCALING
+   ================================================================ */
+@media (max-width: 1024px) { :root { --gutter: clamp(18px, 4vw, 48px); } }
+@media (max-width: 768px)  { :root { --gutter: clamp(16px, 5vw, 30px); } }
+@media (max-width: 480px)  { :root { --gutter: 18px; } }
+@media (max-width: 360px)  { :root { --gutter: 14px; } }

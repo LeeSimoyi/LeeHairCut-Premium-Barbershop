@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- FAVICONS -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <meta name="theme-color" content="#b30000"/>
+<title>LeeHairCut — Precision Cuts. Timeless Style. | Mutare, Zimbabwe</title>
+  <meta name="description" content="LeeHairCut — Premium luxury barber shop in Mutare, Zimbabwe. Expert haircuts, beard styling, hair spa and grooming services."/>
+  <meta property="og:title" content="LeeHairCut — Precision Cuts. Timeless Style."/>
+  <meta property="og:description" content="Premium luxury barber shop in Mutare, Zimbabwe."/>
+  <meta property="og:type" content="website"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <link rel="stylesheet" href="css/shared.css"/>
+  <link rel="stylesheet" href="css/navbar.css"/>
+  <link rel="stylesheet" href="css/home.css"/>
+  <link rel="stylesheet" href="css/fixes.css"/>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+
+  <!-- Logo — far left -->
+  <a href="index.html" class="logo">
+    <span class="logo-main">Lee</span><span class="logo-accent">HairCut</span>
+  </a>
+
+  <!-- Nav links — centred between logo and Book Now -->
+  <ul class="nav-links" id="navLinks">
+    <div class="nav-close" id="navClose"><i class="fa-solid fa-xmark"></i></div>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="pages/about.html">About Us</a></li>
+    <li><a href="pages/services.html">Our Service</a></li>
+    <li><a href="pages/testimonials.html">Testimonials</a></li>
+    <li><a href="pages/faq.html">FAQ</a></li>
+    <li><a href="pages/contact.html">Contact</a></li>
+    <!-- Mobile only: Book Now inside drawer -->
+    <li class="nav-book-item">
+      <a href="pages/booking.html" class="nav-book-btn">Book Now</a>
+    </li>
+  </ul>
+
+  <!-- Book Now — far right (desktop) -->
+  <a href="pages/booking.html" class="nav-book-btn" aria-label="Book an appointment">Book Now</a>
+
+  <!-- Hamburger (mobile) -->
+  <div class="menu-toggle" id="menuToggle" aria-label="Toggle menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image:url('imgs/hero1.png')"></div>
+    <div class="hero-slide" style="background-image:url('imgs/hero2.png')"></div>
+    <div class="hero-slide" style="background-image:url('imgs/barber3.png')"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fa-solid fa-star"></i> Trusted By 5,000+ Clients In Mutare</div>
+    <h1>Precision Cuts.<br><span>Timeless Style.</span></h1>
+    <p>Experience elite grooming with professional barbers who understand your image, confidence, and personal style — right here in Mutare, Zimbabwe.</p>
+    <div class="hero-buttons">
+      <a href="pages/booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a>
+      <a href="pages/services.html" class="btn btn-outline"><i class="fa-solid fa-scissors"></i> View Services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span data-count="5000" data-suffix="+">5000+</span><p>Happy Clients</p></div>
+      <div class="hero-stat"><span data-count="10" data-suffix="+">10+</span><p>Years Experience</p></div>
+      <div class="hero-stat"><span>4.9 <i class="fa-solid fa-star" style="color:#FFD700;font-size:.7em"></i></span><p>Top Rating</p></div>
+      <div class="hero-stat"><span data-count="12000" data-suffix="+">12000+</span><p>Appointments Done</p></div>
+    </div>
+  </div>
+  
+  <div class="hero-slide-dots">
+    <button class="hdot active" data-slide="0"></button>
+    <button class="hdot" data-slide="1"></button>
+    <button class="hdot" data-slide="2"></button>
+  </div>
+</section>
+
+<!-- ===== TRUST STRIP ===== -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item fade-up delay-1"><i class="fa-solid fa-scissors"></i><span>Expert Barbers</span></div>
+    <div class="trust-item fade-up delay-2"><i class="fa-solid fa-medal"></i><span>Award Winning</span></div>
+    <div class="trust-item fade-up delay-3"><i class="fa-solid fa-clock"></i><span>On-Time Service</span></div>
+    <div class="trust-item fade-up delay-4"><i class="fa-solid fa-shield-halved"></i><span>Premium Products</span></div>
+    <div class="trust-item fade-up delay-5"><i class="fa-solid fa-star"></i><span>5-Star Rated</span></div>
+  </div>
+</div>
+
+<!-- ===== ABOUT PREVIEW ===== -->
+<section class="about-preview">
+  <div class="container">
+    <div class="about-img-wrap fade-left">
+      <img src="imgs/banner.png" alt="LeeHairCut Interior" loading="lazy"/>
+      <div class="about-exp-badge"><span>10+</span><p>Years of Excellence</p></div>
+    </div>
+    <div class="about-text fade-right">
+      <div class="section-header">
+        <span class="section-label">Our Story</span>
+        <h2>Crafting Style.<br><span>Delivering Confidence.</span></h2>
+        <p>At LeeHairCut, we redefine grooming with precision, creativity, and premium care. Our expert barbers blend modern trends with timeless techniques to give you a look that stands out.</p>
+      </div>
+      <div class="about-features">
+        <div class="af-item"><i class="fa-solid fa-check"></i> Premium tools and products</div>
+        <div class="af-item"><i class="fa-solid fa-check"></i> Highly skilled barbers</div>
+        <div class="af-item"><i class="fa-solid fa-check"></i> Relaxing luxury atmosphere</div>
+        <div class="af-item"><i class="fa-solid fa-check"></i> Satisfaction guaranteed</div>
+      </div>
+      <a href="pages/about.html" class="btn btn-primary">Discover Our Story <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services-section">
+  <div class="section-header center fade-up">
+    <span class="section-label">What We Offer</span>
+    <h2>Our <span>Premium</span> Services</h2>
+    <p>Tailored grooming experiences for the modern gentleman.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up delay-1">
+      <div class="service-img"><img src="imgs/Classic Haircut.png" alt="Classic Haircut" loading="lazy"/><div class="service-overlay"><a href="pages/services.html" class="btn btn-primary btn-sm">Book Now</a></div></div>
+      <div class="service-info"><span class="service-time"><i class="fa-regular fa-clock"></i> 30 min</span><h3>Classic Haircut</h3><p>Precision haircut tailored to your face shape and personal style.</p><div class="service-footer"><span class="service-price">$3.23</span><a href="pages/services.html" class="service-link">Details <i class="fa-solid fa-arrow-right"></i></a></div></div>
+    </div>
+    <div class="service-card fade-up delay-2">
+      <div class="service-img"><img src="imgs/Beard Styling.png" alt="Beard Styling" loading="lazy"/><div class="service-overlay"><a href="pages/services.html" class="btn btn-primary btn-sm">Book Now</a></div></div>
+      <div class="service-info"><span class="service-time"><i class="fa-regular fa-clock"></i> 20 min</span><h3>Beard Styling</h3><p>Sharp beard trimming and expert shaping for a masculine finish.</p><div class="service-footer"><span class="service-price">$2.10</span><a href="pages/services.html" class="service-link">Details <i class="fa-solid fa-arrow-right"></i></a></div></div>
+    </div>
+    <div class="service-card fade-up delay-3">
+      <div class="service-img"><img src="imgs/Styling.png" alt="Hair Spa" loading="lazy"/><div class="service-overlay"><a href="pages/services.html" class="btn btn-primary btn-sm">Book Now</a></div></div>
+      <div class="service-info"><span class="service-time"><i class="fa-regular fa-clock"></i> 45 min</span><h3>Hair Spa</h3><p>Relaxing deep scalp treatment restoring health and shine.</p><div class="service-footer"><span class="service-price">$7.55</span><a href="pages/services.html" class="service-link">Details <i class="fa-solid fa-arrow-right"></i></a></div></div>
+    </div>
+    <div class="service-card fade-up delay-4">
+      <div class="service-img"><img src="imgs/Face Clean-Up.png" alt="Face Clean-Up" loading="lazy"/><div class="service-overlay"><a href="pages/services.html" class="btn btn-primary btn-sm">Book Now</a></div></div>
+      <div class="service-info"><span class="service-time"><i class="fa-regular fa-clock"></i> 25 min</span><h3>Face Clean-Up</h3><p>Deep cleansing facial treatment for healthy glowing skin.</p><div class="service-footer"><span class="service-price">$4.00</span><a href="pages/services.html" class="service-link">Details <i class="fa-solid fa-arrow-right"></i></a></div></div>
+    </div>
+    <div class="service-card fade-up delay-5">
+      <div class="service-img"><img src="imgs/Premium Grooming.png" alt="Premium Grooming" loading="lazy"/><div class="service-overlay"><a href="pages/services.html" class="btn btn-primary btn-sm">Book Now</a></div></div>
+      <div class="service-info"><span class="service-time"><i class="fa-regular fa-clock"></i> 60 min</span><h3>Premium Grooming</h3><p>Full grooming session — haircut, beard, facial and finish.</p><div class="service-footer"><span class="service-price">$12.00</span><a href="pages/services.html" class="service-link">Details <i class="fa-solid fa-arrow-right"></i></a></div></div>
+    </div>
+    <div class="service-card service-card-cta fade-up delay-6">
+      <div class="service-cta-inner">
+        <i class="fa-solid fa-crown"></i>
+        <h3>Luxury Package</h3>
+        <p>The ultimate head-to-toe grooming experience for the discerning gentleman.</p>
+        <a href="pages/pricing.html" class="btn btn-primary">View All Packages</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="why-section">
+  <div class="section-header center fade-up">
+    <span class="section-label">Why LeeHairCut</span>
+    <h2>More Than Just <span>A Haircut</span></h2>
+    <p>We deliver confidence, style and a luxury experience every single visit.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card fade-up delay-1"><div class="why-icon"><i class="fa-solid fa-scissors"></i></div><h3>Expert Barbers</h3><p>Highly trained professionals with years of grooming mastery.</p></div>
+    <div class="why-card fade-up delay-2"><div class="why-icon"><i class="fa-solid fa-gem"></i></div><h3>Premium Products</h3><p>Internationally acclaimed grooming products used on every client.</p></div>
+    <div class="why-card fade-up delay-3"><div class="why-icon"><i class="fa-solid fa-clock"></i></div><h3>Punctual Service</h3><p>We respect your schedule with efficient, on-time appointments.</p></div>
+    <div class="why-card fade-up delay-4"><div class="why-icon"><i class="fa-solid fa-star"></i></div><h3>5-Star Experience</h3><p>From arrival to styling, every moment is crafted to feel luxurious.</p></div>
+    <div class="why-card fade-up delay-5"><div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>Hygienic Standards</h3><p>Tools sterilized after every client. Cleanliness is non-negotiable.</p></div>
+    <div class="why-card fade-up delay-6"><div class="why-icon"><i class="fa-solid fa-heart"></i></div><h3>Satisfaction First</h3><p>Not happy? We make it right — your satisfaction is guaranteed.</p></div>
+  </div>
+</section>
+
+<!-- ===== STATS COUNTER ===== -->
+<section class="stats-section">
+  <div class="stats-overlay"></div>
+  <div class="stats-grid">
+    <div class="stat-item fade-up delay-1"><span data-count="5000" data-suffix="+">0+</span><p>Happy Clients</p></div>
+    <div class="stat-item fade-up delay-2"><span data-count="10" data-suffix="+">0+</span><p>Years Experience</p></div>
+    <div class="stat-item fade-up delay-3"><span data-count="12000" data-suffix="+">0+</span><p>Appointments Done</p></div>
+    <div class="stat-item fade-up delay-4"><span data-count="98" data-suffix="%">0%</span><p>Satisfaction Rate</p></div>
+  </div>
+</section>
+
+<!-- ===== GALLERY PREVIEW ===== -->
+<section class="gallery-preview">
+  <div class="section-header center fade-up">
+    <span class="section-label">Our Work</span>
+    <h2>Real <span>Transformations</span></h2>
+    <p>See what our expert barbers deliver every single day.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item tall fade-up delay-1"><img src="imgs/Precision Cut.png" alt="Precision Cut" loading="lazy"/><div class="gallery-hover"><span>Precision Cut</span></div></div>
+    <div class="gallery-item fade-up delay-2"><img src="imgs/Beard Styling1.png" alt="Beard Styling" loading="lazy"/><div class="gallery-hover"><span>Beard Styling</span></div></div>
+    <div class="gallery-item fade-up delay-3"><img src="imgs/Premium Interior.png" alt="Premium Interior" loading="lazy"/><div class="gallery-hover"><span>Premium Interior</span></div></div>
+    <div class="gallery-item wide fade-up delay-4"><img src="imgs/Full Grooming.png" alt="Full Grooming" loading="lazy"/><div class="gallery-hover"><span>Full Grooming</span></div></div>
+    <div class="gallery-item fade-up delay-5"><img src="imgs/Facial Treatment.png" alt="Facial Treatment" loading="lazy"/><div class="gallery-hover"><span>Facial Treatment</span></div></div>
+  </div>
+  <div style="text-align:center;margin-top:40px" class="fade-up">
+    <a href="pages/gallery.html" class="btn btn-outline">View Full Gallery <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- ===== TEAM PREVIEW ===== -->
+<section class="team-preview">
+  <div class="section-header center fade-up">
+    <span class="section-label">Our Barbers</span>
+    <h2>Meet The <span>Experts</span></h2>
+    <p>The skilled professionals behind your perfect look.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card fade-up delay-1">
+      <div class="team-img"><img src="imgs/barber1.png" alt="Lee Machemedze" loading="lazy"/>
+        <div class="team-socials"><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></div>
+      </div>
+      <div class="team-info"><h3>Lee Machemedze</h3><span>Senior Barber</span></div>
+    </div>
+    <div class="team-card fade-up delay-2">
+      <div class="team-img"><img src="imgs/barber2.png" alt="David Sithole" loading="lazy"/>
+        <div class="team-socials"><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></div>
+      </div>
+      <div class="team-info"><h3>David Sithole</h3><span>Hair Specialist</span></div>
+    </div>
+    <div class="team-card fade-up delay-3">
+      <div class="team-img"><img src="imgs/barber3.png" alt="Michael Tatenda" loading="lazy"/>
+        <div class="team-socials"><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></div>
+      </div>
+      <div class="team-info"><h3>Michael Tatenda</h3><span>Beard Expert</span></div>
+    </div>
+    <div class="team-card fade-up delay-4">
+      <div class="team-img"><img src="imgs/barber4.png" alt="James Moyo" loading="lazy"/>
+        <div class="team-socials"><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></div>
+      </div>
+      <div class="team-info"><h3>James Moyo</h3><span>Grooming Artist</span></div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:40px" class="fade-up">
+    <a href="pages/team.html" class="btn btn-outline">Meet Full Team <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- ===== PRICING PREVIEW ===== -->
+<section class="pricing-preview">
+  <div class="section-header center fade-up">
+    <span class="section-label">Transparent Pricing</span>
+    <h2>Simple <span>Pricing</span></h2>
+    <p>No surprises — just premium grooming at honest prices.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card fade-up delay-1">
+      <div class="price-header"><h3>Standard</h3><p>Perfect for everyday grooming</p></div>
+      <div class="price-amount"><span>$3.23</span><small>/session</small></div>
+      <ul class="price-list">
+        <li><i class="fa-solid fa-check"></i> Classic Haircut</li>
+        <li><i class="fa-solid fa-check"></i> Style Consultation</li>
+        <li><i class="fa-solid fa-check"></i> Styling Finish</li>
+        <li><i class="fa-solid fa-check"></i> Neck Cleanup</li>
+      </ul>
+      <a href="pages/booking.html" class="btn btn-outline">Book Now</a>
+    </div>
+    <div class="price-card popular fade-up delay-2">
+      <div class="popular-badge">Most Popular</div>
+      <div class="price-header"><h3>Premium</h3><p>The complete grooming experience</p></div>
+      <div class="price-amount"><span>$5.39</span><small>/session</small></div>
+      <ul class="price-list">
+        <li><i class="fa-solid fa-check"></i> Haircut + Beard Trim</li>
+        <li><i class="fa-solid fa-check"></i> Hot Towel Treatment</li>
+        <li><i class="fa-solid fa-check"></i> Premium Styling</li>
+        <li><i class="fa-solid fa-check"></i> Scalp Massage</li>
+        <li><i class="fa-solid fa-check"></i> Aftershave Treatment</li>
+      </ul>
+      <a href="pages/booking.html" class="btn btn-primary">Book Now</a>
+    </div>
+    <div class="price-card fade-up delay-3">
+      <div class="price-header"><h3>Luxury</h3><p>Total head-to-toe transformation</p></div>
+      <div class="price-amount"><span>$12.00</span><small>/session</small></div>
+      <ul class="price-list">
+        <li><i class="fa-solid fa-check"></i> Full Grooming Package</li>
+        <li><i class="fa-solid fa-check"></i> Hair Spa Treatment</li>
+        <li><i class="fa-solid fa-check"></i> Facial Clean-Up</li>
+        <li><i class="fa-solid fa-check"></i> Premium Products</li>
+        <li><i class="fa-solid fa-check"></i> Priority Booking</li>
+      </ul>
+      <a href="pages/booking.html" class="btn btn-outline">Book Now</a>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:40px" class="fade-up">
+    <a href="pages/pricing.html" class="btn btn-dark">View All Pricing Options <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials-section">
+  <div class="section-header center fade-up">
+    <span class="section-label">Client Reviews</span>
+    <h2>What Our <span>Clients Say</span></h2>
+    <p>Real experiences from satisfied customers in Mutare.</p>
+  </div>
+  <div class="testimonial-slider-wrap fade-up">
+    <button class="slider-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="testimonial-viewport">
+      <div class="testimonial-track">
+        <div class="testimonial-card">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"Best haircut I have ever had in Mutare. Professional, skilled and the atmosphere is incredibly relaxing. I always leave feeling like a new person."</p>
+          <div class="t-client"><img src="imgs/testimonial-1.png" alt="Orielly"/><div><h4>Orielly Simoyi</h4><span>Regular Client</span></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"Amazing beard styling service. Nathan really understood exactly what I wanted and delivered a sharp, clean look every time."</p>
+          <div class="t-client"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="Godwill"/><div><h4>Godwill Cowill</h4><span>Business Owner</span></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"Top quality grooming with great attention to detail. The hair spa treatment was incredibly refreshing — my scalp has never felt better."</p>
+          <div class="t-client"><img src="imgs/testimonial-3.jpg" alt="Tanatswa"/><div><h4>Tanatswa Machemedze</h4><span>Designer</span></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"I have been coming to LeeHairCut for 3 years now. The consistency and quality never drops — it is simply the best barber shop in Mutare."</p>
+          <div class="t-client"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=80&q=80" alt="Tinashe"/><div><h4>Tinashe Nyamhunga</h4><span>Entrepreneur</span></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"The luxury package is absolutely worth every cent. From the moment you walk in to the final styling, everything is premium class."</p>
+          <div class="t-client"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80" alt="Tafadzwa"/><div><h4>Tafadzwa Makoni</h4><span>Professional</span></div></div>
+        </div>
+      </div>
+    </div>
+    <button class="slider-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section">
+  <div class="faq-container">
+    <div class="section-header fade-left">
+      <span class="section-label">Common Questions</span>
+      <h2>Frequently Asked <span>Questions</span></h2>
+      <p>Everything you need to know about LeeHairCut services.</p>
+    </div>
+    <div class="faq-list fade-right">
+      <div class="faq-item">
+        <button class="faq-question">Do I need to book in advance? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-answer"><p>Walk-ins are welcome whenever we have availability. However, we strongly recommend booking in advance to guarantee your preferred time slot and barber.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What payment methods do you accept? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-answer"><p>We accept Zimbabwe Gold (ZiG), USD cash, EcoCash, and major debit and credit cards for your convenience.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How long does a typical haircut take? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-answer"><p>A standard precision haircut takes 25 to 35 minutes. Combo packages including beard styling or treatments may take 45 to 90 minutes.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Do you offer grooming packages and memberships? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-answer"><p>Yes, we offer Standard, Premium and Luxury combo packages as well as Silver, Gold and Platinum membership plans with exclusive benefits and discounts.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What products do you use? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-answer"><p>We exclusively use premium internationally certified grooming products that are safe, effective and kind to your hair and skin.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div class="cta-overlay"></div>
+  <div class="cta-content fade-up">
+    <span class="section-label" style="color:rgba(255,255,255,0.6)">Ready For A Fresh Look?</span>
+    <h2>Book Your Appointment<br>In <span>Mutare</span> Today</h2>
+    <p>Visit us in Mutare, Zimbabwe and experience premium grooming like never before.</p>
+    <div class="cta-actions">
+      <a href="pages/booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a>
+      <a href="https://wa.me/263780886795?text=Hello%20I%20want%20to%20book%20an%20appointment" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MAP ===== -->
+<div class="map-wrap">
+  <iframe src="https://maps.google.com/maps?q=Mutare+Zimbabwe&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy" title="LeeHairCut Location"></iframe>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <a href="index.html" class="logo"><span class="logo-main">Lee</span><span class="logo-accent">HairCut</span></a>
+      <p>Premium luxury barber shop in Mutare, Zimbabwe. Precision cuts and timeless style since 2014.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/263780886795" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="pages/about.html">About Us</a>
+      <a href="pages/services.html">Services</a>
+      <a href="pages/gallery.html">Gallery</a>
+      <a href="pages/team.html">Our Team</a>
+      <a href="pages/pricing.html">Pricing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="pages/blog.html">Blog</a>
+      <a href="pages/contact.html">Contact</a>
+      <a href="pages/booking.html">Book Appointment</a>
+      <a href="pages/faq.html">FAQ</a>
+      <a href="pages/testimonials.html">Testimonials</a>
+      <a href="pages/privacy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p><i class="fas fa-map-marker-alt"></i> Mutare, Manicaland, Zimbabwe</p>
+      <p><i class="fas fa-phone"></i> +263 78088 6795</p>
+      <p><i class="fas fa-envelope"></i> hello@leehaircut.com</p>
+      <p><i class="fas fa-clock"></i> Mon–Fri: 08:00–19:00</p>
+      <p><i class="fas fa-clock"></i> Sat: 08:00–18:00 &nbsp;|&nbsp; Sun: 09:00–15:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 LeeHairCut. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="pages/privacy.html">Privacy</a>
+      <a href="pages/terms.html">Terms</a>
+      <a href="pages/contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== BOOKING MODAL ===== -->
+<div class="booking-modal" id="bookingModal">
+  <div class="booking-overlay"></div>
+  <div class="booking-box">
+    <div class="booking-close" id="bookingClose"><i class="fa-solid fa-xmark"></i></div>
+    <h2>Book Your Appointment</h2>
+    <p>Fill in your details and we will confirm your slot.</p>
+    <form class="booking-form" id="bookingForm">
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" placeholder="Nathan" required/></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Mangoma" required/></div>
+      </div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+263 7X XXX XXXX" required/></div>
+      <div class="form-group">
+        <label>Select Service</label>
+        <select required>
+          <option value="">Choose a service...</option>
+          <option>Classic Haircut — $3.23</option>
+          <option>Beard Styling — $2.10</option>
+          <option>Hair Spa — $7.55</option>
+          <option>Face Clean-Up — $4.00</option>
+          <option>Premium Package — $5.39</option>
+          <option>Luxury Package — $12.00</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Preferred Date</label><input type="date" required/></div>
+        <div class="form-group"><label>Preferred Time</label><input type="time" required/></div>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%"><i class="fa-solid fa-calendar-check"></i> Confirm Booking</button>
+    </form>
+    <a href="https://wa.me/263780886795?text=Hello%20I%20want%20to%20book%20an%20appointment" target="_blank" class="booking-wa"><i class="fab fa-whatsapp"></i> Book via WhatsApp instead</a>
+  </div>
+</div>
+
+<!-- ===== FLOATING WHATSAPP ===== -->
+
+<a href="https://wa.me/263780886795?text=Hello%20I%20need%20help" class="float-whatsapp" target="_blank"rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+
+    <i class="fab fa-whatsapp"></i>
+    <span class="wa-tooltip">
+        Chat on WhatsApp
+    </span>
+
+</a>
+
+<!-- ===== BACK TO TOP ===== -->
+<button class="back-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script src="js/shared.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

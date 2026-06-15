@@ -1,0 +1,499 @@
+/* ============================================================
+   LEEHAIRCUT — TARGETED FIXES (v3 — non-navbar)
+   ============================================================ */
+
+.step-nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+@media (max-width: 600px) {
+  .step-nav {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+  .step-nav .btn {
+    width: 100%;
+    flex: none;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 0.9rem;
+  }
+  /* Barber cards — stack on mobile */
+  .barber-selector {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+  .barber-option {
+    padding: 14px 16px;
+  }
+  /* Service selector — stack on mobile */
+  .service-selector {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+  /* Time slots — 3 col on mobile */
+  .time-slots {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  /* Booking layout panels */
+  .booking-layout {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+  .booking-info-panel {
+    position: static !important;
+  }
+  .booking-form-panel {
+    padding: 26px 18px !important;
+  }
+}
+
+/* ================================================================
+   5. NOTIFICATIONS / TOASTS / VALIDATION 
+   ================================================================ */
+
+/* ── Base Toast ── */
+.toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 20px 22px;
+  border-radius: 16px;
+  background: rgba(14,14,18,0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow:
+    0 4px 6px rgba(0,0,0,0.2),
+    0 16px 40px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(255,255,255,0.03) inset;
+  transform: translateX(calc(100% + 30px));
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.34,1.56,0.64,1);
+  z-index: 9999;
+  min-width: 300px;
+  max-width: 380px;
+  overflow: hidden;
+}
+.toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Toast icon */
+.toast-icon {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.toast-icon.red    { background: linear-gradient(135deg,#ff2b2b,#b30000); box-shadow: 0 4px 12px rgba(179,0,0,0.4); }
+.toast-icon.green  { background: linear-gradient(135deg,#25D366,#128C7E); box-shadow: 0 4px 12px rgba(37,211,102,0.4); }
+.toast-icon.yellow { background: linear-gradient(135deg,#f59e0b,#d97706); box-shadow: 0 4px 12px rgba(245,158,11,0.4); }
+.toast-icon.blue   { background: linear-gradient(135deg,#3b82f6,#1d4ed8); box-shadow: 0 4px 12px rgba(59,130,246,0.4); }
+
+/* Toast content */
+.toast-content { flex: 1; min-width: 0; }
+.toast-content h4 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+.toast-content p {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Toast close button */
+.toast-close {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  background: rgba(255,255,255,0.06);
+  border: none;
+  border-radius: 8px;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+.toast-close:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+/* Progress bar */
+.toast-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  border-radius: 0 0 16px 16px;
+  animation: barShrink 3.8s linear forwards;
+}
+.toast-bar.red    { background: linear-gradient(90deg,#ff2b2b,#b30000); }
+.toast-bar.green  { background: linear-gradient(90deg,#25D366,#128C7E); }
+.toast-bar.yellow { background: linear-gradient(90deg,#f59e0b,#d97706); }
+.toast-bar.blue   { background: linear-gradient(90deg,#3b82f6,#1d4ed8); }
+
+/* Left accent line */
+.toast::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 16px 0 0 16px;
+}
+.toast.toast-success::before { background: linear-gradient(to bottom,#25D366,#128C7E); }
+.toast.toast-error::before   { background: linear-gradient(to bottom,#ff2b2b,#b30000); }
+.toast.toast-warning::before { background: linear-gradient(to bottom,#f59e0b,#d97706); }
+.toast.toast-info::before    { background: linear-gradient(to bottom,#3b82f6,#1d4ed8); }
+
+@keyframes barShrink { from{width:100%} to{width:0%} }
+
+/* ── Form Validation States ── */
+.form-group input.is-valid,
+.form-group select.is-valid,
+.form-group textarea.is-valid,
+.styled-form input.is-valid,
+.styled-form select.is-valid,
+.styled-form textarea.is-valid {
+  border-color: #25D366;
+  background: rgba(37,211,102,0.04);
+  box-shadow: 0 0 0 3px rgba(37,211,102,0.12);
+}
+.form-group input.is-invalid,
+.form-group select.is-invalid,
+.form-group textarea.is-invalid,
+.styled-form input.is-invalid,
+.styled-form select.is-invalid,
+.styled-form textarea.is-invalid {
+  border-color: #ff2b2b;
+  background: rgba(255,43,43,0.04);
+  box-shadow: 0 0 0 3px rgba(255,43,43,0.12);
+  animation: shakeInput 0.4s ease;
+}
+@keyframes shakeInput {
+  0%,100% { transform: translateX(0); }
+  20%,60%  { transform: translateX(-5px); }
+  40%,80%  { transform: translateX(5px); }
+}
+
+/* Inline validation message */
+.field-msg {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  margin-top: 5px;
+  transition: all 0.3s ease;
+}
+.field-msg.valid   { color: #25D366; }
+.field-msg.invalid { color: #ff2b2b; }
+.field-msg i { font-size: 0.7rem; }
+
+/* ── Alert Banners (full-width) ── */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  border: 1px solid;
+  animation: alertSlide 0.4s ease;
+}
+@keyframes alertSlide {
+  from { opacity:0; transform:translateY(-10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.alert-success {
+  background: rgba(37,211,102,0.07);
+  border-color: rgba(37,211,102,0.25);
+  color: #25D366;
+}
+.alert-error {
+  background: rgba(255,43,43,0.07);
+  border-color: rgba(255,43,43,0.25);
+  color: #ff2b2b;
+}
+.alert-warning {
+  background: rgba(245,158,11,0.07);
+  border-color: rgba(245,158,11,0.25);
+  color: #f59e0b;
+}
+.alert-info {
+  background: rgba(59,130,246,0.07);
+  border-color: rgba(59,130,246,0.25);
+  color: #60a5fa;
+}
+.alert i { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+.alert-text h4 { font-weight: 700; font-size: 0.9rem; margin-bottom: 3px; color: #fff; }
+.alert-text p  { font-size: 0.82rem; opacity: 0.85; margin: 0; color: rgba(255,255,255,0.7); }
+
+/* ── Booking Step Success Screen ── */
+.booking-success-screen {
+  text-align: center;
+  padding: 44px 20px;
+  display: none;
+}
+.booking-success-screen.active { display: block; animation: stepIn 0.5s ease; }
+.success-circle {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  color: #fff;
+  margin: 0 auto 24px;
+  box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+  animation: bounceIn 0.6s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes bounceIn {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+.booking-success-screen h2 { font-size: 1.8rem; font-weight: 900; margin-bottom: 12px; }
+.booking-success-screen p  { color: var(--gray); line-height: 1.8; margin-bottom: 28px; }
+.success-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ================================================================
+   6. BACK TO TOP — Enhanced
+   ================================================================ */
+.back-top {
+  position: fixed;
+  bottom: 24px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--red-bright), var(--red));
+  border: none;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 15px;
+  color: #fff;
+  z-index: 997;
+  transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.8);
+  box-shadow: 0 4px 18px rgba(179,0,0,0.4);
+}
+.back-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+.back-top:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 28px rgba(179,0,0,0.55);
+}
+
+/* ================================================================
+   7. MOBILE RESPONSIVE GUTTERS
+   ================================================================ */
+@media (max-width: 1024px) {
+  
+  
+}
+@media (max-width: 768px) {
+  
+  
+  .back-top { right: 18px; bottom: 20px; }
+  
+}
+@media (max-width: 480px) {
+  
+  .toast { min-width: calc(100vw - 32px); max-width: calc(100vw - 32px); right: 16px; top: 16px; }
+}
+
+/* ================================================================
+   EXTRA POLISH — Page-specific mobile fixes
+   ================================================================ */
+
+/* Ensure section padding is always safe on small screens */
+@media (max-width: 400px) {
+  .section, section { padding-left: 4% !important; padding-right: 4% !important; }
+  .footer-inner { padding-left: 4% !important; padding-right: 4% !important; }
+}
+
+/* ── All inputs consistent on mobile ── */
+@media (max-width: 600px) {
+  input, select, textarea {
+    font-size: 16px !important; /* Prevent iOS zoom on focus */
+  }
+}
+
+/* ── Pricing tab overflow fix on mobile ── */
+.price-tabs {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+.price-tabs::-webkit-scrollbar { display: none; }
+@media (min-width: 600px) {
+  .price-tabs { flex-wrap: wrap; justify-content: center; }
+}
+
+/* ── Gallery filter bar scrollable on mobile ── */
+.filter-bar {
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+.filter-bar::-webkit-scrollbar { display: none; }
+@media (min-width: 600px) {
+  .filter-bar { flex-wrap: wrap; }
+}
+
+/* ── Trust strip always scrollable ── */
+.trust-strip { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* ── Blog sidebar stack on small screens ── */
+@media (max-width: 1100px) {
+  .blog-layout { grid-template-columns: 1fr !important; }
+  .sidebar { position: static !important; }
+}
+
+/* ── Team full grid ── */
+@media (max-width: 992px) {
+  .team-full { grid-template-columns: repeat(2,1fr) !important; }
+}
+@media (max-width: 560px) {
+  .team-full { grid-template-columns: 1fr !important; }
+}
+
+/* ── Contact layout ── */
+@media (max-width: 992px) {
+  .contact-layout { grid-template-columns: 1fr !important; }
+}
+
+/* ── Post layout sidebar ── */
+@media (max-width: 1100px) {
+  .post-layout { grid-template-columns: 1fr !important; }
+  .post-layout .sidebar { position: static !important; }
+}
+
+/* ── About story grid ── */
+@media (max-width: 992px) {
+  .story-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+}
+
+/* ── Booking layout ── */
+@media (max-width: 992px) {
+  .booking-layout { grid-template-columns: 1fr !important; }
+  .booking-info-panel { position: static !important; }
+}
+
+/* ── Services full ── */
+@media (max-width: 900px) {
+  .service-row { grid-template-columns: 1fr !important; direction: ltr !important; gap: 24px !important; }
+  .service-row.reverse { direction: ltr !important; }
+}
+
+/* ── Mission vision ── */
+@media (max-width: 768px) {
+  .mission-vision { grid-template-columns: 1fr !important; }
+}
+
+/* ── Compare table horizontal scroll ── */
+.compare-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+@media (max-width: 640px) {
+  .compare-table { min-width: 480px; }
+}
+
+/* ── Hero scroll indicator hidden on mobile ── */
+@media (max-width: 480px) {
+  .hero-scroll { display: none; }
+  .hero-slide-dots { right: 50%; transform: translateX(50%); bottom: 18px; }
+}
+
+/* ── Footer column center on smallest screens ── */
+@media (max-width: 400px) {
+  .footer-col { text-align: center; }
+  .footer-col h4::after { left: 50%; transform: translateX(-50%); }
+  .footer-socials { justify-content: center; }
+  .footer-col a:hover { padding-left: 0; }
+}
+
+/* ── Back to top + WhatsApp spacing ── */
+
+.back-top { bottom: 22px !important; }
+
+@media (max-width: 600px) {
+  
+  .back-top { 
+    right: 16px !important; 
+    bottom: 16px !important; 
+    width: 44px !important; 
+    height: 44px !important; }
+}
+
+/* ── Prevent text overflow everywhere ── */
+h1, h2, h3, h4, h5, p, span, a, li {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* ── Card images always fill correctly ── */
+.service-img img,
+.team-img img,
+.gallery-item img,
+.blog-img img,
+.masonry-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Desktop: proper gutter spacing */
+@media (min-width: 1025px) {
+  
+  
+  
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  /* Inside mobile drawer, Book Now goes at bottom, full width */
+  
+  
+}
+
+/* ================================================================
+   SECTION PADDING — consistent gutters across all pages
+   ================================================================ */
+@media (min-width: 1400px) {
+  section, .section, .footer-inner { max-width: 1400px; margin-left: auto; margin-right: auto; }
+}

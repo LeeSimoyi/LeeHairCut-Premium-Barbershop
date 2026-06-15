@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <!-- FAVICONS -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"/>
+  <link rel="manifest" href="../site.webmanifest"/>
+  <meta name="theme-color" content="#b30000"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Contact — LeeHairCut | Get In Touch Mutare</title>
+  
+  
+  
+  
+  <style>
+    .contact-layout { display:grid; grid-template-columns:1fr 1.2fr; gap:50px; align-items:start; }
+    .contact-info-wrap h2 { font-size:clamp(1.8rem,3vw,2.4rem); font-weight:900; margin-bottom:16px; }
+    .contact-info-wrap h2 span { color:var(--red-bright); }
+    .contact-info-wrap > p { color:var(--gray); line-height:1.8; margin-bottom:36px; }
+    .contact-cards { display:flex; flex-direction:column; gap:16px; margin-bottom:36px; }
+    .contact-card { display:flex; align-items:flex-start; gap:18px; padding:22px 22px; background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:16px; transition:var(--transition); }
+    .contact-card:hover { border-color:rgba(255,43,43,0.25); transform:translateX(6px); }
+    .cc-icon { width:50px; height:50px; background:rgba(255,43,43,0.1); border:1px solid rgba(255,43,43,0.2); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; color:var(--red-bright); flex-shrink:0; }
+    .cc-text h4 { font-size:0.95rem; font-weight:700; margin-bottom:4px; }
+    .cc-text p { font-size:0.88rem; color:var(--gray); line-height:1.6; margin:0; }
+    .cc-text a { color:var(--gray); transition:var(--transition); }
+    .cc-text a:hover { color:var(--red-bright); }
+    .social-bar { display:flex; gap:12px; }
+    .soc-btn { width:44px; height:44px; background:rgba(255,255,255,0.04); border:1px solid var(--glass-border); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1rem; color:var(--gray); transition:var(--transition); }
+    .soc-btn:hover { background:var(--red); border-color:var(--red); color:#fff; transform:translateY(-3px); }
+    .contact-form-wrap { background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:22px; padding:40px 36px; position:relative; overflow:hidden; }
+    .contact-form-wrap::before { content:''; position:absolute; top:-80px; right:-80px; width:250px; height:250px; background:radial-gradient(circle,rgba(255,43,43,0.1),transparent 70%); pointer-events:none; }
+    .contact-form-wrap h2 { font-size:1.6rem; font-weight:800; margin-bottom:8px; }
+    .contact-form-wrap > p { color:var(--gray); font-size:0.9rem; margin-bottom:28px; }
+    .form-btns { display:flex; gap:14px; }
+    .form-btns .btn { flex:1; justify-content:center; }
+    .hours-block { background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:16px; padding:24px; }
+    .hours-block h4 { font-size:1rem; font-weight:700; margin-bottom:18px; display:flex; align-items:center; gap:10px; }
+    .hours-block h4 i { color:var(--red-bright); }
+    .hours-row { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--glass-border); font-size:0.88rem; }
+    .hours-row:last-child { border-bottom:none; }
+    .hours-row .day { color:rgba(255,255,255,0.75); }
+    .hours-row .time { color:var(--red-bright); font-weight:600; font-size:0.85rem; }
+    .map-section { margin-top:0; }
+    .map-section iframe { width:100%; height:400px; border:0; border-radius:0; filter:grayscale(80%) contrast(105%); }
+    @media(max-width:992px){ .contact-layout{grid-template-columns:1fr;} }
+    @media(max-width:640px){ .contact-form-wrap{padding:28px 22px;} .form-btns{flex-direction:column;} }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <link rel="stylesheet" href="../css/shared.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/pages.css"/>
+  <link rel="stylesheet" href="../css/fixes.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+
+  <!-- Logo — far left -->
+  <a href="../index.html" class="logo">
+    <span class="logo-main">Lee</span><span class="logo-accent">HairCut</span>
+  </a>
+
+  <!-- Nav links — centred -->
+  <ul class="nav-links" id="navLinks">
+    <div class="nav-close" id="navClose"><i class="fa-solid fa-xmark"></i></div>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html">Our Service</a></li>
+    <li><a href="testimonials.html">Testimonials</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <!-- Mobile only: Book Now inside drawer -->
+    <li class="nav-book-item">
+      <a href="booking.html" class="nav-book-btn">Book Now</a>
+    </li>
+  </ul>
+
+  <!-- Book Now — far right (desktop) -->
+  <a href="booking.html" class="nav-book-btn" aria-label="Book an appointment">Book Now</a>
+
+  <!-- Hamburger (mobile) -->
+  <div class="menu-toggle" id="menuToggle" aria-label="Toggle menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right" style="font-size:.7rem"></i><span>Contact</span></div>
+    <h1>Get In <span>Touch</span></h1>
+    <p>We would love to hear from you. Reach out to book, ask questions or share feedback.</p>
+  </div>
+</div>
+
+<section class="section section-dark">
+  <div class="contact-layout">
+    <div class="contact-info-wrap fade-left">
+      <h2>Let's <span>Connect</span></h2>
+      <p>Whether you want to book an appointment, ask about our services or simply say hello — we are always happy to hear from you.</p>
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="cc-icon"><i class="fa-solid fa-map-marker-alt"></i></div>
+          <div class="cc-text"><h4>Visit Our Studio</h4><p>LeeHairCut Studio<br>Mutare, Manicaland, Zimbabwe</p></div>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="cc-text"><h4>Call or WhatsApp</h4><p><a href="tel:+263780886795">+263 78088 6795</a></p></div>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="cc-text"><h4>Email Us</h4><p><a href="mailto:hello@leehaircut.com">hello@leehaircut.com</a></p></div>
+        </div>
+      </div>
+      <div class="hours-block" style="margin-bottom:28px">
+        <h4><i class="fa-solid fa-clock"></i> Business Hours</h4>
+        <div class="hours-row"><span class="day">Monday – Friday</span><span class="time">08:00 – 19:00</span></div>
+        <div class="hours-row"><span class="day">Saturday</span><span class="time">08:00 – 18:00</span></div>
+        <div class="hours-row"><span class="day">Sunday</span><span class="time">09:00 – 15:00</span></div>
+        <div class="hours-row"><span class="day">Public Holidays</span><span class="time">10:00 – 14:00</span></div>
+      </div>
+      <p style="color:var(--gray);font-size:0.88rem;margin-bottom:16px">Follow us on social media</p>
+      <div class="social-bar">
+        <a href="#" class="soc-btn" style="border-radius:50%" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="soc-btn" style="border-radius:50%" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="soc-btn" style="border-radius:50%" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/263780886795" class="soc-btn" style="border-radius:50%" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="soc-btn" style="border-radius:50%" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap fade-right">
+      <h2>Send a Message</h2>
+      <p>Fill out the form below and we will respond as soon as possible.</p>
+      <form class="styled-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="Enter your name" required/></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Enter your last name" required/></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="Enter your email address" required/></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="Enter your phone number" required/></div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select>
+            <option value="">Select a subject...</option>
+            <option>Book an Appointment</option>
+            <option>Service Enquiry</option>
+            <option>Pricing Information</option>
+            <option>Membership Enquiry</option>
+            <option>Feedback</option>
+            <option>Career Opportunity</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea rows="5" placeholder="How can we help you?..." required></textarea></div>
+        <div class="form-btns">
+          <button type="reset" class="btn btn-dark"><i class="fa-solid fa-rotate-left"></i> Clear</button>
+          <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div class="map-section">
+  <iframe src="https://maps.google.com/maps?q=Mutare+Zimbabwe&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy" title="LeeHairCut Mutare Location"></iframe>
+</div>
+
+<!-- FAQ TEASER -->
+<section class="section section-darker">
+  <div class="section-header center fade-up">
+    <span class="section-label">Common Questions</span>
+    <h2>Quick <span>Answers</span></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-question">How do I book an appointment? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>You can book online using our booking page, send us a WhatsApp message on +263 78088 6795, or simply walk in during business hours.</p></div></div>
+    <div class="faq-item"><button class="faq-question">What is your cancellation policy? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>We ask that you cancel or reschedule at least 2 hours before your appointment time. This allows us to offer your slot to another client.</p></div></div>
+    <div class="faq-item"><button class="faq-question">Do you accept walk-ins? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>Yes, walk-ins are always welcome. However, we recommend booking in advance to guarantee your preferred time and barber.</p></div></div>
+    <div class="faq-item"><button class="faq-question">How do I enquire about memberships? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>Send us a message using the form above or contact us on WhatsApp and our team will provide full membership details and help you choose the best plan.</p></div></div>
+  </div>
+  <div style="text-align:center;margin-top:36px" class="fade-up">
+    <a href="faq.html" class="btn btn-outline">View All FAQs <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <a href="../index.html" class="logo"><span class="logo-main">Lee</span><span class="logo-accent">HairCut</span></a>
+      <p>Premium luxury barber shop in Mutare, Zimbabwe. Precision cuts and timeless style since 2014.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/263780886795" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="../index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="team.html">Our Team</a>
+      <a href="pricing.html">Pricing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="booking.html">Book Appointment</a>
+      <a href="faq.html">FAQ</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p><i class="fas fa-map-marker-alt"></i> Mutare, Manicaland, Zimbabwe</p>
+      <p><i class="fas fa-phone"></i> +263 78088 6795</p>
+      <p><i class="fas fa-envelope"></i> hello@leehaircut.com</p>
+      <p><i class="fas fa-clock"></i> Mon–Fri: 08:00–19:00</p>
+      <p><i class="fas fa-clock"></i> Sat: 08:00–18:00 | Sun: 09:00–15:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 LeeHairCut. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/shared.js"></script>
+<a href="https://wa.me/263780886795?text=Hello%20I%20need%20help" class="float-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+</a>
+<button class="back-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+</body>
+</html>

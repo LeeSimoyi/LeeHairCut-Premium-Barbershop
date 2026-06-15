@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <!-- FAVICONS -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"/>
+  <link rel="manifest" href="../site.webmanifest"/>
+  <meta name="theme-color" content="#b30000"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Testimonials — LeeHairCut | Client Reviews Mutare</title>
+  
+  
+  
+  
+  <style>
+    .rating-summary{display:grid;grid-template-columns:auto 1fr;gap:50px;align-items:center;max-width:700px;margin:0 auto 60px;padding:36px 40px;background:rgba(255,255,255,.03);border:1px solid var(--glass-border);border-radius:22px}
+    .rating-big{text-align:center}
+    .rating-big span{display:block;font-family:'Poppins',sans-serif;font-size:5rem;font-weight:900;color:var(--red-bright);line-height:1}
+    .rating-big .stars-big{font-size:1.4rem;color:#FFD700;margin:8px 0}
+    .rating-big p{font-size:.85rem;color:var(--gray)}
+    .rating-bars{display:flex;flex-direction:column;gap:10px}
+    .bar-row{display:flex;align-items:center;gap:12px;font-size:.85rem}
+    .bar-row span:first-child{width:16px;text-align:right;color:rgba(255,255,255,.7)}
+    .bar-track{flex:1;height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden}
+    .bar-fill{height:100%;background:linear-gradient(90deg,var(--red-bright),var(--red));border-radius:4px;transition:width 1s ease}
+    .bar-row span:last-child{width:36px;text-align:right;color:var(--gray);font-size:.78rem}
+    .testimonials-masonry{columns:3;gap:22px}
+    .t-card{break-inside:avoid;margin-bottom:22px;background:rgba(255,255,255,.03);border:1px solid var(--glass-border);border-radius:18px;padding:26px 24px;transition:var(--transition)}
+    .t-card:hover{border-color:rgba(255,43,43,.2);transform:translateY(-4px)}
+    .t-card .stars{margin-bottom:14px}
+    .t-card .stars i{color:#FFD700;font-size:.85rem}
+    .t-card blockquote{font-size:.9rem;color:rgba(255,255,255,.75);line-height:1.8;font-style:italic;margin-bottom:20px}
+    .t-card .t-client{display:flex;align-items:center;gap:12px;border-top:1px solid var(--glass-border);padding-top:16px}
+    .t-card .t-client img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,43,43,.3)}
+    .t-card .t-client h4{font-size:.88rem;font-weight:700;margin-bottom:2px}
+    .t-card .t-client span{font-size:.75rem;color:var(--red-bright)}
+    .t-card .service-tag{display:inline-block;padding:3px 10px;background:rgba(255,43,43,.08);border:1px solid rgba(255,43,43,.15);border-radius:12px;font-size:.72rem;color:var(--red-bright);margin-bottom:12px;font-weight:600}
+    .review-form-wrap{max-width:680px;margin:0 auto;background:rgba(255,255,255,.03);border:1px solid var(--glass-border);border-radius:22px;padding:40px}
+    .review-form-wrap h3{font-size:1.4rem;font-weight:800;margin-bottom:8px}
+    .review-form-wrap>p{color:var(--gray);margin-bottom:28px;font-size:.9rem}
+    .star-picker{display:flex;gap:8px;margin-bottom:4px}
+    .star-picker i{font-size:1.6rem;color:rgba(255,255,255,.15);cursor:pointer;transition:var(--transition)}
+    .star-picker i.selected,.star-picker i:hover{color:#FFD700}
+    @media(max-width:992px){.testimonials-masonry{columns:2}.rating-summary{grid-template-columns:1fr;text-align:center}}
+    @media(max-width:640px){.testimonials-masonry{columns:1}.review-form-wrap{padding:28px 22px}}
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <link rel="stylesheet" href="../css/shared.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/pages.css"/>
+  <link rel="stylesheet" href="../css/fixes.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+
+  <!-- Logo — far left -->
+  <a href="../index.html" class="logo">
+    <span class="logo-main">Lee</span><span class="logo-accent">HairCut</span>
+  </a>
+
+  <!-- Nav links — centred -->
+  <ul class="nav-links" id="navLinks">
+    <div class="nav-close" id="navClose"><i class="fa-solid fa-xmark"></i></div>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html">Our Service</a></li>
+    <li><a href="testimonials.html" class="active">Testimonials</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <!-- Mobile only: Book Now inside drawer -->
+    <li class="nav-book-item">
+      <a href="booking.html" class="nav-book-btn">Book Now</a>
+    </li>
+  </ul>
+
+  <!-- Book Now — far right (desktop) -->
+  <a href="booking.html" class="nav-book-btn" aria-label="Book an appointment">Book Now</a>
+
+  <!-- Hamburger (mobile) -->
+  <div class="menu-toggle" id="menuToggle" aria-label="Toggle menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right" style="font-size:.7rem"></i><span>Testimonials</span></div>
+    <h1>Client <span>Reviews</span></h1>
+    <p>Real experiences from real clients across Mutare and beyond.</p>
+  </div>
+</div>
+
+<section class="section section-dark">
+  <!-- RATING SUMMARY -->
+  <div class="rating-summary fade-up">
+    <div class="rating-big">
+      <span>4.9</span>
+      <div class="stars-big"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+      <p>Based on 420+ reviews</p>
+    </div>
+    <div class="rating-bars">
+      <div class="bar-row"><span>5</span><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div><span>88%</span></div>
+      <div class="bar-row"><span>4</span><div class="bar-track"><div class="bar-fill" style="width:9%"></div></div><span>9%</span></div>
+      <div class="bar-row"><span>3</span><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><span>2%</span></div>
+      <div class="bar-row"><span>2</span><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><span>1%</span></div>
+      <div class="bar-row"><span>1</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span>0%</span></div>
+    </div>
+  </div>
+
+  <!-- MASONRY REVIEWS -->
+  <div class="testimonials-masonry">
+    <div class="t-card fade-up"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="service-tag">Classic Haircut</span><blockquote>"Best haircut I have ever had in Mutare. Nathan understood exactly what I wanted and executed it perfectly. I walked out feeling like a completely different person."</blockquote><div class="t-client"><img src="../imgs/testimonial-1.png" alt=""/><div><h4>Orielly Simoyi</h4><span>Regular Client — 3 years</span></div></div></div>
+
+    <div class="t-card fade-up delay-1"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="service-tag">Beard Styling</span><blockquote>"Michael is simply the best beard artist in Zimbabwe. The precision of his line-ups and the overall beard shaping is on another level. I drive from Harare just for this."</blockquote><div class="t-client"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt=""/><div><h4>Godwill Cowill</h4><span>Business Owner</span></div></div></div>
+
+    <div class="t-card fade-up delay-2"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="service-tag">Luxury Package</span><blockquote>"I treated myself to the Luxury Package for my birthday and it was absolutely worth every cent. The hair spa was incredible — I have never felt so relaxed and refreshed."</blockquote><div class="t-client"><img src="../imgs/testimonial-3.jpg" alt=""/><div><h4>Tanatswa Machemedze</h4><span>Designer</span></div></div></div>
+
+    <div class="t-card fade-up"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="service-tag">Premium Package</span><blockquote>"The atmosphere at LeeHairCut is unlike any other barber shop in Mutare. It genuinely feels premium and luxurious. The team is professional, friendly and highly skilled."</blockquote><div class="t-client"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=80&q=80" alt=""/><div><h4>Tafadzwa Makoni</h4><span>Professional</span></div></div></div>
+
+    <div class="t-card fade-up delay-1"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="service-tag">Hair Spa</span><blockquote>"David's hair spa treatment completely transformed the health of my scalp. I had been struggling with dandruff for months and after just two sessions the difference was remarkable."</blockquote><div class="t-client"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80" alt=""/><div><h4>Tinashe Nyamhunga</h4><span>Entrepreneur</span></div></div></div>
+
+    <div class="t-card fade-up delay-2"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="service-tag">Classic Haircut</span><blockquote>"I have been a client here for over three years and the quality and consistency never drops. LeeHairCut is simply the best barber shop in Mutare — no question about it."</blockquote><div class="t-client"><img src="../imgs/testimonial-2.jpg" alt=""/><div><h4>Blessed Chirwa</h4><span>Regular Client — 3 years</span></div></div></div>
+
+    <div class="t-card fade-up"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div><span class="service-tag">Face Clean-Up</span><blockquote>"James did an amazing facial clean-up for me before my wedding. My skin looked absolutely glowing on my special day. Highly recommend this service to every groom."</blockquote><div class="t-client"><img src="../imgs/testimonials-4.jpg" alt=""/><div><h4>Takudzwa Moyo</h4><span>First-time Client</span></div></div></div>
+
+    <div class="t-card fade-up delay-1"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="service-tag">Platinum Membership</span><blockquote>"The Platinum Membership is the best investment I have made for my personal grooming. Having a dedicated barber who knows exactly how I like my cut makes every visit seamless."</blockquote><div class="t-client"><img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=80&q=80" alt=""/><div><h4>Tonderai Banda</h4><span>Platinum Member</span></div></div></div>
+
+    <div class="t-card fade-up delay-2"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="service-tag">Kids Haircut</span><blockquote>"Brought my 6-year-old son for his first proper haircut. Tendai was incredibly patient and gentle with him. My son actually enjoyed the experience and is already asking to go back!"</blockquote><div class="t-client"><img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=80&q=80" alt=""/><div><h4>Rudo Chigwanda</h4><span>Parent</span></div></div></div>
+  </div>
+</section>
+
+<!-- LEAVE A REVIEW -->
+<section class="section section-darker">
+  <div class="section-header center fade-up">
+    <span class="section-label">Share Your Experience</span>
+    <h2>Leave a <span>Review</span></h2>
+    <p>Your feedback helps us improve and helps other clients make informed decisions.</p>
+  </div>
+  <div class="review-form-wrap fade-up">
+    <h3>Write a Review</h3>
+    <p>All reviews are moderated before publication. Thank you for taking the time to share your experience.</p>
+    <form class="styled-form" id="reviewForm">
+      <div class="form-row">
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Full Name" required/></div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com" required/></div>
+      </div>
+      <div class="form-group">
+        <label>Service Received</label>
+        <select required>
+          <option value="">Select service...</option>
+          <option>Classic Haircut</option><option>Beard Styling</option><option>Hair Spa</option>
+          <option>Face Clean-Up</option><option>Standard Package</option><option>Premium Package</option><option>Luxury Package</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Your Rating</label>
+        <div class="star-picker" id="starPicker">
+          <i class="fa-solid fa-star" data-val="1"></i><i class="fa-solid fa-star" data-val="2"></i>
+          <i class="fa-solid fa-star" data-val="3"></i><i class="fa-solid fa-star" data-val="4"></i>
+          <i class="fa-solid fa-star" data-val="5"></i>
+        </div>
+      </div>
+      <div class="form-group"><label>Your Review</label><textarea rows="5" placeholder="Share your experience at LeeHairCut..." required></textarea></div>
+      <button type="submit" class="btn btn-primary" style="justify-content:center;width:100%"><i class="fa-solid fa-paper-plane"></i> Submit Review</button>
+    </form>
+  </div>
+</section>
+
+<div class="cta-strip fade-up">
+  <h2>Ready for Your Own <span style="color:var(--red-bright)">Transformation?</span></h2>
+  <p>Join thousands of satisfied clients in Mutare. Book your appointment today.</p>
+  <div class="cta-btns"><a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a></div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <a href="../index.html" class="logo"><span class="logo-main">Lee</span><span class="logo-accent">HairCut</span></a>
+      <p>Premium luxury barber shop in Mutare, Zimbabwe. Precision cuts and timeless style since 2014.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/263780886795" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="../index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="team.html">Our Team</a>
+      <a href="pricing.html">Pricing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="booking.html">Book Appointment</a>
+      <a href="faq.html">FAQ</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p><i class="fas fa-map-marker-alt"></i> Mutare, Manicaland, Zimbabwe</p>
+      <p><i class="fas fa-phone"></i> +263 78088 6795</p>
+      <p><i class="fas fa-envelope"></i> hello@leehaircut.com</p>
+      <p><i class="fas fa-clock"></i> Mon–Fri: 08:00–19:00</p>
+      <p><i class="fas fa-clock"></i> Sat: 08:00–18:00 | Sun: 09:00–15:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 LeeHairCut. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/shared.js"></script>
+<script>
+  // Star picker
+  const stars = document.querySelectorAll('#starPicker i');
+  let rating = 0;
+  stars.forEach(s => {
+    s.addEventListener('mouseenter', () => { stars.forEach((st,i) => st.classList.toggle('selected', i <= parseInt(s.dataset.val)-1)); });
+    s.addEventListener('click', () => { rating = parseInt(s.dataset.val); });
+    s.addEventListener('mouseleave', () => { stars.forEach((st,i) => st.classList.toggle('selected', i < rating)); });
+  });
+
+  document.getElementById('reviewForm').addEventListener('submit', e => {
+    e.preventDefault();
+    if (!rating) { alert('Please select a star rating.'); return; }
+    showToast('Review Submitted!', 'Thank you — your review is pending approval.', 'check');
+    e.target.reset(); rating = 0; stars.forEach(s => s.classList.remove('selected'));
+  });
+</script>
+<a href="https://wa.me/263780886795?text=Hello%20I%20need%20help" class="float-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+</a>
+<button class="back-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+</body>
+</html>

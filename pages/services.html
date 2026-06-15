@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <!-- FAVICONS -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"/>
+  <link rel="manifest" href="../site.webmanifest"/>
+  <meta name="theme-color" content="#b30000"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Services — LeeHairCut | Premium Grooming Mutare</title>
+  <meta name="description" content="Explore LeeHairCut's full range of premium grooming services including haircuts, beard styling, hair spa and luxury packages."/>
+  
+  
+  
+  
+  <style>
+    .services-full { display:grid; grid-template-columns:1fr; gap:50px; }
+    .service-row { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; border-bottom:1px solid var(--glass-border); padding-bottom:50px; }
+    .service-row.reverse { direction:rtl; }
+    .service-row.reverse > * { direction:ltr; }
+    .srv-img { position:relative; border-radius:22px; overflow:hidden; }
+    .srv-img img { width:100%; height:420px; object-fit:cover; transition:transform 0.6s; }
+    .srv-img:hover img { transform:scale(1.05); }
+    .srv-badge { position:absolute; top:20px; left:20px; background:linear-gradient(135deg,var(--red-bright),var(--red)); color:#fff; padding:8px 16px; border-radius:30px; font-size:0.78rem; font-weight:700; letter-spacing:0.5px; }
+    .srv-info h2 { font-size:clamp(1.6rem,3vw,2.2rem); font-weight:900; margin-bottom:14px; }
+    .srv-info h2 span { color:var(--red-bright); }
+    .srv-meta { display:flex; gap:20px; flex-wrap:wrap; margin-bottom:20px; }
+    .srv-meta-item { display:flex; align-items:center; gap:8px; font-size:0.85rem; font-weight:600; color:var(--gray); }
+    .srv-meta-item i { color:var(--red-bright); }
+    .srv-info > p { color:var(--gray); line-height:1.9; margin-bottom:24px; font-size:0.95rem; }
+    .srv-benefits { list-style:none; margin-bottom:28px; display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .srv-benefits li { display:flex; align-items:center; gap:9px; font-size:0.88rem; color:rgba(255,255,255,0.8); }
+    .srv-benefits li i { color:var(--red-bright); font-size:0.8rem; }
+    .srv-actions { display:flex; gap:14px; flex-wrap:wrap; }
+    .mini-services { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:20px; }
+    .mini-card { background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:18px; padding:28px 24px; transition:var(--transition); }
+    .mini-card:hover { border-color:rgba(255,43,43,0.25); transform:translateY(-6px); }
+    .mini-card i { font-size:1.8rem; color:var(--red-bright); margin-bottom:14px; display:block; }
+    .mini-card h3 { font-size:1rem; font-weight:700; margin-bottom:8px; }
+    .mini-card p { font-size:0.85rem; color:var(--gray); margin-bottom:14px; line-height:1.6; }
+    .mini-card .price { font-family:'Poppins',sans-serif; font-size:1.3rem; font-weight:800; color:var(--red-bright); }
+    @media(max-width:992px){ .service-row,.service-row.reverse{ grid-template-columns:1fr; direction:ltr; gap:30px; } .mini-services{grid-template-columns:repeat(2,1fr);} .srv-benefits{grid-template-columns:1fr;} }
+    @media(max-width:640px){ .mini-services{grid-template-columns:1fr;} }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <link rel="stylesheet" href="../css/shared.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/pages.css"/>
+  <link rel="stylesheet" href="../css/fixes.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+
+  <!-- Logo — far left -->
+  <a href="../index.html" class="logo">
+    <span class="logo-main">Lee</span><span class="logo-accent">HairCut</span>
+  </a>
+
+  <!-- Nav links — centred -->
+  <ul class="nav-links" id="navLinks">
+    <div class="nav-close" id="navClose"><i class="fa-solid fa-xmark"></i></div>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html" class="active">Our Service</a></li>
+    <li><a href="testimonials.html">Testimonials</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <!-- Mobile only: Book Now inside drawer -->
+    <li class="nav-book-item">
+      <a href="booking.html" class="nav-book-btn">Book Now</a>
+    </li>
+  </ul>
+
+  <!-- Book Now — far right (desktop) -->
+  <a href="booking.html" class="nav-book-btn" aria-label="Book an appointment">Book Now</a>
+
+  <!-- Hamburger (mobile) -->
+  <div class="menu-toggle" id="menuToggle" aria-label="Toggle menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right" style="font-size:.7rem"></i><span>Services</span></div>
+    <h1>Our <span>Services</span></h1>
+    <p>Premium grooming experiences tailored for the modern gentleman in Mutare.</p>
+  </div>
+</div>
+
+<!-- MAIN SERVICES -->
+<section class="section section-dark">
+  <div class="services-full">
+
+    <div class="service-row fade-up">
+      <div class="srv-img">
+        <img src="../imgs/Classic Haircut.png" alt="Classic Haircut"/>
+        <span class="srv-badge">Most Popular</span>
+      </div>
+      <div class="srv-info">
+        <h2>Classic <span>Haircut</span></h2>
+        <div class="srv-meta">
+          <div class="srv-meta-item"><i class="fa-regular fa-clock"></i> 30 minutes</div>
+          <div class="srv-meta-item"><i class="fa-solid fa-tag"></i> From $3.23</div>
+          <div class="srv-meta-item"><i class="fa-solid fa-user"></i> All hair types</div>
+        </div>
+        <p>Our signature precision haircut is tailored to complement your face shape, hair texture and personal style. From classic fades to modern textured cuts, our expert barbers deliver a result that turns heads and boosts confidence.</p>
+        <ul class="srv-benefits">
+          <li><i class="fa-solid fa-check"></i> Face shape consultation</li>
+          <li><i class="fa-solid fa-check"></i> Precision cutting technique</li>
+          <li><i class="fa-solid fa-check"></i> Professional styling finish</li>
+          <li><i class="fa-solid fa-check"></i> Neck and edge cleanup</li>
+          <li><i class="fa-solid fa-check"></i> Complimentary scalp brush</li>
+          <li><i class="fa-solid fa-check"></i> Style recommendation</li>
+        </ul>
+        <div class="srv-actions">
+          <a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book This Service</a>
+          <a href="pricing.html" class="btn btn-outline">See Pricing</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-row reverse fade-up">
+      <div class="srv-img">
+        <img src="../imgs/Beard Styling.png" alt="Beard Styling"/>
+      </div>
+      <div class="srv-info">
+        <h2>Beard <span>Styling</span></h2>
+        <div class="srv-meta">
+          <div class="srv-meta-item"><i class="fa-regular fa-clock"></i> 20 minutes</div>
+          <div class="srv-meta-item"><i class="fa-solid fa-tag"></i> From $2.10</div>
+          <div class="srv-meta-item"><i class="fa-solid fa-user"></i> All beard lengths</div>
+        </div>
+        <p>A perfectly shaped beard transforms your look instantly. Our beard specialists use expert trimming, razor-sharp edging and premium beard products to craft a look that frames your face and defines your masculine identity.</p>
+        <ul class="srv-benefits">
+          <li><i class="fa-solid fa-check"></i> Detailed beard shaping</li>
+          <li><i class="fa-solid fa-check"></i> Razor-sharp line ups</li>
+          <li><i class="fa-solid fa-check"></i> Hot towel treatment</li>
+          <li><i class="fa-solid fa-check"></i> Beard oil conditioning</li>
+          <li><i class="fa-solid fa-check"></i> Skin soothing aftercare</li>
+          <li><i class="fa-solid fa-check"></i> Style consultation</li>
+        </ul>
+        <div class="srv-actions">
+          <a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book This Service</a>
+          <a href="pricing.html" class="btn btn-outline">See Pricing</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-row fade-up">
+      <div class="srv-img">
+        <img src="../imgs/Styling.png" alt="Hair Spa"/>
+        <span class="srv-badge">Best for Relaxation</span>
+      </div>
+      <div class="srv-info">
+        <h2>Hair <span>Spa</span></h2>
+        <div class="srv-meta">
+          <div class="srv-meta-item"><i class="fa-regular fa-clock"></i> 45 minutes</div>
+          <div class="srv-meta-item"><i class="fa-solid fa-tag"></i> From $7.55</div>
+          <div class="srv-meta-item"><i class="fa-solid fa-user"></i> All hair types</div>
+        </div>
+        <p>Give your scalp and hair the deep nourishment it deserves. Our Hair Spa treatment combines professional deep conditioning, a relaxing scalp massage and strengthening formulas to restore health, shine and vitality to your hair.</p>
+        <ul class="srv-benefits">
+          <li><i class="fa-solid fa-check"></i> Deep conditioning therapy</li>
+          <li><i class="fa-solid fa-check"></i> Relaxing scalp massage</li>
+          <li><i class="fa-solid fa-check"></i> Hair strengthening formula</li>
+          <li><i class="fa-solid fa-check"></i> Stress relief experience</li>
+          <li><i class="fa-solid fa-check"></i> Dandruff treatment option</li>
+          <li><i class="fa-solid fa-check"></i> Heat therapy treatment</li>
+        </ul>
+        <div class="srv-actions">
+          <a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book This Service</a>
+          <a href="pricing.html" class="btn btn-outline">See Pricing</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-row reverse fade-up">
+      <div class="srv-img">
+        <img src="../imgs/Face Clean-Up.png" alt="Face Clean-Up"/>
+      </div>
+      <div class="srv-info">
+        <h2>Face <span>Clean-Up</span></h2>
+        <div class="srv-meta">
+          <div class="srv-meta-item"><i class="fa-regular fa-clock"></i> 25 minutes</div>
+          <div class="srv-meta-item"><i class="fa-solid fa-tag"></i> From $4.00</div>
+          <div class="srv-meta-item"><i class="fa-solid fa-user"></i> All skin types</div>
+        </div>
+        <p>Refresh and revitalise your skin with our professional facial clean-up treatment. Using premium skincare products suited to your skin type, we cleanse deep pores, exfoliate dead cells and hydrate for an instant healthy glow.</p>
+        <ul class="srv-benefits">
+          <li><i class="fa-solid fa-check"></i> Deep pore cleansing</li>
+          <li><i class="fa-solid fa-check"></i> Gentle exfoliation</li>
+          <li><i class="fa-solid fa-check"></i> Hydration mask</li>
+          <li><i class="fa-solid fa-check"></i> Instant glow boost</li>
+          <li><i class="fa-solid fa-check"></i> Blackhead removal</li>
+          <li><i class="fa-solid fa-check"></i> SPF moisturiser finish</li>
+        </ul>
+        <div class="srv-actions">
+          <a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book This Service</a>
+          <a href="pricing.html" class="btn btn-outline">See Pricing</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ADDITIONAL MINI SERVICES -->
+<section class="section section-darker">
+  <div class="section-header center fade-up">
+    <span class="section-label">More Services</span>
+    <h2>Additional <span>Treatments</span></h2>
+    <p>Enhance your visit with these add-on services.</p>
+  </div>
+  <div class="mini-services">
+    <div class="mini-card fade-up delay-1"><i class="fa-solid fa-spray-can-sparkles"></i><h3>Hot Towel Shave</h3><p>Classic straight razor shave with a hot towel preparation for the smoothest finish.</p><span class="price">$3.50</span></div>
+    <div class="mini-card fade-up delay-2"><i class="fa-solid fa-hand-sparkles"></i><h3>Scalp Massage</h3><p>15-minute relaxing scalp massage using essential oils to improve circulation and reduce stress.</p><span class="price">$2.50</span></div>
+    <div class="mini-card fade-up delay-3"><i class="fa-solid fa-droplet"></i><h3>Beard Oil Treatment</h3><p>Premium beard conditioning treatment with natural oils for softness and healthy growth.</p><span class="price">$1.80</span></div>
+    <div class="mini-card fade-up delay-4"><i class="fa-solid fa-wand-magic-sparkles"></i><h3>Hair Colour</h3><p>Professional grey coverage or creative colour using premium quality hair colour products.</p><span class="price">$8.00</span></div>
+    <div class="mini-card fade-up delay-5"><i class="fa-solid fa-scissors"></i><h3>Kids Haircut</h3><p>Gentle, patient haircut service specially designed for children aged 3 to 12 years.</p><span class="price">$2.00</span></div>
+    <div class="mini-card fade-up delay-6"><i class="fa-solid fa-crown"></i><h3>Eyebrow Shaping</h3><p>Precise eyebrow grooming and shaping using threading or razor techniques.</p><span class="price">$1.50</span></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip fade-up">
+  <h2>Book Any Service <span style="color:var(--red-bright)">Today</span></h2>
+  <p>Walk-ins welcome or reserve your preferred time slot in advance.</p>
+  <div class="cta-btns">
+    <a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a>
+    <a href="pricing.html" class="btn btn-outline">View Full Pricing</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <a href="../index.html" class="logo"><span class="logo-main">Lee</span><span class="logo-accent">HairCut</span></a>
+      <p>Premium luxury barber shop in Mutare, Zimbabwe. Precision cuts and timeless style since 2014.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/263780886795" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="../index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="team.html">Our Team</a>
+      <a href="pricing.html">Pricing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="booking.html">Book Appointment</a>
+      <a href="faq.html">FAQ</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p><i class="fas fa-map-marker-alt"></i> Mutare, Manicaland, Zimbabwe</p>
+      <p><i class="fas fa-phone"></i> +263 78088 6795</p>
+      <p><i class="fas fa-envelope"></i> hello@leehaircut.com</p>
+      <p><i class="fas fa-clock"></i> Mon–Fri: 08:00–19:00</p>
+      <p><i class="fas fa-clock"></i> Sat: 08:00–18:00 | Sun: 09:00–15:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 LeeHairCut. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/shared.js"></script>
+<a href="https://wa.me/263780886795?text=Hello%20I%20need%20help" class="float-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+</a>
+<button class="back-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+</body>
+</html>

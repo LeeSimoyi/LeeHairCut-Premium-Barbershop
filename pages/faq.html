@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <!-- FAVICONS -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"/>
+  <link rel="manifest" href="../site.webmanifest"/>
+  <meta name="theme-color" content="#b30000"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>FAQ — LeeHairCut | Frequently Asked Questions</title>
+  
+  
+  
+  
+  <style>
+    .faq-search-bar { max-width:560px; margin:0 auto 50px; display:flex; gap:12px; }
+    .faq-search-bar input { flex:1; padding:14px 20px; background:rgba(255,255,255,0.04); border:1px solid var(--glass-border); border-radius:12px; color:#fff; font-size:0.95rem; font-family:'Inter',sans-serif; transition:var(--transition); }
+    .faq-search-bar input:focus { outline:none; border-color:var(--red); }
+    .faq-search-bar button { padding:14px 22px; background:var(--red); border:none; border-radius:12px; color:#fff; cursor:pointer; font-size:1rem; transition:var(--transition); }
+    .faq-search-bar button:hover { background:var(--red-bright); }
+    .faq-cats { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-bottom:40px; }
+    .faq-cat-btn { padding:9px 22px; border-radius:30px; background:rgba(255,255,255,0.04); border:1px solid var(--glass-border); color:var(--gray); font-size:0.85rem; font-weight:600; cursor:pointer; transition:var(--transition); font-family:'Poppins',sans-serif; }
+    .faq-cat-btn.active,.faq-cat-btn:hover { background:var(--red); border-color:var(--red); color:#fff; }
+    .faq-section-title { font-size:1rem; font-weight:700; color:var(--red-bright); text-transform:uppercase; letter-spacing:1.5px; margin:40px 0 16px; display:flex; align-items:center; gap:10px; }
+    .faq-section-title::after { content:''; flex:1; height:1px; background:rgba(255,43,43,0.2); }
+    .no-results { text-align:center; padding:60px 20px; color:var(--gray); display:none; }
+    .no-results i { font-size:3rem; color:rgba(255,255,255,0.1); margin-bottom:16px; display:block; }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <link rel="stylesheet" href="../css/shared.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/pages.css"/>
+  <link rel="stylesheet" href="../css/fixes.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+
+  <!-- Logo — far left -->
+  <a href="../index.html" class="logo">
+    <span class="logo-main">Lee</span><span class="logo-accent">HairCut</span>
+  </a>
+
+  <!-- Nav links — centred -->
+  <ul class="nav-links" id="navLinks">
+    <div class="nav-close" id="navClose"><i class="fa-solid fa-xmark"></i></div>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html">Our Service</a></li>
+    <li><a href="testimonials.html">Testimonials</a></li>
+    <li><a href="faq.html" class="active">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <!-- Mobile only: Book Now inside drawer -->
+    <li class="nav-book-item">
+      <a href="booking.html" class="nav-book-btn">Book Now</a>
+    </li>
+  </ul>
+
+  <!-- Book Now — far right (desktop) -->
+  <a href="booking.html" class="nav-book-btn" aria-label="Book an appointment">Book Now</a>
+
+  <!-- Hamburger (mobile) -->
+  <div class="menu-toggle" id="menuToggle" aria-label="Toggle menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right" style="font-size:.7rem"></i><span>FAQ</span></div>
+    <h1>Frequently Asked <span>Questions</span></h1>
+    <p>Everything you need to know about LeeHairCut services, bookings and policies.</p>
+  </div>
+</div>
+
+<section class="section section-dark">
+  <div class="faq-search-bar fade-up">
+    <input type="text" id="faqSearch" placeholder="Search questions..."/>
+    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+  </div>
+  <div class="faq-cats fade-up">
+    <button class="faq-cat-btn active" data-cat="all">All Questions</button>
+    <button class="faq-cat-btn" data-cat="booking">Booking</button>
+    <button class="faq-cat-btn" data-cat="services">Services</button>
+    <button class="faq-cat-btn" data-cat="pricing">Pricing</button>
+    <button class="faq-cat-btn" data-cat="membership">Membership</button>
+    <button class="faq-cat-btn" data-cat="general">General</button>
+  </div>
+
+  <div style="max-width:820px;margin:0 auto">
+    <div class="faq-section-title" data-cat-title="booking"><i class="fa-solid fa-calendar-check"></i> Booking</div>
+    <div class="faq-list" id="faqContainer">
+      <div class="faq-item" data-cat="booking"><button class="faq-question">Do I need to book an appointment in advance? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>Walk-ins are always welcome subject to barber availability. However, we strongly recommend booking in advance — especially for weekends — to guarantee your preferred time slot and barber choice.</p></div></div>
+      <div class="faq-item" data-cat="booking"><button class="faq-question">How do I book an appointment? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>You can book through our online booking page, send a WhatsApp message to +263 78088 6795, call us directly, or simply walk in during business hours. Online booking is available 24 hours a day.</p></div></div>
+      <div class="faq-item" data-cat="booking"><button class="faq-question">What is your cancellation policy? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>We ask that you cancel or reschedule at least 2 hours before your appointment time. This allows us to offer your slot to another client. Late cancellations and no-shows may result in a cancellation fee.</p></div></div>
+      <div class="faq-item" data-cat="booking"><button class="faq-question">Can I choose my specific barber? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>Absolutely. You can request any of our barbers when booking online or over the phone. Subject to their availability on your chosen date and time, we will do our best to accommodate your preference.</p></div></div>
+      <div class="faq-item" data-cat="booking"><button class="faq-question">How long does a typical appointment take? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>Service durations vary: Classic Haircut 30 min, Beard Styling 20 min, Hair Spa 45 min, Face Clean-Up 25 min, Standard Package 50 min, Premium Package 90 min, Luxury Package 120 min.</p></div></div>
+    </div>
+
+    <div class="faq-section-title" data-cat-title="services"><i class="fa-solid fa-scissors"></i> Services</div>
+    <div class="faq-list">
+      <div class="faq-item" data-cat="services"><button class="faq-question">What services do you offer? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>We offer Classic Haircuts, Beard Styling, Hair Spa treatments, Face Clean-Up, Hot Towel Shaves, Scalp Massages, Hair Colour, Kids Haircuts, Eyebrow Shaping and various combo packages. View our full services page for details.</p></div></div>
+      <div class="faq-item" data-cat="services"><button class="faq-question">Do you offer services for children? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>Yes, we offer a gentle Kids Haircut service for children aged 3 to 12 years at $2.00. Our barbers are patient and experienced with young clients to ensure a comfortable, stress-free experience.</p></div></div>
+      <div class="faq-item" data-cat="services"><button class="faq-question">What products do you use? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>We exclusively use premium, internationally certified grooming products that are safe for all hair and skin types. If you have specific allergies or sensitivities, please inform your barber before your service begins.</p></div></div>
+      <div class="faq-item" data-cat="services"><button class="faq-question">How do you ensure hygiene and tool sterilisation? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>Every tool — clippers, scissors, combs, razors — is thoroughly cleaned and sterilised using professional barbicide solution after every single client. We maintain the highest hygiene standards at all times.</p></div></div>
+    </div>
+
+    <div class="faq-section-title" data-cat-title="pricing"><i class="fa-solid fa-tag"></i> Pricing</div>
+    <div class="faq-list">
+      <div class="faq-item" data-cat="pricing"><button class="faq-question">What payment methods do you accept? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>We accept Zimbabwe Gold (ZiG), USD cash, EcoCash, OneMoney, and major debit and credit cards. All prices displayed on our website are in USD with ZiG equivalent available at the current official rate.</p></div></div>
+      <div class="faq-item" data-cat="pricing"><button class="faq-question">Do you offer student or first-time client discounts? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>We offer a 20% first-visit discount on your Classic Haircut — simply mention it when booking. Student discounts are available with a valid student ID. Ask our team for current promotional offers.</p></div></div>
+      <div class="faq-item" data-cat="pricing"><button class="faq-question">Are prices negotiable? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>Our published prices are fixed and reflect the quality of service and products we use. However, we regularly run promotional offers and our membership plans offer excellent ongoing savings.</p></div></div>
+    </div>
+
+    <div class="faq-section-title" data-cat-title="membership"><i class="fa-solid fa-crown"></i> Membership</div>
+    <div class="faq-list">
+      <div class="faq-item" data-cat="membership"><button class="faq-question">What membership plans do you offer? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>We offer Silver (monthly at $25), Gold (quarterly at $65) and Platinum (annual at $200) membership plans. Each tier includes increasing levels of discounts, priority booking and exclusive benefits.</p></div></div>
+      <div class="faq-item" data-cat="membership"><button class="faq-question">How do I sign up for a membership? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>Contact us via WhatsApp, email or visit us in-store to discuss and sign up for a membership plan. Our team will walk you through the benefits and help you choose the best plan for your grooming needs.</p></div></div>
+      <div class="faq-item" data-cat="membership"><button class="faq-question">What is the loyalty points programme? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>Loyalty points are earned on every appointment, referral and review you submit. Points can be redeemed for service discounts or free add-on treatments. Membership tiers earn points at a multiplied rate.</p></div></div>
+    </div>
+
+    <div class="faq-section-title" data-cat-title="general"><i class="fa-solid fa-circle-info"></i> General</div>
+    <div class="faq-list">
+      <div class="faq-item" data-cat="general"><button class="faq-question">Where are you located? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>LeeHairCut Studio is located in Mutare, Manicaland, Zimbabwe. Refer to the map on our Contact page for directions. You can also use Google Maps to navigate to us.</p></div></div>
+      <div class="faq-item" data-cat="general"><button class="faq-question">What are your business hours? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>Monday to Friday: 08:00–19:00. Saturday: 08:00–18:00. Sunday: 09:00–15:00. Public Holidays: 10:00–14:00. Hours may vary on special occasions — follow our social media for updates.</p></div></div>
+      <div class="faq-item" data-cat="general"><button class="faq-question">Do you have parking available? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>Yes, there is ample parking available in the vicinity of our studio. Please contact us for specific directions and parking guidance when visiting for the first time.</p></div></div>
+      <div class="faq-item" data-cat="general"><button class="faq-question">Can I give feedback or leave a review? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p>We absolutely encourage and welcome all feedback. You can leave a review via Google, or contact us directly on WhatsApp or email. Your feedback helps us continuously improve our service.</p></div></div>
+    </div>
+
+    <div class="no-results" id="noResults">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <p>No questions found matching your search. Try different keywords or <a href="contact.html" style="color:var(--red-bright)">contact us directly</a>.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip fade-up">
+  <h2>Still Have a Question? <span style="color:var(--red-bright)">Contact Us</span></h2>
+  <p>Our team is happy to help with any question not covered above.</p>
+  <div class="cta-btns">
+    <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send a Message</a>
+    <a href="https://wa.me/263780886795" target="_blank" class="btn btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <a href="../index.html" class="logo"><span class="logo-main">Lee</span><span class="logo-accent">HairCut</span></a>
+      <p>Premium luxury barber shop in Mutare, Zimbabwe. Precision cuts and timeless style since 2014.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/263780886795" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="../index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="team.html">Our Team</a>
+      <a href="pricing.html">Pricing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="booking.html">Book Appointment</a>
+      <a href="faq.html">FAQ</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p><i class="fas fa-map-marker-alt"></i> Mutare, Manicaland, Zimbabwe</p>
+      <p><i class="fas fa-phone"></i> +263 78088 6795</p>
+      <p><i class="fas fa-envelope"></i> hello@leehaircut.com</p>
+      <p><i class="fas fa-clock"></i> Mon–Fri: 08:00–19:00</p>
+      <p><i class="fas fa-clock"></i> Sat: 08:00–18:00 | Sun: 09:00–15:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 LeeHairCut. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/shared.js"></script>
+<script>
+  // Category filter
+  document.querySelectorAll('.faq-cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.faq-cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
+      });
+      document.querySelectorAll('[data-cat-title]').forEach(title => {
+        title.style.display = (cat === 'all' || title.dataset.catTitle === cat) ? 'flex' : 'none';
+      });
+    });
+  });
+
+  // Search
+  document.getElementById('faqSearch').addEventListener('input', function() {
+    const q = this.value.toLowerCase();
+    let found = 0;
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const text = item.textContent.toLowerCase();
+      const show = text.includes(q);
+      item.style.display = show ? 'block' : 'none';
+      if (show) found++;
+    });
+    document.getElementById('noResults').style.display = found === 0 ? 'block' : 'none';
+  });
+</script>
+<a href="https://wa.me/263780886795?text=Hello%20I%20need%20help" class="float-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+</a>
+<button class="back-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+</body>
+</html>

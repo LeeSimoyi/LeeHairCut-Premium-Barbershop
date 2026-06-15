@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <!-- FAVICONS -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"/>
+  <link rel="manifest" href="../site.webmanifest"/>
+  <meta name="theme-color" content="#b30000"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Blog — LeeHairCut | Grooming Tips & Style Guides</title>
+  
+  
+  
+  
+  <style>
+    .blog-layout { display:grid; grid-template-columns:1fr 320px; gap:50px; align-items:start; }
+    .blog-grid { display:grid; gap:30px; }
+    .blog-card { background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:20px; overflow:hidden; transition:var(--transition); }
+    .blog-card:hover { border-color:rgba(255,43,43,0.25); transform:translateY(-6px); box-shadow:0 24px 60px rgba(0,0,0,0.35); }
+    .blog-card.featured { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; }
+    .blog-img { position:relative; overflow:hidden; }
+    .blog-img img { width:100%; height:240px; object-fit:cover; transition:transform 0.6s; }
+    .blog-card.featured .blog-img img { height:100%; min-height:300px; }
+    .blog-card:hover .blog-img img { transform:scale(1.06); }
+    .blog-cat { position:absolute; top:16px; left:16px; background:linear-gradient(135deg,var(--red-bright),var(--red)); color:#fff; padding:5px 14px; border-radius:20px; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; }
+    .blog-body { padding:26px 28px; }
+    .blog-meta { display:flex; align-items:center; gap:16px; font-size:0.78rem; color:var(--gray); margin-bottom:14px; flex-wrap:wrap; }
+    .blog-meta span { display:flex; align-items:center; gap:5px; }
+    .blog-body h2 { font-size:1.3rem; font-weight:800; margin-bottom:12px; line-height:1.3; }
+    .blog-card.featured .blog-body h2 { font-size:1.6rem; }
+    .blog-body p { font-size:0.88rem; color:var(--gray); line-height:1.8; margin-bottom:20px; }
+    .blog-link { display:inline-flex; align-items:center; gap:7px; font-size:0.85rem; font-weight:700; color:var(--red-bright); transition:var(--transition); }
+    .blog-link:hover { gap:12px; }
+    /* SIDEBAR */
+    .sidebar { position:sticky; top:100px; }
+    .sidebar-widget { background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:18px; padding:26px; margin-bottom:24px; }
+    .sidebar-widget h3 { font-size:1rem; font-weight:700; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid var(--glass-border); }
+    .search-bar { display:flex; gap:10px; }
+    .search-bar input { flex:1; padding:11px 16px; background:rgba(255,255,255,0.04); border:1px solid var(--glass-border); border-radius:10px; color:#fff; font-size:0.88rem; font-family:'Inter',sans-serif; }
+    .search-bar input:focus { outline:none; border-color:var(--red); }
+    .search-bar button { width:42px; height:42px; background:var(--red); border:none; border-radius:10px; color:#fff; cursor:pointer; flex-shrink:0; transition:var(--transition); }
+    .search-bar button:hover { background:var(--red-bright); }
+    .cat-list { display:flex; flex-direction:column; gap:8px; }
+    .cat-item { display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-radius:10px; background:rgba(255,255,255,0.02); transition:var(--transition); cursor:pointer; font-size:0.88rem; }
+    .cat-item:hover { background:rgba(255,43,43,0.08); color:var(--red-bright); }
+    .cat-item span { font-size:0.78rem; background:rgba(255,43,43,0.1); color:var(--red-bright); padding:2px 9px; border-radius:12px; font-weight:700; }
+    .recent-list { display:flex; flex-direction:column; gap:16px; }
+    .recent-item { display:flex; gap:14px; }
+    .recent-item img { width:64px; height:64px; border-radius:10px; object-fit:cover; flex-shrink:0; }
+    .recent-item h4 { font-size:0.85rem; font-weight:700; line-height:1.4; margin-bottom:4px; }
+    .recent-item span { font-size:0.75rem; color:var(--gray); }
+    .tag-cloud { display:flex; flex-wrap:wrap; gap:8px; }
+    .tag-cloud a { padding:6px 14px; border-radius:20px; background:rgba(255,255,255,0.04); border:1px solid var(--glass-border); font-size:0.78rem; color:var(--gray); transition:var(--transition); }
+    .tag-cloud a:hover { background:var(--red); border-color:var(--red); color:#fff; }
+    .pagination { display:flex; justify-content:center; gap:8px; margin-top:40px; }
+    .page-btn { width:40px; height:40px; border-radius:10px; background:rgba(255,255,255,0.04); border:1px solid var(--glass-border); color:var(--gray); font-size:0.88rem; font-weight:600; cursor:pointer; transition:var(--transition); display:flex; align-items:center; justify-content:center; }
+    .page-btn.active { background:var(--red); border-color:var(--red); color:#fff; }
+    .page-btn:hover:not(.active) { border-color:var(--red); color:var(--red-bright); }
+    @media(max-width:1100px){ .blog-layout{grid-template-columns:1fr;} .sidebar{position:static;} }
+    @media(max-width:768px){ .blog-card.featured{grid-template-columns:1fr;} }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <link rel="stylesheet" href="../css/shared.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/pages.css"/>
+  <link rel="stylesheet" href="../css/fixes.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+
+  <!-- Logo — far left -->
+  <a href="../index.html" class="logo">
+    <span class="logo-main">Lee</span><span class="logo-accent">HairCut</span>
+  </a>
+
+  <!-- Nav links — centred -->
+  <ul class="nav-links" id="navLinks">
+    <div class="nav-close" id="navClose"><i class="fa-solid fa-xmark"></i></div>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html">Our Service</a></li>
+    <li><a href="testimonials.html">Testimonials</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <!-- Mobile only: Book Now inside drawer -->
+    <li class="nav-book-item">
+      <a href="booking.html" class="nav-book-btn">Book Now</a>
+    </li>
+  </ul>
+
+  <!-- Book Now — far right (desktop) -->
+  <a href="booking.html" class="nav-book-btn" aria-label="Book an appointment">Book Now</a>
+
+  <!-- Hamburger (mobile) -->
+  <div class="menu-toggle" id="menuToggle" aria-label="Toggle menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right" style="font-size:.7rem"></i><span>Blog</span></div>
+    <h1>Style <span>Journal</span></h1>
+    <p>Expert grooming tips, style guides and barber insights from the LeeHairCut team.</p>
+  </div>
+</div>
+
+<section class="section section-dark">
+  <div class="blog-layout">
+    <!-- POSTS -->
+    <div>
+      <div class="blog-grid">
+        <!-- FEATURED -->
+        <div class="blog-card featured fade-up">
+          <div class="blog-img">
+            <img src="../imgs/Fade Guide.png" alt="Fade Guide"/>
+            <span class="blog-cat">Featured</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> 15 May 2026</span>
+              <span><i class="fa-regular fa-user"></i> Lee Machemedze</span>
+              <span><i class="fa-regular fa-clock"></i> 8 min read</span>
+            </div>
+            <h2>The Ultimate Guide to Fade Haircuts — Which Style Suits Your Face?</h2>
+            <p>From skin fades to taper fades, mid fades to high fades — understanding which fade works for your face shape can transform your look. Our Senior Barber Nathan breaks down every fade type and helps you choose the perfect one for your bone structure.</p>
+            <a href="blog-post.html" class="blog-link">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- CARD 1 -->
+        <div class="blog-card fade-up delay-1">
+          <div class="blog-img">
+            <img src="../imgs/Beard Care.png" alt="Beard Care"/>
+            <span class="blog-cat">Beard Care</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta"><span><i class="fa-regular fa-calendar"></i> 8 May 2026</span><span><i class="fa-regular fa-user"></i> Michael Tatenda</span></div>
+            <h2>5 Daily Beard Care Habits Every Man Should Follow</h2>
+            <p>A great beard does not happen by accident. Michael shares the five non-negotiable daily habits that keep your beard looking sharp, healthy and well-groomed.</p>
+            <a href="blog-post.html" class="blog-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="blog-card fade-up delay-2">
+          <div class="blog-img">
+            <img src="../imgs/Styling.png" alt="Hair Spa"/>
+            <span class="blog-cat">Hair Health</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta"><span><i class="fa-regular fa-calendar"></i> 2 May 2026</span><span><i class="fa-regular fa-user"></i> David Sithole</span></div>
+            <h2>Why Every Man Needs a Monthly Hair Spa Treatment</h2>
+            <p>Most men skip the hair spa — but they really should not. David explains how regular spa treatments dramatically improve scalp health, reduce hair loss and add shine.</p>
+            <a href="blog-post.html" class="blog-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="blog-card fade-up delay-1">
+          <div class="blog-img">
+            <img src="../imgs/Skincare.png" alt="Skincare"/>
+            <span class="blog-cat">Skincare</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta"><span><i class="fa-regular fa-calendar"></i> 24 Apr 2026</span><span><i class="fa-regular fa-user"></i> James Moyo</span></div>
+            <h2>The Men's Skincare Routine You Can Actually Stick To</h2>
+            <p>Forget 12-step routines. James breaks down the minimal, highly effective skincare routine that fits into your morning schedule and actually delivers visible results.</p>
+            <a href="blog-post.html" class="blog-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="blog-card fade-up delay-2">
+          <div class="blog-img">
+            <img src="../imgs/Grooming Tools.png" alt="Grooming Tools"/>
+            <span class="blog-cat">Tools</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta"><span><i class="fa-regular fa-calendar"></i> 17 Apr 2026</span><span><i class="fa-regular fa-user"></i> Lee Machemedze</span></div>
+            <h2>The 7 Grooming Tools Every Modern Man Should Own</h2>
+            <p>From quality clippers to precision trimmers, having the right tools at home extends the life of your barbershop cut and keeps you looking sharp between visits.</p>
+            <a href="blog-post.html" class="blog-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGINATION -->
+      <div class="pagination fade-up">
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar fade-right">
+      <div class="sidebar-widget">
+        <h3>Search Articles</h3>
+        <div class="search-bar">
+          <input type="text" placeholder="Search blog..."/>
+          <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+      </div>
+      <div class="sidebar-widget">
+        <h3>Categories</h3>
+        <div class="cat-list">
+          <div class="cat-item">Haircut Guides <span>8</span></div>
+          <div class="cat-item">Beard Care <span>6</span></div>
+          <div class="cat-item">Hair Health <span>5</span></div>
+          <div class="cat-item">Skincare <span>4</span></div>
+          <div class="cat-item">Grooming Tools <span>3</span></div>
+          <div class="cat-item">Style Tips <span>7</span></div>
+        </div>
+      </div>
+      <div class="sidebar-widget">
+        <h3>Recent Posts</h3>
+        <div class="recent-list">
+          <div class="recent-item"><img src="../imgs/Guide to Fade Haircuts.png" alt=""/><div><h4>The Ultimate Guide to Fade Haircuts</h4><span>15 May 2026</span></div></div>
+          <div class="recent-item"><img src="../imgs/Beard Care Habits.png" alt=""/><div><h4>5 Daily Beard Care Habits</h4><span>8 May 2026</span></div></div>
+          <div class="recent-item"><img src="../imgs/Needs a Hair Spa.png" alt=""/><div><h4>Why Every Man Needs a Hair Spa</h4><span>2 May 2026</span></div></div>
+        </div>
+      </div>
+      <div class="sidebar-widget">
+        <h3>Tags</h3>
+        <div class="tag-cloud">
+          <a href="#">Haircut</a><a href="#">Beard</a><a href="#">Fade</a><a href="#">Grooming</a>
+          <a href="#">Skincare</a><a href="#">Hair Spa</a><a href="#">Style</a><a href="#">Men</a>
+          <a href="#">Mutare</a><a href="#">Zimbabwe</a><a href="#">Barber</a>
+        </div>
+      </div>
+      <div class="sidebar-widget" style="text-align:center;background:linear-gradient(135deg,rgba(179,0,0,0.12),rgba(255,43,43,0.06));border-color:rgba(255,43,43,0.2)">
+        <i class="fa-solid fa-calendar-check" style="font-size:2rem;color:var(--red-bright);margin-bottom:14px;display:block"></i>
+        <h3 style="margin-bottom:10px;border:none;padding:0">Ready to Book?</h3>
+        <p style="font-size:0.85rem;color:var(--gray);margin-bottom:18px">Reserve your appointment today.</p>
+        <a href="booking.html" class="btn btn-primary" style="justify-content:center;width:100%">Book Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <a href="../index.html" class="logo"><span class="logo-main">Lee</span><span class="logo-accent">HairCut</span></a>
+      <p>Premium luxury barber shop in Mutare, Zimbabwe. Precision cuts and timeless style since 2014.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/263780886795" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="../index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="team.html">Our Team</a>
+      <a href="pricing.html">Pricing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="booking.html">Book Appointment</a>
+      <a href="faq.html">FAQ</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p><i class="fas fa-map-marker-alt"></i> Mutare, Manicaland, Zimbabwe</p>
+      <p><i class="fas fa-phone"></i> +263 78088 6795</p>
+      <p><i class="fas fa-envelope"></i> hello@leehaircut.com</p>
+      <p><i class="fas fa-clock"></i> Mon–Fri: 08:00–19:00</p>
+      <p><i class="fas fa-clock"></i> Sat: 08:00–18:00 | Sun: 09:00–15:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 LeeHairCut. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/shared.js"></script>
+
+<script>
+// Category filter
+document.querySelectorAll('.cat-item').forEach(item => {
+  item.style.cursor = 'pointer';
+  item.addEventListener('click', () => {
+    const cat = item.querySelector('span:first-child').textContent.trim().toLowerCase();
+    document.querySelectorAll('.blog-card:not(.featured)').forEach(card => {
+      const cardCat = card.querySelector('.blog-cat') ? card.querySelector('.blog-cat').textContent.trim().toLowerCase() : '';
+      const show = cat === 'all' || cardCat.includes(cat.split(' ')[0]);
+      card.style.display = show ? '' : 'none';
+    });
+  });
+});
+
+// Search
+const searchInput = document.querySelector('.search-bar input');
+const searchBtn   = document.querySelector('.search-bar button');
+function doSearch() {
+  if (!searchInput) return;
+  const q = searchInput.value.toLowerCase().trim();
+  document.querySelectorAll('.blog-card').forEach(card => {
+    const text = card.textContent.toLowerCase();
+    card.style.display = (!q || text.includes(q)) ? '' : 'none';
+  });
+}
+searchInput && searchInput.addEventListener('keyup', e => { if (e.key === 'Enter') doSearch(); });
+searchBtn   && searchBtn.addEventListener('click', doSearch);
+
+// Pagination
+const pageBtns = document.querySelectorAll('.page-btn');
+pageBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    pageBtns.forEach(b => b.classList.remove('active'));
+    if (!btn.querySelector('i')) btn.classList.add('active');
+  });
+});
+
+// Tag cloud
+document.querySelectorAll('.tag-cloud a').forEach(tag => {
+  tag.addEventListener('click', e => {
+    e.preventDefault();
+    const q = tag.textContent.trim().toLowerCase();
+    document.querySelectorAll('.blog-card').forEach(card => {
+      const text = card.textContent.toLowerCase();
+      card.style.display = text.includes(q) ? '' : 'none';
+    });
+  });
+});
+</script>
+
+<a href="https://wa.me/263780886795?text=Hello%20I%20need%20help" class="float-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+</a>
+<button class="back-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+</body>
+</html>
