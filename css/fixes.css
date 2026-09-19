@@ -292,9 +292,22 @@
   from { transform: scale(0); opacity: 0; }
   to   { transform: scale(1); opacity: 1; }
 }
-.booking-success-screen h2 { font-size: 1.8rem; font-weight: 900; margin-bottom: 12px; }
-.booking-success-screen p  { color: var(--gray); line-height: 1.8; margin-bottom: 28px; }
-.success-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.booking-success-screen h2 { 
+   font-size: 1.8rem; 
+   font-weight: 900; 
+   margin-bottom: 12px; 
+}
+.booking-success-screen p  { 
+   color: var(--gray); 
+   line-height: 1.8; 
+   margin-bottom: 28px; 
+}
+.success-actions { 
+   display: flex; 
+   gap: 14px; 
+   justify-content: center; 
+   flex-wrap: wrap; 
+}
 
 /* ================================================================
    6. BACK TO TOP — Enhanced
