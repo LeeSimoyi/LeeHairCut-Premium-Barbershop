@@ -346,7 +346,11 @@
 }
 @media (max-width: 480px) {
   
-  .toast { min-width: calc(100vw - 32px); max-width: calc(100vw - 32px); right: 16px; top: 16px; }
+  .toast { 
+     min-width: calc(100vw - 32px); 
+     max-width: calc(100vw - 32px); 
+     right: 16px; top: 16px;
+  }
 }
 
 /* ================================================================
