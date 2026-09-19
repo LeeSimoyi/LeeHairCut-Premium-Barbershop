@@ -221,20 +221,25 @@ section, .section, .section-sm,
   transition:      all 0.3s ease;
   flex-shrink:     0;
 }
-.menu-toggle:hover  { background: rgba(255,43,43,0.12); border-color: rgba(255,43,43,0.35); }
+.menu-toggle:hover  { 
+  background: rgba(255,43,43,0.12); 
+  border-color: rgba(255,43,43,0.35);
+}
 .menu-toggle span   { width:20px; height:2px; background:#fff; border-radius:2px; display:block; transition: background 0.3s; }
 .menu-toggle.active { background: rgba(255,43,43,0.15); border-color: var(--red); }
 .menu-toggle.active span { background: var(--red-bright); }
 
 /* ── NAV CLOSE (inside drawer) ── */
 .nav-close {
-  display:         none;
-  position:        absolute;
-  top:             16px; right: 16px;
-  width:           34px; height: 34px;
-  background:      rgba(255,255,255,0.06);
-  border-radius:   50%;
-  align-items:     center;
+  display: none;
+  position: absolute;
+  top: 16px; 
+  right: 16px;
+  width: 34px; 
+  height: 34px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+  align-items: center;
   justify-content: center;
   cursor:          pointer;
   font-size:       15px;
