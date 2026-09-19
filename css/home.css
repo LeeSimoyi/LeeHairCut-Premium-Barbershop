@@ -117,7 +117,11 @@
   color:var(--red-bright);
   margin-bottom:3px;
 }
-.hero-stat p { font-size:0.78rem; color:rgba(255,255,255,0.6); margin:0; }
+.hero-stat p { 
+  font-size:0.78rem; 
+  color:rgba(255,255,255,0.6); 
+  margin:0; 
+}
 
 .hero-slide-dots {
   position:absolute;
@@ -168,7 +172,11 @@
 .trust-item:last-child { border-right:none; }
 .trust-item:hover { background:rgba(255,43,43,0.04); }
 .trust-item i { font-size:1.2rem; color:var(--red-bright); flex-shrink:0; }
-.trust-item span { font-size:0.85rem; font-weight:600; color:rgba(255,255,255,0.72); }
+.trust-item span { 
+  font-size:0.85rem; 
+  font-weight:600; 
+  color:rgba(255,255,255,0.72);
+}
 
 /* ===== ABOUT PREVIEW ===== */
 .about-preview {
