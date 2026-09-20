@@ -67,7 +67,13 @@
 }
 
 /* ===== FAQ ===== */
-.faq-list { display:flex; flex-direction:column; gap:11px; max-width:820px; margin:0 auto; }
+.faq-list { 
+  display:flex; 
+  flex-direction:column; 
+  gap:11px; 
+  max-width:820px; 
+  margin:0 auto; 
+}
 .faq-item {
   background:rgba(255,255,255,0.03);
   border:1px solid var(--glass-border);
@@ -116,7 +122,10 @@
   line-height:1.8;
   transition:max-height 0.4s ease, padding 0.3s ease;
 }
-.faq-item.active .faq-answer { max-height:220px; padding:0 20px 17px; }
+.faq-item.active .faq-answer { 
+ max-height:220px; 
+ padding:0 20px 17px;
+}
 
 /* ===== TESTIMONIAL CARDS ===== */
 .testimonial-card {
@@ -127,7 +136,11 @@
   transition:var(--transition);
   flex-shrink:0;
 }
-.testimonial-card:hover { border-color:rgba(255,43,43,0.2); transform:translateY(-5px); box-shadow:0 18px 44px rgba(0,0,0,0.3); }
+.testimonial-card:hover { 
+  border-color:rgba(255,43,43,0.2); 
+  transform:translateY(-5px); 
+  box-shadow:0 18px 44px rgba(0,0,0,0.3);
+}
 .stars { margin-bottom:14px; }
 .stars i { color:#FFD700; font-size:0.85rem; }
 .testimonial-card > p {
