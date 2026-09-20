@@ -165,8 +165,15 @@
   object-fit:cover;
   border:2px solid rgba(255,43,43,0.28);
 }
-.t-client h4 { font-size:0.88rem; font-weight:700; margin-bottom:2px; }
-.t-client span { font-size:0.75rem; color:var(--red-bright); }
+.t-client h4 { 
+  font-size:0.88rem;
+  font-weight:700; 
+  margin-bottom:2px; 
+}
+.t-client span { 
+  font-size:0.75rem; 
+  color:var(--red-bright); 
+}
 
 /* ===== SLIDER CONTROLS ===== */
 .slider-prev,.slider-next {
