@@ -10,9 +10,21 @@
 .section-black { background:var(--black); }
 
 /* ===== STYLED FORM ===== */
-.styled-form { display:flex; flex-direction:column; gap:16px; }
-.styled-form .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-.styled-form .form-group { display:flex; flex-direction:column; gap:6px; }
+.styled-form { 
+  display:flex; 
+  flex-direction:column; 
+  gap:16px; 
+}
+.styled-form .form-row { 
+  display:grid; 
+  grid-template-columns:1fr 1fr; 
+  gap:16px; 
+}
+.styled-form .form-group { 
+  display:flex; 
+  flex-direction:column; 
+  gap:6px;
+}
 .styled-form label {
   font-size:0.75rem;
   font-weight:600;
