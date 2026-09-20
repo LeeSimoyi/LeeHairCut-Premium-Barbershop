@@ -142,7 +142,10 @@
   box-shadow:0 18px 44px rgba(0,0,0,0.3);
 }
 .stars { margin-bottom:14px; }
-.stars i { color:#FFD700; font-size:0.85rem; }
+.stars i { 
+  color:#FFD700; 
+  font-size:0.85rem; 
+}
 .testimonial-card > p {
   font-size:0.9rem;
   color:rgba(255,255,255,0.75);
@@ -191,10 +194,16 @@
   align-items:center;
   justify-content:center;
 }
-.slider-prev:hover,.slider-next:hover { background:var(--red); border-color:var(--red); }
+.slider-prev:hover,.slider-next:hover { 
+  background:var(--red); 
+  border-color:var(--red); 
+}
 
 /* ===== SOCIAL ICONS (circular) ===== */
-.social-bar { display:flex; gap:11px; flex-wrap:wrap; }
+.social-bar { 
+  display:flex; 
+  gap:11px; flex-wrap:wrap;
+}
 .soc-btn {
   width:44px;
   height:44px;
