@@ -261,7 +261,10 @@ section, .section, .section-sm,
   transition:      all 0.3s ease;
   z-index:         1003;
 }
-.nav-close:hover { background: var(--red); transform: rotate(90deg); }
+.nav-close:hover { 
+  background: var(--red); 
+  transform: rotate(90deg);
+}
 
 /* ── NAV OVERLAY ── */
 .nav-overlay {
@@ -275,7 +278,10 @@ section, .section, .section-sm,
   transition:              all 0.32s ease;
   z-index:                 999;
 }
-.nav-overlay.active { opacity: 1; visibility: visible; }
+.nav-overlay.active { 
+  opacity: 1; 
+  visibility: visible;
+}
 
 /* ================================================================
    MOBILE NAV  (≤ 1024px)
