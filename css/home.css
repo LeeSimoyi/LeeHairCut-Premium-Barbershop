@@ -179,7 +179,11 @@
 }
 .trust-item:last-child { border-right:none; }
 .trust-item:hover { background:rgba(255,43,43,0.04); }
-.trust-item i { font-size:1.2rem; color:var(--red-bright); flex-shrink:0; }
+.trust-item i { 
+  font-size:1.2rem; 
+  color:var(--red-bright);
+  flex-shrink:0;
+}
 .trust-item span { 
   font-size:0.85rem; 
   font-weight:600; 
@@ -252,10 +256,17 @@
   font-size:0.88rem;
   color:rgba(255,255,255,0.75);
 }
-.af-item i { color:var(--red-bright); flex-shrink:0; font-size:0.82rem; }
+.af-item i { 
+  color:var(--red-bright); 
+  flex-shrink:0; 
+  font-size:0.82rem; 
+}
 
 /* ===== SERVICES ===== */
-.services-section { padding:100px 5%; background:var(--black); }
+.services-section { 
+  padding:100px 5%; 
+  background:var(--black);
+}
 .services-grid {
   display:grid;
   grid-template-columns:repeat(3,1fr);
