@@ -403,7 +403,10 @@
 }
 .price-tabs::-webkit-scrollbar { display: none; }
 @media (min-width: 600px) {
-  .price-tabs { flex-wrap: wrap; justify-content: center; }
+  .price-tabs {
+   flex-wrap: wrap; 
+   justify-content: center;
+  }
 }
 
 /* ── Gallery filter bar scrollable on mobile ── */
