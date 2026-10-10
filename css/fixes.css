@@ -1,5 +1,5 @@
 /* ============================================================
-   LEEHAIRCUT — TARGETED FIXES (v3 — non-navbar)
+   LEEHAIRCUT CSS STYLESHEET
    ============================================================ */
 
 .step-nav {
@@ -103,7 +103,10 @@
 .toast-icon.blue   { background: linear-gradient(135deg,#3b82f6,#1d4ed8); box-shadow: 0 4px 12px rgba(59,130,246,0.4); }
 
 /* Toast content */
-.toast-content { flex: 1; min-width: 0; }
+.toast-content { 
+  flex: 1; 
+  min-width: 0; 
+}
 .toast-content h4 {
   font-size: 0.92rem;
   font-weight: 700;
@@ -372,8 +375,14 @@
 
 /* Ensure section padding is always safe on small screens */
 @media (max-width: 400px) {
-  .section, section { padding-left: 4% !important; padding-right: 4% !important; }
-  .footer-inner { padding-left: 4% !important; padding-right: 4% !important; }
+  .section, section { 
+     padding-left: 4% !important; 
+     padding-right: 4% !important; 
+  }
+  .footer-inner { 
+     padding-left: 4% !important;
+     padding-right: 4% !important;
+  }
 }
 
 /* ── All inputs consistent on mobile ── */
