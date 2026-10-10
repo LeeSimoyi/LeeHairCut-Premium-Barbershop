@@ -1,6 +1,5 @@
 /* ============================================================
-   LEEHAIRCUT — NAVBAR + GLOBAL GUTTERS  (Final v4)
-   Matches image: Logo | Centred Links | Book Now button
+   LEEHAIRCUT — NAVBAR
    ============================================================ */
 
 :root {
@@ -9,7 +8,7 @@
 }
 
 /* ================================================================
-   GLOBAL GUTTER — every section gets consistent side padding
+   GLOBAL 
    ================================================================ */
 section, .section, .section-sm,
 .about-preview, .services-section, .why-section,
@@ -87,8 +86,16 @@ section, .section, .section-sm,
   z-index:         1001;
   transition:      opacity 0.2s ease, transform 0.2s ease;
 }
-.logo:hover    { opacity: 0.85; transform: scale(1.02); }
-.logo-main     { background:#fff; color:#111; padding:3px 9px; border-radius:7px; }
+.logo:hover    { 
+  opacity: 0.85; 
+  transform: scale(1.02);
+}
+.logo-main     { 
+  background:#fff; 
+  color:#111; 
+  padding:3px 9px; 
+  border-radius:7px;
+}
 .logo-accent   { color: var(--red-bright); }
 
 /* ── NAV LINKS (perfectly centred in remaining space) ── */
