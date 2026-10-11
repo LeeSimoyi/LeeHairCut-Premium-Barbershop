@@ -74,7 +74,8 @@ ul  { list-style:none; }
 }
 .btn-primary {
   background:linear-gradient(135deg,var(--red-bright),var(--red));
-  color:#fff; border-color:transparent;
+  color:#fff; 
+  border-color:transparent;
   box-shadow:0 6px 22px rgba(179,0,0,0.35);
 }
 .btn-primary:hover  { transform:translateY(-3px); box-shadow:0 12px 32px rgba(179,0,0,0.5); }
@@ -108,7 +109,10 @@ ul  { list-style:none; }
 .section-header.center p { margin:0 auto; }
 
 /* ── Footer ── */
-.footer { background:var(--dark); border-top:1px solid var(--glass-border); }
+.footer { 
+  background:var(--dark); 
+  border-top:1px solid var(--glass-border); 
+}
 .footer-inner {
   display:grid; 
   grid-template-columns:2fr 1fr 1fr 1fr;
@@ -117,7 +121,12 @@ ul  { list-style:none; }
   padding-bottom:44px;
 }
 .footer-col .logo   { margin-bottom:16px; }
-.footer-col p       { font-size:0.88rem; color:var(--gray); line-height:1.8; margin-bottom:8px; }
+.footer-col p       { 
+  font-size:0.88rem; 
+  color:var(--gray); 
+  line-height:1.8; 
+  margin-bottom:8px;
+}
 .footer-col h4 {
   font-family:'Poppins',sans-serif;
   font-size:0.8rem; 
