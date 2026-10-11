@@ -105,7 +105,12 @@ ul  { list-style:none; }
   line-height:1.2;
 }
 .section-header h2 span { color:var(--red-bright); }
-.section-header p { font-size:1rem; color:var(--gray); max-width:580px; line-height:1.8; }
+.section-header p { 
+  font-size:1rem; 
+  color:var(--gray); 
+  max-width:580px; 
+  line-height:1.8; 
+}
 .section-header.center p { margin:0 auto; }
 
 /* ── Footer ── */
