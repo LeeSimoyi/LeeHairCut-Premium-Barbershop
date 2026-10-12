@@ -526,8 +526,18 @@ MOBILE RESPONSIVE
   margin-top:1px; 
   flex-shrink:0;
 }
-.toast-close:hover { background:rgba(255,255,255,0.12); color:#fff; }
-.toast-bar { position:absolute; bottom:0; left:0; height:3px; border-radius:0 0 16px 16px; animation:barShrink 3.8s linear forwards; }
+.toast-close:hover { 
+  background:rgba(255,255,255,0.12); 
+  color:#fff;
+}
+.toast-bar { 
+  position:absolute; 
+  bottom:0; 
+  left:0; 
+  height:3px; 
+  border-radius:0 0 16px 16px; 
+  animation:barShrink 3.8s linear forwards;
+}
 .toast-bar.red    { background:linear-gradient(90deg,#ff2b2b,#b30000); }
 .toast-bar.green  { background:linear-gradient(90deg,#25D366,#128C7E); }
 .toast-bar.yellow { background:linear-gradient(90deg,#f59e0b,#d97706); }
