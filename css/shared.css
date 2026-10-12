@@ -177,8 +177,17 @@ ul  { list-style:none; }
   background:var(--red-bright); 
   border-radius:2px;
 }
-.footer-col a { display:block; color:var(--gray); font-size:0.88rem; margin-bottom:9px; transition:var(--transition); }
-.footer-col a:hover { color:var(--red-bright); padding-left:5px; }
+.footer-col a { 
+  display:block; 
+  color:var(--gray); 
+  font-size:0.88rem; 
+  margin-bottom:9px; 
+  transition:var(--transition);
+}
+.footer-col a:hover { 
+  color:var(--red-bright); 
+  padding-left:5px;
+}
 
 /* Social icons — circular */
 .footer-socials { display:flex; gap:10px; margin-top:18px; flex-wrap:wrap; }
