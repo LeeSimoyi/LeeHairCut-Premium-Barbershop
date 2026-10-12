@@ -190,7 +190,12 @@ ul  { list-style:none; }
 }
 
 /* Social icons — circular */
-.footer-socials { display:flex; gap:10px; margin-top:18px; flex-wrap:wrap; }
+.footer-socials { 
+  display:flex; 
+  gap:10px; 
+  margin-top:18px; 
+  flex-wrap:wrap; 
+}
 .footer-socials a {
   display:flex; 
   align-items:center; 
