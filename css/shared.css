@@ -90,10 +90,24 @@ ul  { list-style:none; }
   color:#fff; 
   border-color:rgba(255,255,255,0.35);
 }
-.btn-outline:hover  { border-color:var(--red-bright); color:var(--red-bright); transform:translateY(-3px); }
-.btn-dark           { background:rgba(255,255,255,0.06); color:#fff; border-color:var(--glass-border); }
-.btn-dark:hover     { background:rgba(255,255,255,0.12); transform:translateY(-3px); }
-.btn-sm             { padding:9px 20px; font-size:0.82rem; }
+.btn-outline:hover  { 
+  border-color:var(--red-bright); 
+  color:var(--red-bright);
+  transform:translateY(-3px);
+}
+.btn-dark { 
+  background:rgba(255,255,255,0.06);
+  color:#fff; 
+  border-color:var(--glass-border);
+}
+.btn-dark:hover { 
+  background:rgba(255,255,255,0.12);
+  transform:translateY(-3px);
+}
+.btn-sm  { 
+  padding:9px 20px; 
+  font-size:0.82rem;
+}
 
 /* ── Section Header ── */
 .section-header { margin-bottom:55px; }
