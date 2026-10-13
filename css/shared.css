@@ -587,15 +587,24 @@ MOBILE RESPONSIVE
   visibility:hidden; 
   transition:var(--transition);
 }
-.booking-modal.active { opacity:1; visibility:visible; }
+.booking-modal.active { 
+  opacity:1; 
+  visibility:visible;
+}
 .booking-overlay {
-  position:absolute; inset:0; background:rgba(0,0,0,0.82);
+  position:absolute; 
+  inset:0; 
+  background:rgba(0,0,0,0.82);
   backdrop-filter:blur(10px);
 }
 .booking-box {
-  position:relative; width:100%; max-width:500px;
-  background:var(--dark2); border:1px solid var(--glass-border);
-  border-radius:22px; padding:36px 32px;
+  position:relative; 
+  width:100%; 
+  max-width:500px;
+  background:var(--dark2); 
+  border:1px solid var(--glass-border);
+  border-radius:22px; 
+  padding:36px 32px;
   transform:scale(0.88) translateY(24px); opacity:0;
   transition:var(--transition);
   box-shadow:0 32px 80px rgba(0,0,0,0.6);
