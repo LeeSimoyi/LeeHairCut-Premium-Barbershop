@@ -202,7 +202,8 @@
 /* ===== SOCIAL ICONS (circular) ===== */
 .social-bar { 
   display:flex; 
-  gap:11px; flex-wrap:wrap;
+  gap:11px; 
+  flex-wrap:wrap;
 }
 .soc-btn {
   width:44px;
