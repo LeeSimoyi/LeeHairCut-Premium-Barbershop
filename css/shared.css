@@ -612,10 +612,19 @@ MOBILE RESPONSIVE
 }
 .booking-modal.active .booking-box { transform:scale(1) translateY(0); opacity:1; }
 .booking-close {
-  position:absolute; top:16px; right:16px; width:36px; height:36px;
-  background:rgba(255,255,255,0.06); border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  cursor:pointer; font-size:15px; transition:var(--transition);
+  position:absolute; 
+  top:16px; 
+  right:16px; 
+  width:36px; 
+  height:36px;
+  background:rgba(255,255,255,0.06); 
+  border-radius:50%;
+  display:flex; 
+  align-items:center; 
+  justify-content:center;
+  cursor:pointer; 
+  font-size:15px; 
+  transition:var(--transition);
 }
 .booking-close:hover { background:var(--red); transform:rotate(90deg); }
 .booking-box h2     { font-size:1.5rem; font-weight:800; margin-bottom:6px; }
