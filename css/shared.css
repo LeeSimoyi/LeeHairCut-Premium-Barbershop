@@ -639,10 +639,15 @@ MOBILE RESPONSIVE
 .styled-form input,
 .styled-form select,
 .styled-form textarea {
-  padding:12px 15px; background:rgba(255,255,255,0.04);
-  border:1px solid var(--glass-border); border-radius:10px;
-  color:#fff; font-size:0.92rem; font-family:'Inter',sans-serif;
-  transition:var(--transition); -webkit-appearance:none; width:100%;
+  padding:12px 15px; 
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--glass-border); 
+  border-radius:10px;
+  color:#fff; font-size:0.92rem; 
+  font-family:'Inter',sans-serif;
+  transition:var(--transition); 
+  -webkit-appearance:none; 
+  width:100%;
 }
 .form-group input:focus,
 .form-group select:focus,
