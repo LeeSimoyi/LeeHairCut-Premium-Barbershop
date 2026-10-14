@@ -838,10 +838,19 @@ MOBILE RESPONSIVE
 
 /* ── Slider controls ── */
 .slider-prev,.slider-next {
-  width:46px; height:46px; min-width:46px; border-radius:50%;
-  background:rgba(255,255,255,0.05); border:1px solid var(--glass-border);
-  color:#fff; font-size:13px; cursor:pointer; transition:var(--transition);
-  display:flex; align-items:center; justify-content:center;
+  width:46px; 
+  height:46px; 
+  min-width:46px; 
+  border-radius:50%;
+  background:rgba(255,255,255,0.05); 
+  border:1px solid var(--glass-border);
+  color:#fff; 
+  font-size:13px; 
+  cursor:pointer; 
+  transition:var(--transition);
+  display:flex; 
+  align-items:center; 
+  justify-content:center;
 }
 .slider-prev:hover,.slider-next:hover { background:var(--red); border-color:var(--red); }
 
