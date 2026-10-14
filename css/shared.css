@@ -743,7 +743,13 @@ MOBILE RESPONSIVE
     radial-gradient(ellipse at 30% 50%,rgba(179,0,0,0.18),transparent 55%),
     radial-gradient(ellipse at 70% 50%,rgba(255,43,43,0.08),transparent 55%);
 }
-.page-hero-content { position:relative; z-index:2; padding-top:130px; padding-bottom:70px; width:100%; }
+.page-hero-content { 
+  position:relative; 
+  z-index:2; 
+  padding-top:130px; 
+  padding-bottom:70px; 
+  width:100%;
+}
 .breadcrumb {
   display:flex; 
   align-items:center; 
