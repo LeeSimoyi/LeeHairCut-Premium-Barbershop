@@ -718,9 +718,14 @@ MOBILE RESPONSIVE
 
 /* ── Page Hero ── */
 .page-hero {
-  position:relative; min-height:48vh;
-  display:flex; align-items:center; justify-content:center;
-  text-align:center; overflow:hidden; background:var(--dark);
+  position:relative; 
+  min-height:48vh;
+  display:flex; 
+  align-items:center; 
+  justify-content:center;
+  text-align:center; 
+  overflow:hidden; 
+  background:var(--dark);
 }
 .page-hero::before {
   content:''; position:absolute; inset:0;
