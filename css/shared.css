@@ -153,7 +153,7 @@ ul  { list-style:none; }
   padding-bottom:44px;
 }
 .footer-col .logo   { margin-bottom:16px; }
-.footer-col p       { 
+.footer-col p  { 
   font-size:0.88rem; 
   color:var(--gray); 
   line-height:1.8; 
@@ -216,8 +216,11 @@ ul  { list-style:none; }
   padding:0;
 }
 .footer-socials a:hover {
-  background:var(--red); border-color:var(--red);
-  color:#fff; transform:translateY(-3px); padding:0;
+  background:var(--red); 
+  border-color:var(--red);
+  color:#fff; 
+  transform:translateY(-3px); 
+  padding:0;
 }
 .footer-bottom {
   border-top:1px solid var(--glass-border);
@@ -481,7 +484,10 @@ MOBILE RESPONSIVE
   max-width:380px; 
   overflow:hidden;
 }
-.toast.show { transform:translateX(0); opacity:1; }
+.toast.show { 
+  transform:translateX(0); 
+  opacity:1;
+}
 .toast-icon {
   width:42px; 
   height:42px; 
@@ -545,7 +551,15 @@ MOBILE RESPONSIVE
 .toast-bar.green  { background:linear-gradient(90deg,#25D366,#128C7E); }
 .toast-bar.yellow { background:linear-gradient(90deg,#f59e0b,#d97706); }
 .toast-bar.blue   { background:linear-gradient(90deg,#3b82f6,#1d4ed8); }
-.toast::before    { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; border-radius:16px 0 0 16px; }
+.toast::before    { 
+  content:''; 
+  position:absolute; 
+  left:0; 
+  top:0; 
+  bottom:0; 
+  width:3px; 
+  border-radius:16px 0 0 16px;
+}
 .toast.toast-success::before { background:linear-gradient(to bottom,#25D366,#128C7E); }
 .toast.toast-error::before   { background:linear-gradient(to bottom,#ff2b2b,#b30000); }
 .toast.toast-warning::before { background:linear-gradient(to bottom,#f59e0b,#d97706); }
@@ -605,10 +619,13 @@ MOBILE RESPONSIVE
   border:1px solid var(--glass-border);
   border-radius:22px; 
   padding:36px 32px;
-  transform:scale(0.88) translateY(24px); opacity:0;
+  transform:scale(0.88) translateY(24px); 
+  opacity:0;
   transition:var(--transition);
   box-shadow:0 32px 80px rgba(0,0,0,0.6);
-  overflow:hidden; max-height:90vh; overflow-y:auto;
+  overflow:hidden; 
+  max-height:90vh; 
+  overflow-y:auto;
 }
 .booking-modal.active .booking-box { transform:scale(1) translateY(0); opacity:1; }
 .booking-close {
