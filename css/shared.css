@@ -627,7 +627,10 @@ MOBILE RESPONSIVE
   max-height:90vh; 
   overflow-y:auto;
 }
-.booking-modal.active .booking-box { transform:scale(1) translateY(0); opacity:1; }
+.booking-modal.active .booking-box { 
+  transform:scale(1) translateY(0); 
+  opacity:1;
+}
 .booking-close {
   position:absolute; 
   top:16px; 
@@ -643,9 +646,20 @@ MOBILE RESPONSIVE
   font-size:15px; 
   transition:var(--transition);
 }
-.booking-close:hover { background:var(--red); transform:rotate(90deg); }
-.booking-box h2     { font-size:1.5rem; font-weight:800; margin-bottom:6px; }
-.booking-box > p    { color:var(--gray); font-size:0.88rem; margin-bottom:24px; }
+.booking-close:hover { 
+  background:var(--red); 
+  transform:rotate(90deg);
+}
+.booking-box h2     { 
+  font-size:1.5rem; 
+  font-weight:800;
+  margin-bottom:6px;
+}
+.booking-box > p    { 
+  color:var(--gray); 
+  font-size:0.88rem; 
+  margin-bottom:24px;
+}
 .booking-form       { display:flex; flex-direction:column; gap:13px; }
 .form-row           { display:grid; grid-template-columns:1fr 1fr; gap:13px; }
 .form-group         { display:flex; flex-direction:column; gap:6px; }
