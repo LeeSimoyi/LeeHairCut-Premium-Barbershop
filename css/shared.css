@@ -769,15 +769,28 @@ MOBILE RESPONSIVE
 
 /* ── CTA Strip ── */
 .cta-strip {
-  padding-top:70px; padding-bottom:70px;
+  padding-top:70px; 
+  padding-bottom:70px;
   background:linear-gradient(135deg,rgba(179,0,0,0.12),rgba(255,43,43,0.06));
   border-top:1px solid rgba(255,43,43,0.12);
   border-bottom:1px solid rgba(255,43,43,0.12);
   text-align:center;
 }
-.cta-strip h2 { font-size:clamp(1.6rem,3vw,2.4rem); margin-bottom:12px; }
-.cta-strip p  { color:var(--gray); margin-bottom:28px; font-size:0.96rem; }
-.cta-btns     { display:flex; justify-content:center; flex-wrap:wrap; gap:13px; }
+.cta-strip h2 { 
+  font-size:clamp(1.6rem,3vw,2.4rem); 
+  margin-bottom:12px;
+}
+.cta-strip p  { 
+  color:var(--gray); 
+  margin-bottom:28px; 
+  font-size:0.96rem;
+}
+.cta-btns  { 
+  display:flex; 
+  justify-content:center; 
+  flex-wrap:wrap; 
+  gap:13px;
+}
 
 /* ── Scroll Animations ── */
 .fade-up   { opacity:0; transform:translateY(36px); transition:opacity 0.7s ease,transform 0.7s ease; }
