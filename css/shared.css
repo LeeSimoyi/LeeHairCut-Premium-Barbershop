@@ -735,8 +735,14 @@ MOBILE RESPONSIVE
 }
 .page-hero-content { position:relative; z-index:2; padding-top:130px; padding-bottom:70px; width:100%; }
 .breadcrumb {
-  display:flex; align-items:center; justify-content:center;
-  gap:8px; font-size:0.82rem; color:var(--gray); margin-bottom:18px; flex-wrap:wrap;
+  display:flex; 
+  align-items:center; 
+  justify-content:center;
+  gap:8px; 
+  font-size:0.82rem; 
+  color:var(--gray);
+  margin-bottom:18px; 
+  flex-wrap:wrap;
 }
 .breadcrumb a { color:var(--gray); transition:var(--transition); }
 .breadcrumb a:hover { color:var(--red-bright); }
