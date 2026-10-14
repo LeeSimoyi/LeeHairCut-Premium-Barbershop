@@ -660,10 +660,28 @@ MOBILE RESPONSIVE
   font-size:0.88rem; 
   margin-bottom:24px;
 }
-.booking-form       { display:flex; flex-direction:column; gap:13px; }
-.form-row           { display:grid; grid-template-columns:1fr 1fr; gap:13px; }
-.form-group         { display:flex; flex-direction:column; gap:6px; }
-.form-group label   { font-size:0.75rem; font-weight:600; color:var(--gray); text-transform:uppercase; letter-spacing:0.5px; }
+.booking-form  { 
+  display:flex; 
+  flex-direction:column; 
+  gap:13px;
+}
+.form-row   { 
+  display:grid; 
+  grid-template-columns:1fr 1fr; 
+  gap:13px;
+}
+.form-group  { 
+  display:flex; 
+  flex-direction:column;
+  gap:6px;
+}
+.form-group label   { 
+  font-size:0.75rem;
+  font-weight:600; 
+  color:var(--gray); 
+  text-transform:uppercase; 
+  letter-spacing:0.5px;
+}
 .form-group input,
 .form-group select,
 .form-group textarea,
