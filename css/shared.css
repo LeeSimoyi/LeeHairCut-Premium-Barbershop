@@ -704,15 +704,25 @@ MOBILE RESPONSIVE
 .styled-form input:focus,
 .styled-form select:focus,
 .styled-form textarea:focus {
-  outline:none; border-color:var(--red); background:rgba(255,43,43,0.04);
+  outline:none; border-color:var(--red); 
+  background:rgba(255,43,43,0.04);
 }
 .form-group select option,
 .styled-form select option { background:#1a1a1f; color:#fff; }
 .booking-wa {
-  display:flex; align-items:center; justify-content:center; gap:10px;
-  margin-top:13px; padding:12px; border-radius:10px;
-  background:rgba(37,211,102,0.08); border:1px solid rgba(37,211,102,0.2);
-  color:#25D366; font-weight:600; font-size:0.88rem; transition:var(--transition);
+  display:flex; 
+  align-items:center; 
+  justify-content:center;
+  gap:10px;
+  margin-top:13px; 
+  padding:12px; 
+  border-radius:10px;
+  background:rgba(37,211,102,0.08);
+  border:1px solid rgba(37,211,102,0.2);
+  color:#25D366; 
+  font-weight:600; 
+  font-size:0.88rem; 
+  transition:var(--transition);
 }
 .booking-wa:hover { background:rgba(37,211,102,0.18); }
 
