@@ -848,8 +848,10 @@ MOBILE RESPONSIVE
   text-decoration:none;
 }
 .social-links a:hover, .soc-btn:hover {
-  background:var(--red)!important; border-color:var(--red)!important;
-  color:#fff!important; transform:translateY(-3px) scale(1.08);
+  background:var(--red)!important; 
+  border-color:var(--red)!important;
+  color:#fff!important; 
+  transform:translateY(-3px) scale(1.08);
   box-shadow:0 6px 20px rgba(179,0,0,0.4);
 }
 
