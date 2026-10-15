@@ -705,7 +705,8 @@ MOBILE RESPONSIVE
 .styled-form input:focus,
 .styled-form select:focus,
 .styled-form textarea:focus {
-  outline:none; border-color:var(--red); 
+  outline:none; 
+  border-color:var(--red); 
   background:rgba(255,43,43,0.04);
 }
 .form-group select option,
@@ -742,7 +743,9 @@ MOBILE RESPONSIVE
   background:var(--dark);
 }
 .page-hero::before {
-  content:''; position:absolute; inset:0;
+  content:''; 
+  position:absolute;
+  inset:0;
   background:
     radial-gradient(ellipse at 30% 50%,rgba(179,0,0,0.18),transparent 55%),
     radial-gradient(ellipse at 70% 50%,rgba(255,43,43,0.08),transparent 55%);
