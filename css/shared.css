@@ -877,7 +877,17 @@ MOBILE RESPONSIVE
   transition:var(--transition);
 }
 .faq-question:hover { color:var(--red-bright); }
-.faq-icon { width:28px; height:28px; min-width:28px; background:rgba(255,255,255,0.06); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:var(--transition); }
+.faq-icon { 
+  width:28px; 
+  height:28px; 
+  min-width:28px; 
+  background:rgba(255,255,255,0.06);
+  border-radius:50%; 
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  transition:var(--transition);
+}
 .faq-item.active .faq-icon { background:var(--red); }
 .faq-icon i { font-size:0.72rem; }
 .faq-answer { max-height:0; overflow:hidden; padding:0 20px; font-size:0.9rem; color:var(--gray); line-height:1.8; transition:max-height 0.4s ease,padding 0.3s ease; }
