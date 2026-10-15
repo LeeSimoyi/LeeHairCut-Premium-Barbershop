@@ -692,7 +692,8 @@ MOBILE RESPONSIVE
   background:rgba(255,255,255,0.04);
   border:1px solid var(--glass-border); 
   border-radius:10px;
-  color:#fff; font-size:0.92rem; 
+  color:#fff; 
+  font-size:0.92rem; 
   font-family:'Inter',sans-serif;
   transition:var(--transition); 
   -webkit-appearance:none; 
@@ -708,7 +709,10 @@ MOBILE RESPONSIVE
   background:rgba(255,43,43,0.04);
 }
 .form-group select option,
-.styled-form select option { background:#1a1a1f; color:#fff; }
+.styled-form select option { 
+  background:#1a1a1f; 
+  color:#fff;
+}
 .booking-wa {
   display:flex; 
   align-items:center; 
