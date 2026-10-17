@@ -920,7 +920,14 @@ MOBILE RESPONSIVE
 }
 
 /* ── Testimonial shared ── */
-.testimonial-card { background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:18px; padding:26px 24px; transition:var(--transition); flex-shrink:0; }
+.testimonial-card { 
+  background:rgba(255,255,255,0.03); 
+  border:1px solid var(--glass-border); 
+  border-radius:18px; 
+  padding:26px 24px; 
+  transition:var(--transition); 
+  flex-shrink:0;
+}
 .testimonial-card:hover { border-color:rgba(255,43,43,0.2); transform:translateY(-5px); box-shadow:0 18px 44px rgba(0,0,0,0.3); }
 .stars   { margin-bottom:14px; }
 .stars i { color:#FFD700; font-size:0.85rem; }
