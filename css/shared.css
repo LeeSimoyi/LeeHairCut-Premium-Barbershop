@@ -896,7 +896,15 @@ MOBILE RESPONSIVE
 }
 .faq-item.active .faq-icon { background:var(--red); }
 .faq-icon i { font-size:0.72rem; }
-.faq-answer { max-height:0; overflow:hidden; padding:0 20px; font-size:0.9rem; color:var(--gray); line-height:1.8; transition:max-height 0.4s ease,padding 0.3s ease; }
+.faq-answer { 
+  max-height:0; 
+  overflow:hidden; 
+  padding:0 20px; 
+  font-size:0.9rem; 
+  color:var(--gray); 
+  line-height:1.8; 
+  transition:max-height 0.4s ease,padding 0.3s ease;
+}
 .faq-item.active .faq-answer { max-height:220px; padding:0 20px 17px; }
 
 /* ── Testimonial shared ── */
@@ -926,7 +934,9 @@ MOBILE RESPONSIVE
   align-items:center; 
   justify-content:center;
 }
-.slider-prev:hover,.slider-next:hover { background:var(--red); border-color:var(--red); }
+.slider-prev:hover,.slider-next:hover { 
+  background:var(--red); 
+  border-color:var(--red); }
 
 /* ── Overflow guards ── */
 html,body { overflow-x:hidden; max-width:100%; }
