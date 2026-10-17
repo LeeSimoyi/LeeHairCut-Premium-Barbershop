@@ -928,10 +928,20 @@ MOBILE RESPONSIVE
   transition:var(--transition); 
   flex-shrink:0;
 }
-.testimonial-card:hover { border-color:rgba(255,43,43,0.2); transform:translateY(-5px); box-shadow:0 18px 44px rgba(0,0,0,0.3); }
+.testimonial-card:hover { 
+  border-color:rgba(255,43,43,0.2); 
+  transform:translateY(-5px); 
+  box-shadow:0 18px 44px rgba(0,0,0,0.3);
+}
 .stars   { margin-bottom:14px; }
 .stars i { color:#FFD700; font-size:0.85rem; }
-.testimonial-card > p { font-size:0.9rem; color:rgba(255,255,255,0.75); line-height:1.8; margin-bottom:20px; font-style:italic; }
+.testimonial-card > p { 
+  font-size:0.9rem; 
+  color:rgba(255,255,255,0.75); 
+  line-height:1.8; 
+  margin-bottom:20px; 
+  font-style:italic;
+}
 .t-client { display:flex; align-items:center; gap:11px; border-top:1px solid var(--glass-border); padding-top:15px; }
 .t-client img { width:44px; height:44px; min-width:44px; border-radius:50%; object-fit:cover; border:2px solid rgba(255,43,43,0.28); }
 .t-client h4  { font-size:0.88rem; font-weight:700; margin-bottom:2px; }
