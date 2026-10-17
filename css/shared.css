@@ -504,7 +504,10 @@ MOBILE RESPONSIVE
 .toast-icon.green  { background:linear-gradient(135deg,#25D366,#128C7E); box-shadow:0 4px 12px rgba(37,211,102,0.4); }
 .toast-icon.yellow { background:linear-gradient(135deg,#f59e0b,#d97706); box-shadow:0 4px 12px rgba(245,158,11,0.4); }
 .toast-icon.blue   { background:linear-gradient(135deg,#3b82f6,#1d4ed8); box-shadow:0 4px 12px rgba(59,130,246,0.4); }
-.toast-content     { flex:1; min-width:0; }
+.toast-content     { 
+  flex:1; 
+  min-width:0;
+}
 .toast-content h4  { 
   font-size:0.92rem; 
   font-weight:700; 
@@ -911,7 +914,10 @@ MOBILE RESPONSIVE
   line-height:1.8; 
   transition:max-height 0.4s ease,padding 0.3s ease;
 }
-.faq-item.active .faq-answer { max-height:220px; padding:0 20px 17px; }
+.faq-item.active .faq-answer { 
+  max-height:220px; 
+  padding:0 20px 17px;
+}
 
 /* ── Testimonial shared ── */
 .testimonial-card { background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:18px; padding:26px 24px; transition:var(--transition); flex-shrink:0; }
