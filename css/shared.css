@@ -991,17 +991,32 @@ MOBILE RESPONSIVE
   border-color:var(--red); }
 
 /* ── Overflow guards ── */
-html,body { overflow-x:hidden; max-width:100%; }
+html,body { 
+  overflow-x:hidden; 
+  max-width:100%;
+}
 *,*::before,*::after { max-width:100%; }
 img,video,iframe,embed { max-width:100%; }
 
 /* ── Responsive footer ── */
 @media (max-width:900px) { .footer-inner { grid-template-columns:1fr 1fr; gap:28px; } }
 @media (max-width:600px) {
-  .footer-inner { grid-template-columns:1fr; gap:22px; }
-  .footer-bottom { flex-direction:column; text-align:center; }
+  .footer-inner { 
+     grid-template-columns:1fr; 
+     gap:22px;
+  }
+  .footer-bottom { 
+      flex-direction:column; 
+      text-align:center;
+  }
   .form-row { grid-template-columns:1fr; }
-  .back-top      { width:42px; height:42px; font-size:13px; bottom:20px; right:20px; }
+  .back-top      { 
+       width:42px; 
+       height:42px; 
+       font-size:13px; 
+       bottom:20px;
+       right:20px;
+  }
   .float-whatsapp{ width:52px; height:52px; font-size:22px; right:20px; bottom:76px; }
   .wa-tooltip    { display:none; }
   .toast         { min-width:calc(100vw - 32px); max-width:calc(100vw - 32px); right:16px; top:16px; }
