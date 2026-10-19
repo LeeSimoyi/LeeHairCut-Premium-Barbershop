@@ -1017,10 +1017,24 @@ img,video,iframe,embed { max-width:100%; }
        bottom:20px;
        right:20px;
   }
-  .float-whatsapp{ width:52px; height:52px; font-size:22px; right:20px; bottom:76px; }
+  .float-whatsapp{ 
+       width:52px; 
+       height:52px;
+       font-size:22px; 
+       right:20px;  
+       bottom:76px;
+  }
   .wa-tooltip    { display:none; }
-  .toast         { min-width:calc(100vw - 32px); max-width:calc(100vw - 32px); right:16px; top:16px; }
-  .cta-btns      { flex-direction:column; align-items:center; }
+  .toast         { 
+        min-width:calc(100vw - 32px); 
+        max-width:calc(100vw - 32px); 
+        right:16px;
+        top:16px; 
+  }
+  .cta-btns      { 
+         flex-direction:column; 
+         align-items:center;
+  }
   .cta-btns .btn { width:min(100%,280px); }
 }
 @media (max-width:380px) {
