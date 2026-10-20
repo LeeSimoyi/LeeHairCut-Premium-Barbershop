@@ -165,8 +165,19 @@
       color:var(--gray); 
       line-height:1.7;
     }
-    .awards-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-    .award-card { background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:16px; padding:28px 20px; text-align:center; transition:var(--transition); }
+    .awards-grid { 
+      display:grid; 
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+    .award-card { 
+      background:rgba(255,255,255,0.03); 
+      border:1px solid var(--glass-border); 
+      border-radius:16px; 
+      padding:28px 20px; 
+      text-align:center; 
+      transition:var(--transition); 
+    }
     .award-card:hover { border-color:rgba(255,43,43,0.25); transform:translateY(-5px); }
     .award-card i { font-size:2rem; color:var(--red-bright); margin-bottom:14px; display:block; }
     .award-card h4 { font-size:0.95rem; font-weight:700; margin-bottom:6px; }
