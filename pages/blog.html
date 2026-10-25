@@ -16,8 +16,16 @@
   
   
   <style>
-    .blog-layout { display:grid; grid-template-columns:1fr 320px; gap:50px; align-items:start; }
-    .blog-grid { display:grid; gap:30px; }
+    .blog-layout { 
+      display:grid; 
+      grid-template-columns:1fr 320px; 
+      gap:50px; 
+      align-items:start;
+    }
+    .blog-grid { 
+      display:grid; 
+      gap:30px;
+    }
     .blog-card { background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:20px; overflow:hidden; transition:var(--transition); }
     .blog-card:hover { border-color:rgba(255,43,43,0.25); transform:translateY(-6px); box-shadow:0 24px 60px rgba(0,0,0,0.35); }
     .blog-card.featured { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; }
