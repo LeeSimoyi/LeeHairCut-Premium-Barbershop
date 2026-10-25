@@ -147,9 +147,33 @@
     }
 
     /* ── Step Indicators ── */
-    .step-indicators { display:flex; align-items:center; margin-bottom:30px; position:relative; }
-    .step-ind { display:flex; align-items:center; flex:1; }
-    .step-circle { width:36px; height:36px; min-width:36px; border-radius:50%; background:rgba(255,255,255,0.05); border:2px solid var(--glass-border); display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; color:var(--gray); transition:var(--transition); flex-shrink:0; }
+    .step-indicators { 
+      display:flex; 
+      align-items:center;
+      margin-bottom:30px; 
+      position:relative;
+    }
+    .step-ind { 
+      display:flex; 
+      align-items:center; 
+      flex:1;
+    }
+    .step-circle { 
+      width:36px; 
+      height:36px; 
+      min-width:36px; 
+      border-radius:50%; 
+      background:rgba(255,255,255,0.05); 
+      border:2px solid var(--glass-border); 
+      display:flex; 
+      align-items:center; 
+      justify-content:center; 
+      font-size:0.8rem; 
+      font-weight:700; 
+      color:var(--gray); 
+      transition:var(--transition); 
+      flex-shrink:0;
+    }
     .step-circle.active { background:var(--red); border-color:var(--red); color:#fff; box-shadow:0 0 0 4px rgba(179,0,0,0.2); }
     .step-circle.done { background:rgba(37,211,102,0.15); border-color:#25D366; color:#25D366; }
     .step-line { flex:1; height:2px; background:var(--glass-border); transition:background 0.4s ease; }
