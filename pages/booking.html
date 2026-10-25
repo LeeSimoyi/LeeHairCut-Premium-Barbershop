@@ -174,14 +174,31 @@
       transition:var(--transition); 
       flex-shrink:0;
     }
-    .step-circle.active { background:var(--red); border-color:var(--red); color:#fff; box-shadow:0 0 0 4px rgba(179,0,0,0.2); }
-    .step-circle.done { background:rgba(37,211,102,0.15); border-color:#25D366; color:#25D366; }
-    .step-line { flex:1; height:2px; background:var(--glass-border); transition:background 0.4s ease; }
+    .step-circle.active { 
+      background:var(--red); 
+      border-color:var(--red); 
+      color:#fff; 
+      box-shadow:0 0 0 4px rgba(179,0,0,0.2);
+    }
+    .step-circle.done { 
+      background:rgba(37,211,102,0.15); 
+      border-color:#25D366;
+      color:#25D366;
+    }
+    .step-line { 
+      flex:1; 
+      height:2px; 
+      background:var(--glass-border); 
+      transition:background 0.4s ease;
+    }
     .step-line.done { background:var(--red-bright); }
 
     /* ── Form Steps ── */
     .form-step { display:none; }
-    .form-step.active { display:block; animation:stepIn 0.38s cubic-bezier(0.4,0,0.2,1); }
+    .form-step.active { 
+      display:block; 
+      animation:stepIn 0.38s cubic-bezier(0.4,0,0.2,1);
+    }
     @keyframes stepIn { from{opacity:0;transform:translateX(18px)} to{opacity:1;transform:translateX(0)} }
 
     /* ── Step Nav Buttons ── */
