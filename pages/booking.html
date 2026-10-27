@@ -256,11 +256,41 @@
     }
 
     /* ── Barber Cards ── */
-    .barber-selector { display:grid; grid-template-columns:repeat(2,1fr); gap:11px; margin-top:6px; }
-    .barber-option { display:flex; align-items:center; gap:12px; padding:13px 14px; border-radius:13px; background:rgba(255,255,255,0.03); border:2px solid var(--glass-border); cursor:pointer; transition:var(--transition); }
-    .barber-option:hover { border-color:rgba(255,43,43,0.3); background:rgba(255,43,43,0.04); }
-    .barber-option.selected { border-color:var(--red-bright); background:rgba(255,43,43,0.08); box-shadow:0 0 0 3px rgba(179,0,0,0.15); }
-    .barber-option img { width:44px; height:44px; min-width:44px; border-radius:50%; object-fit:cover; border:2px solid var(--glass-border); flex-shrink:0; }
+    .barber-selector { 
+      display:grid; 
+      grid-template-columns:repeat(2,1fr); 
+      gap:11px; 
+      margin-top:6px;
+    }
+    .barber-option { 
+      display:flex; 
+      align-items:center;
+      gap:12px; 
+      padding:13px 14px; 
+      border-radius:13px; 
+      background:rgba(255,255,255,0.03); 
+      border:2px solid var(--glass-border); 
+      cursor:pointer; 
+      transition:var(--transition);
+    }
+    .barber-option:hover { 
+      border-color:rgba(255,43,43,0.3); 
+      background:rgba(255,43,43,0.04);
+    }
+    .barber-option.selected { 
+      border-color:var(--red-bright); 
+      background:rgba(255,43,43,0.08); 
+      box-shadow:0 0 0 3px rgba(179,0,0,0.15);
+    }
+    .barber-option img { 
+      width:44px; 
+      height:44px; 
+      min-width:44px; 
+      border-radius:50%; 
+      object-fit:cover; 
+      border:2px solid var(--glass-border); 
+      flex-shrink:0;
+    }
     .barber-option.selected img { border-color:var(--red-bright); }
     .barber-option h4 { font-size:0.85rem; font-weight:700; margin-bottom:2px; color:#fff; line-height:1.2; }
     .barber-option .barber-role { font-size:0.72rem; color:var(--gray); display:block; }
