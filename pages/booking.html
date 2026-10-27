@@ -321,10 +321,34 @@
       gap:9px; 
       margin-top:6px;
     }
-    .time-slot { padding:9px 6px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); text-align:center; font-size:0.8rem; font-weight:600; cursor:pointer; transition:var(--transition); color:rgba(255,255,255,0.8); }
-    .time-slot:hover:not(.unavailable) { border-color:var(--red); color:var(--red-bright); background:rgba(255,43,43,0.05); }
-    .time-slot.selected { background:var(--red); border-color:var(--red); color:#fff; box-shadow:0 4px 12px rgba(179,0,0,0.35); }
-    .time-slot.unavailable { opacity:0.25; pointer-events:none; text-decoration:line-through; }
+    .time-slot { 
+      padding:9px 6px; 
+      border-radius:10px; 
+      background:rgba(255,255,255,0.03); 
+      border:1px solid var(--glass-border); 
+      text-align:center;
+      font-size:0.8rem; 
+      font-weight:600; 
+      cursor:pointer; 
+      transition:var(--transition); 
+      color:rgba(255,255,255,0.8);
+    }
+    .time-slot:hover:not(.unavailable) {
+      border-color:var(--red); 
+      color:var(--red-bright);
+      background:rgba(255,43,43,0.05);
+    }
+    .time-slot.selected { 
+      background:var(--red); 
+      border-color:var(--red); 
+      color:#fff;
+      box-shadow:0 4px 12px rgba(179,0,0,0.35);
+    }
+    .time-slot.unavailable { 
+      opacity:0.25; 
+      pointer-events:none; 
+      text-decoration:line-through;
+    }
 
     /* ── Date Input ── */
     input[type="date"] { color-scheme:dark; }
