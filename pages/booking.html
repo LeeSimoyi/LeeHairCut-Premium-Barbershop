@@ -409,7 +409,10 @@
 
     /* ── MOBILE RESPONSIVE ── */
     @media (max-width:992px) {
-      .booking-layout { grid-template-columns:1fr; gap:24px; }
+      .booking-layout { 
+        grid-template-columns:1fr; 
+        gap:24px;
+      }
       .booking-info-panel { position:static; }
     }
     @media (max-width:600px) {
@@ -421,10 +424,23 @@
       /* Time slots 3-col */
       .time-slots { grid-template-columns:repeat(3,1fr); }
       /* Step nav stacks vertically */
-      .step-nav { flex-direction:column-reverse; gap:10px; }
-      .step-nav .btn { flex:none; width:100%; padding:15px 20px; font-size:0.92rem; }
+      .step-nav { 
+        flex-direction:column-reverse; 
+        gap:10px;
+      }
+      .step-nav .btn { 
+        flex:none; 
+        width:100%; 
+        padding:15px 20px; 
+        font-size:0.92rem;
+      }
       /* Step indicators compress */
-      .step-circle { width:30px; height:30px; min-width:30px; font-size:0.72rem; }
+      .step-circle { 
+        width:30px; 
+        height:30px; 
+        min-width:30px; 
+        font-size:0.72rem;
+      }
     }
     @media (max-width:380px) {
       .time-slots { grid-template-columns:repeat(2,1fr); }
