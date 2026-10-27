@@ -146,9 +146,25 @@
       outline:none; 
       border-color:var(--red);
     }
-    .search-bar button { width:42px; height:42px; background:var(--red); border:none; border-radius:10px; color:#fff; cursor:pointer; flex-shrink:0; transition:var(--transition); }
-    .search-bar button:hover { background:var(--red-bright); }
-    .cat-list { display:flex; flex-direction:column; gap:8px; }
+    .search-bar button { 
+      width:42px; 
+      height:42px; 
+      background:var(--red); 
+      border:none; 
+      border-radius:10px; 
+      color:#fff; 
+      cursor:pointer; 
+      flex-shrink:0;
+      transition:var(--transition);
+    }
+    .search-bar button:hover { 
+      background:var(--red-bright);
+    }
+    .cat-list { 
+      display:flex; 
+      flex-direction:column;
+      gap:8px;
+    }
     .cat-item { display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-radius:10px; background:rgba(255,255,255,0.02); transition:var(--transition); cursor:pointer; font-size:0.88rem; }
     .cat-item:hover { background:rgba(255,43,43,0.08); color:var(--red-bright); }
     .cat-item span { font-size:0.78rem; background:rgba(255,43,43,0.1); color:var(--red-bright); padding:2px 9px; border-radius:12px; font-weight:700; }
