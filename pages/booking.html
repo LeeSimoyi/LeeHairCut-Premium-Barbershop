@@ -292,13 +292,35 @@
       flex-shrink:0;
     }
     .barber-option.selected img { border-color:var(--red-bright); }
-    .barber-option h4 { font-size:0.85rem; font-weight:700; margin-bottom:2px; color:#fff; line-height:1.2; }
-    .barber-option .barber-role { font-size:0.72rem; color:var(--gray); display:block; }
-    .barber-any { grid-column:span 2; justify-content:center; text-align:center; flex-direction:column; gap:6px; padding:16px; }
+    .barber-option h4 { 
+      font-size:0.85rem; 
+      font-weight:700; 
+      margin-bottom:2px; 
+      color:#fff; 
+      line-height:1.2;
+    }
+    .barber-option .barber-role { 
+      font-size:0.72rem; 
+      color:var(--gray); 
+      display:block;
+    }
+    .barber-any { 
+      grid-column:span 2; 
+      justify-content:center; 
+      text-align:center; 
+      flex-direction:column; 
+      gap:6px; 
+      padding:16px;
+    }
     .barber-any h4 { font-size:0.9rem; }
 
     /* ── Time Slots ── */
-    .time-slots { display:grid; grid-template-columns:repeat(4,1fr); gap:9px; margin-top:6px; }
+    .time-slots { 
+      display:grid; 
+      grid-template-columns:repeat(4,1fr);
+      gap:9px; 
+      margin-top:6px;
+    }
     .time-slot { padding:9px 6px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); text-align:center; font-size:0.8rem; font-weight:600; cursor:pointer; transition:var(--transition); color:rgba(255,255,255,0.8); }
     .time-slot:hover:not(.unavailable) { border-color:var(--red); color:var(--red-bright); background:rgba(255,43,43,0.05); }
     .time-slot.selected { background:var(--red); border-color:var(--red); color:#fff; box-shadow:0 4px 12px rgba(179,0,0,0.35); }
