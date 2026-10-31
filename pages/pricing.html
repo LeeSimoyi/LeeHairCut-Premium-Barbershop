@@ -79,10 +79,27 @@
       color:var(--red-bright);
       display:block;
     }
-    .pr-right .dur { font-size:0.78rem; color:var(--gray); }
+    .pr-right .dur { 
+      font-size:0.78rem; 
+      color:var(--gray);
+    }
     /* packages */
-    .packages-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; align-items:start; }
-    .pkg-card { background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:22px; padding:36px 28px; text-align:center; position:relative; overflow:hidden; transition:var(--transition); }
+    .packages-grid { 
+      display:grid; 
+      grid-template-columns:repeat(3,1fr); 
+      gap:24px; 
+      align-items:start;
+    }
+    .pkg-card {
+      background:rgba(255,255,255,0.03);
+      border:1px solid var(--glass-border);
+      border-radius:22px;
+      padding:36px 28px; 
+      text-align:center;
+      position:relative;
+      overflow:hidden; 
+      transition:var(--transition);
+    }
     .pkg-card:hover { transform:translateY(-8px); border-color:rgba(255,43,43,0.3); box-shadow:0 30px 70px rgba(0,0,0,0.35); }
     .pkg-card.popular { background:linear-gradient(145deg,rgba(179,0,0,0.14),rgba(255,43,43,0.06)); border-color:rgba(255,43,43,0.35); }
     .pkg-badge { position:absolute; top:16px; right:16px; background:linear-gradient(135deg,var(--red-bright),var(--red)); color:#fff; font-size:0.7rem; font-weight:700; padding:4px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
