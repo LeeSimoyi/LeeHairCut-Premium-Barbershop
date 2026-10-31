@@ -52,9 +52,22 @@
       position:relative;
       cursor:pointer;
     }
-    .masonry-item img { width:100%; display:block; transition:transform 0.5s; }
+    .masonry-item img { 
+      width:100%; 
+      display:block; 
+      transition:transform 0.5s;
+    }
     .masonry-item:hover img { transform:scale(1.06); }
-    .masonry-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(10,10,10,0.85),transparent 50%); opacity:0; transition:var(--transition); display:flex; align-items:flex-end; padding:18px; }
+    .masonry-overlay { 
+      position:absolute; 
+      inset:0; 
+      background:linear-gradient(to top,rgba(10,10,10,0.85),transparent 50%);
+      opacity:0; 
+      transition:var(--transition); 
+      display:flex;
+      align-items:flex-end;
+      padding:18px;
+    }
     .masonry-item:hover .masonry-overlay { opacity:1; }
     .masonry-overlay span { font-weight:700; font-size:0.88rem; color:#fff; }
     .masonry-overlay i { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:1.8rem; color:#fff; opacity:0; transition:var(--transition) 0.1s; }
