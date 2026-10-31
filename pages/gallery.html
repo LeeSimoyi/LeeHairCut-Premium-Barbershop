@@ -99,9 +99,32 @@
       visibility:hidden; 
       transition:var(--transition);
     }
-    .lightbox.active { opacity:1; visibility:visible; }
-    .lb-img { max-width:90vw; max-height:85vh; object-fit:contain; border-radius:12px; }
-    .lb-close { position:absolute; top:20px; right:20px; width:44px; height:44px; background:rgba(255,255,255,0.08); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:18px; color:#fff; transition:var(--transition); }
+    .lightbox.active { 
+      opacity:1; 
+      visibility:visible; 
+    }
+    .lb-img { 
+      max-width:90vw; 
+      max-height:85vh; 
+      object-fit:contain; 
+      border-radius:12px;
+    }
+    .lb-close { 
+      position:absolute; 
+      top:20px; 
+      right:20px; 
+      width:44px; 
+      height:44px; 
+      background:rgba(255,255,255,0.08); 
+      border-radius:50%; 
+      display:flex; 
+      align-items:center;
+      justify-content:center; 
+      cursor:pointer; 
+      font-size:18px; 
+      color:#fff;
+      transition:var(--transition);
+    }
     .lb-close:hover { background:var(--red); }
     .lb-prev,.lb-next { position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; background:rgba(255,255,255,0.08); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:16px; color:#fff; transition:var(--transition); }
     .lb-prev { left:20px; } .lb-next { right:20px; }
