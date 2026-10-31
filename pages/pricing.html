@@ -100,9 +100,28 @@
       overflow:hidden; 
       transition:var(--transition);
     }
-    .pkg-card:hover { transform:translateY(-8px); border-color:rgba(255,43,43,0.3); box-shadow:0 30px 70px rgba(0,0,0,0.35); }
-    .pkg-card.popular { background:linear-gradient(145deg,rgba(179,0,0,0.14),rgba(255,43,43,0.06)); border-color:rgba(255,43,43,0.35); }
-    .pkg-badge { position:absolute; top:16px; right:16px; background:linear-gradient(135deg,var(--red-bright),var(--red)); color:#fff; font-size:0.7rem; font-weight:700; padding:4px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
+    .pkg-card:hover { 
+      transform:translateY(-8px); 
+      border-color:rgba(255,43,43,0.3); 
+      box-shadow:0 30px 70px rgba(0,0,0,0.35);
+    }
+    .pkg-card.popular { 
+      background:linear-gradient(145deg,rgba(179,0,0,0.14),rgba(255,43,43,0.06)); 
+      border-color:rgba(255,43,43,0.35);
+    }
+    .pkg-badge { 
+      position:absolute;
+      top:16px;
+      right:16px;
+      background:linear-gradient(135deg,var(--red-bright),var(--red)); 
+      color:#fff; 
+      font-size:0.7rem; 
+      font-weight:700;
+      padding:4px 12px; 
+      border-radius:20px;
+      text-transform:uppercase;
+      letter-spacing:0.5px;
+    }
     .pkg-icon { font-size:2.2rem; color:var(--red-bright); margin-bottom:16px; }
     .pkg-card h3 { font-size:1.4rem; font-weight:800; margin-bottom:6px; }
     .pkg-card .pkg-sub { font-size:0.85rem; color:var(--gray); margin-bottom:20px; }
