@@ -29,10 +29,29 @@
       background:rgba(255,255,255,0.04);
       border:1px solid var(--glass-border);
       color:var(--gray);
-      font-size:0.85rem; font-weight:600; cursor:pointer; transition:var(--transition); font-family:'Poppins',sans-serif; }
-    .filter-btn:hover,.filter-btn.active { background:var(--red); border-color:var(--red); color:#fff; }
-    .masonry-grid { columns:3; gap:16px; }
-    .masonry-item { break-inside:avoid; margin-bottom:16px; border-radius:14px; overflow:hidden; position:relative; cursor:pointer; }
+      font-size:0.85rem; 
+      font-weight:600;
+      cursor:pointer; 
+      transition:var(--transition);
+      font-family:'Poppins',sans-serif;
+    }
+    .filter-btn:hover,.filter-btn.active {
+      background:var(--red); 
+      border-color:var(--red); 
+      color:#fff;
+    }
+    .masonry-grid { 
+      columns:3;
+      gap:16px;
+    }
+    .masonry-item { 
+      break-inside:avoid; 
+      margin-bottom:16px; 
+      border-radius:14px;
+      overflow:hidden; 
+      position:relative;
+      cursor:pointer;
+    }
     .masonry-item img { width:100%; display:block; transition:transform 0.5s; }
     .masonry-item:hover img { transform:scale(1.06); }
     .masonry-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(10,10,10,0.85),transparent 50%); opacity:0; transition:var(--transition); display:flex; align-items:flex-end; padding:18px; }
